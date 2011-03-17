@@ -1,0 +1,9 @@
+<%= render :partial => 'admin/shared/contents_sub_menu' %>
+
+<h1><%= h @content.title %></h1>
+
+<%= simple_format @content.body %>
+<p>
+  <%= link_to_edit @user %> &nbsp;
+  <%= link_to t('back'), collection_url %>
+</p>

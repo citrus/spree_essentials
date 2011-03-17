@@ -1,0 +1,54 @@
+en:
+
+  page:
+    title: Title
+    meta_title: Meta Title
+    meta_description: Meta Description 
+    meta_keywords: Meta Keywords
+  
+  content:
+    page_title: Page Title
+    title: Title
+    body: Body
+    
+
+  pages: Pages
+  posts: 
+    index: 
+      latest_posts: Latest Posts
+      archives: Latest Posts
+      view_archive: View Archive
+
+  blog:
+    posts:
+      index:
+        blog: Blog
+        
+        
+  admin:
+    subnav:
+      pages: Pages
+      posts: Blog Posts
+      
+    shared:
+      contents_tab:
+        content: Content
+      page_tabs:
+        editing_page: Editing Page
+        page_details: Page Details
+        contents: Contents
+    
+    pages:
+      index:
+        title: Title
+        listing_pages: Listing Pages
+        new_page: New Page
+        
+        title_contains: Title
+        
+      new: 
+        new_page: New Page
+        
+    contents:
+      index:
+        new_content: New Content

@@ -1,0 +1,38 @@
+<%= form.field_container :title do %>
+  <%= form.label :title, "Title" %><br />
+  <%= form.text_field :title, :class => 'title'  %>
+  <%= error_message_on :post, :title%>
+<% end %>
+
+<%= form.field_container :posted_at do %>
+  <%= form.label :posted_at, "Posted At" %><br />
+  <%= form.text_field :posted_at, :class => 'text', :style => 'width: 300px;' %><br/>
+  <span class="helper" id="posted_at_helper"></span>
+  <%= error_message_on :post, :posted_at %>
+<% end %>
+
+<%= form.field_container :body do %>
+  <%= form.label :body, "Body" %><br />
+  <%= form.text_area :body  %>
+  <%= error_message_on :post, :body%>
+<% end %>
+
+<%= form.field_container :live do %>
+  <%= form.check_box :live  %> <%= form.label :live, "Live?" %><br />
+<% end %>
+
+<% content_for :head do %>
+
+  <%= stylesheet_link_tag "markitup.css" %>
+
+  <%= javascript_include_tag 'date.js', 'jquery.autodate.js', 'jquery.markitup.js', 'markdown.set.js' %>
+
+  <script type="text/javascript">
+  //<![CDATA[
+    $(document).ready(function() {
+      $('#post_posted_at').autodate();
+      $('#post_body').markItUp(markdownSettings);
+    }); 
+  //]]>
+  </script>
+<% end %>

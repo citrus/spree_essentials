@@ -1,0 +1,23 @@
+<%= form.field_container :title do %>
+  <%= form.label :title, t('page.title') %><br />
+  <%= form.text_field :title, :class => "title"  %>
+  <%= error_message_on :page, :title %>
+<% end %>
+
+<%= form.field_container :meta_title do %>
+  <%= form.label :meta_title, t('page.meta_title') %><br />
+  <%= form.text_field :meta_title, :class => "text"  %>
+  <%= error_message_on :page, :meta_title %>
+<% end %>
+
+<%= form.field_container :meta_description do %>
+  <%= form.label :meta_description, t('page.meta_description') %><br />
+  <%= form.text_field :meta_description, :class => "text"  %>
+  <%= error_message_on :page, :meta_description %>
+<% end %>
+
+<%= form.field_container :meta_keywords do %>
+  <%= form.label :meta_keywords, t('page.meta_keywords') %><br />
+  <%= form.text_field :meta_keywords, :class => "text"  %>
+  <%= error_message_on :page, :meta_keywords %>
+<% end %>

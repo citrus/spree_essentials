@@ -1,0 +1,65 @@
+<div class="post" id="post_<%= post.id %>">
+  <h1><%= post.title %></h1>
+  <h5><%= h post.posted_at.strftime('%A %B %d, %Y at %I:%M%p').gsub(/\s0/, ' ') %></h5>
+  
+  
+  <% if post.images && !post.images.empty? %>
+  
+  <div class="span-24 box">
+  
+  
+    <%= link_to "previous", "#previous", :id => "btnPrevious" %>
+    <%= link_to "next", "#next", :id => "btnNext" %>
+
+    <div id="slider_<%= post.id %>" class="slideshow">
+      <% post.images.each do |image| %>
+        <%= image_tag(image.attachment.url(:large), :alt => "#{h post.title}") %>
+       <% end -%>    
+    </div>
+    
+    <br class="clear"/>
+        
+    <% if 1 < post.images.length %>
+      <div class="thumbs" id="<%= "thumbs_#{post.id}" %>">
+     	  <% post.images.each_with_index do |image, index| %>
+   	    	<%= link_to(image_tag(image.attachment.url(:mini), :alt => "#{post.title} - Photo #{index + 1}"), image.attachment.url(:large), :id => "photo_#{index}") %>
+     	  <% end -%>
+        <br class="clear"/>
+      </div>
+    
+      <script type="text/javascript">
+      $(document).ready(function() {
+        $('#slider_<%= post.id %>').sliders();
+        
+        $('#thumbs_<%= post.id %> a').each(function(idx,el){
+          $(el).click(function(evt) {
+            evt.preventDefault();
+            console.log(idx);
+            $('#slider_<%= post.id %>').sliders('goto', idx);  
+          });
+        });
+        
+        $('a#btnNext, a#btnPrevious').css('display', 'block').css('top', 137).click(function(evt) {
+          evt.preventDefault();
+          switch (evt.target.id) {
+            case 'btnNext':
+              $('#slider_<%= post.id %>').sliders('next');
+              break;
+            case 'btnPrevious':        
+              $('#slider_<%= post.id %>').sliders('prev');
+              break;
+          }
+        });
+      
+      });
+      </script>
+    <% end %>
+    
+  </div>
+    
+  <% end %>
+  
+  
+  <%= RDiscount.new(post.body).to_html.html_safe %>
+  
+</div>

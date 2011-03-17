@@ -1,0 +1,12 @@
+<% content_for :sub_menu do %>
+  <ul id="sub_nav">
+    <%= hook :admin_contents_sub_tabs do %>
+      <%= tab :pages, :label => 'admin.subnav.pages' %>
+      <%= tab :posts, :label => 'admin.subnav.posts', :match_path => '/posts' %>
+      <%#= tab :slides %>
+      <%#= tab :lookbooks, :match_path => '/lookbooks' %>
+      <%#= tab :ads %>
+      <%#= tab :meta_tags, :label => 'seo', :css_class => 'last' %>
+    <% end %>
+  </ul>
+<% end %>
