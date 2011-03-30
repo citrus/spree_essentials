@@ -1,4 +1,10 @@
 en:
+
+  essentials:
+    parsed_with: Parsed With
+    
+    
+
   activerecord:
     errors:
       messages:

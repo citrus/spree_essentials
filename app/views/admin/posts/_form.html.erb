@@ -11,7 +11,7 @@
 <% end %>
 
 <%= form.field_container :body do %>
-  <%= form.label :body, t("post.body") %><br />
+  <%= form.label :body, t("post.body") %><%= markdown_helper %><br />
   <%= form.text_area :body  %>
   <%= error_message_on :post, :body%>
 <% end %>
