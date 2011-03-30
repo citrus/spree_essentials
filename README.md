@@ -1,7 +1,7 @@
 Spree Essentials
 ================
 
-The swiss-army knife of spree extensions! Pages, Posts and Uploads implemented. Gallery coming soon!
+The swiss-army knife of spree extensions! Pages, Posts and Uploads have been implemented, Homepage coming soon!
 
 ** UNDER DEVELOPMENT BUT NEARING BETA! **
 
@@ -9,7 +9,7 @@ The swiss-army knife of spree extensions! Pages, Posts and Uploads implemented. 
 Installation
 ------------
 
-** Assuming you already have an exisiting Spree site... ** ([click here](http://spreecommerce.com/documentation/getting_started.html) if you don't!)
+** Assuming you already have an existing Spree site... ** ([click here](http://spreecommerce.com/documentation/getting_started.html) if you don't!)
 
 Spree Essentials hasn't been released to rubygems so, you'll have to add the following to your Gemfile:
 
@@ -21,7 +21,7 @@ Now run:
     bundle install
 
 
-Once that's complete, run the migration generator and a db:migrate:
+Once that's complete, run the migration generator and db:migrate:
 
     rails g spree_essentials:install
     rake db:migrate
@@ -30,7 +30,7 @@ Once that's complete, run the migration generator and a db:migrate:
 Since Spree doesn't have any hooks in the header you'll have to manually include the main menu. Just render the partial somewhere in your layout:
 
     <%= render 'shared/main_menu' %>
-
+    
 
 If that all went smoothly, you should be ready to boot the server with:
 
@@ -44,9 +44,11 @@ Now login to the admin and click on the 'Content' tab!
 To Do
 -----
 
+* add homepage admin and front-end
+* page and menu caching/sweeping
 * more tests
 * nested set for pages?
-* ... there's got to be more...
+* sleep.
 
 
 License

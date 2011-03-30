@@ -1,9 +1,14 @@
 class PagesController < Spree::BaseController
   
+  helper :posts
   helper_method :object
   
   def show
     @page = object
+    if @page.root?
+      @posts = Post.live.limit(10)
+      render :template => 'pages/home'
+    end
   end
   
   private

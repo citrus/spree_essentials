@@ -1,0 +1,19 @@
+/* ========================================== 
+    Main Menu
+*/
+
+ul#main-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+ul#main-menu li {
+  list-style: none;
+  display: block;
+  float: left;
+  margin-right: 10px;
+  font-size: 14px;
+}
+ul#main-menu li.active a {
+  color: #fff;
+}

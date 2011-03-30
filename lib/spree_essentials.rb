@@ -16,7 +16,7 @@ module SpreeEssentials
     end
         
     def self.activate
-    
+      
       Dir.glob(File.join(File.dirname(__FILE__), "../app/**/*_decorator.rb")) do |c|
         Rails.env.production? ? require(c) : load(c)
       end
@@ -29,8 +29,11 @@ module SpreeEssentials
   
   class CustomHooks < Spree::ThemeSupport::HookListener
   
-    #insert_before :sidebar,    'shared/main_menu'
-    insert_after  :admin_tabs, 'admin/shared/contents_tab'
+    insert_after :inside_head do
+      "<%= stylesheet_link_tag('essentials') %>"
+    end
+    
+    insert_after :admin_tabs,  'admin/shared/contents_tab'
 
   end
   

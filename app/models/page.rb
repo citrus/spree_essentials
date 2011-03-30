@@ -25,6 +25,14 @@ class Page < ActiveRecord::Base
     val.blank? ? title : val
   end
   
+  def matches?(_path)
+    (root? && _path == "/") || (!root? && _path.match(path))
+  end
+  
+  def root?
+    self.path == "/"
+  end
+  
   private
   
     def set_defaults
