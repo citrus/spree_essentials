@@ -29,7 +29,7 @@ module SpreeEssentials
   
   class CustomHooks < Spree::ThemeSupport::HookListener
   
-    insert_before :sidebar,    'shared/page_nav'
+    #insert_before :sidebar,    'shared/main_menu'
     insert_after  :admin_tabs, 'admin/shared/contents_tab'
 
   end

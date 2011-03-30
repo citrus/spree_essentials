@@ -27,6 +27,11 @@ Once that's complete, run the migration generator and a db:migrate:
     rake db:migrate
 
 
+Since Spree doesn't have any hooks in the header you'll have to manually include the main menu. Just render the partial somewhere in your layout:
+
+    <%= render 'shared/main_menu' %>
+
+
 If that all went smoothly, you should be ready to boot the server with:
 
     rails s
