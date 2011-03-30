@@ -14,7 +14,8 @@
 <table class="index sortable">
   <thead>
 	<tr>
-    	<th><%= sort_link @search, :title, t(".title") %></th>
+    	<th><%= sort_link @search, :title, t("page.title") %></th>
+    	<th><%= sort_link @search, :path, t("page.path") %></th>
     	<th><%= t("action") %></th>
 	</tr>
   </thead>
@@ -22,7 +23,9 @@
     <%- @collection.each do |page|%>
     <tr id="<%= dom_id page %>">
       <td><span class="handle">&nbsp;</span>&nbsp; <%=link_to page.title, object_url(page) %></td>
+      <td><%= page.path %></td>
       <td>
+      	<%= link_to_with_icon :accept, t('preview'), page.path, :onclick => 'window.open(this.href);return false;' %> &nbsp;
       	<%= link_to_with_icon :pages, t('page.contents'), admin_page_contents_path(page) %> &nbsp;
       	<%= link_to_edit page %> &nbsp;
       	<%= link_to_delete page %>
