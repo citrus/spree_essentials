@@ -3,7 +3,7 @@ class Page < ActiveRecord::Base
   validates_presence_of :title, :path
   validates_uniqueness_of :path
   
-  scope :active, where(:accessible => true)
+  scope :active,  where(:accessible => true)
   scope :visible, active.where(:visible => true)
   
   has_many :contents, :order => :position, :dependent => :destroy
