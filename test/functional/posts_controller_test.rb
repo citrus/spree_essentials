@@ -35,19 +35,19 @@ class PostsControllerTest < ActionController::TestCase
     end
   
     should "get posts by day" do
-      get :show, :year => @post.year, :month => @post.month, :day => @post.day
+      get :index, :year => @post.year, :month => @post.month, :day => @post.day
       assert_not_nil assigns(:posts)
       assert_response :success
     end
     
     should "get posts by month" do
-      get :show, :year => @post.year, :month => @post.month
+      get :index, :year => @post.year, :month => @post.month
       assert_not_nil assigns(:posts)
       assert_response :success
     end
     
     should "get posts by year" do
-      get :show, :year => @post.year
+      get :index, :year => @post.year
       assert_not_nil assigns(:posts)
       assert_response :success
     end
