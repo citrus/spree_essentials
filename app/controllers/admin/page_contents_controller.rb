@@ -17,8 +17,6 @@ class Admin::PageContentsController < Admin::BaseController
     
     def parent_object
 	  	@page ||= Page.find_by_path(params[:page_id])
-	  	puts @page.inspect
-	  	@page
     end
     
     

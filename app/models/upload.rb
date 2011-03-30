@@ -1,4 +1,5 @@
 class Upload < Asset
+  
   validate :no_attachement_errors
   has_attached_file :attachment,
                     :styles => Proc.new{ |clip| clip.instance.attachment_sizes },

@@ -4,15 +4,11 @@ class Admin::PostProductsController < Admin::BaseController
   
   def create
     position = @post.products.count
-    
     @product = Variant.find(params[:variant_id]).product
-    
-    @related = PostProduct.create(:post_id => @post.id, :product_id => @product.id, :position => position)
-    puts @related.inspect
+    PostProduct.create(:post_id => @post.id, :product_id => @product.id, :position => position)
     render :partial => "admin/post_products/related_products_table", :locals => { :post => @post }, :layout => false 
   end
-  
-  
+    
   def destroy
     @related = PostProduct.find(params[:id])
     if @related.destroy

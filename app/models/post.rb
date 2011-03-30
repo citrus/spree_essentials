@@ -5,7 +5,6 @@ class Post < ActiveRecord::Base
   has_many :post_products, :dependent => :destroy
   has_many :products, :through => :post_products
   
-  
   has_many :images, :as => :viewable, :class_name => 'PostImage', :order => :position, :dependent => :destroy
   
   validates :title, :presence => true
@@ -19,6 +18,7 @@ class Post < ActiveRecord::Base
   scope :live, where(:live => true ).order('posted_at DESC')
 
  	before_validation :create_path
+
 
   #def posted_at=(value)
   #	write_attribute(:posted_at, value.is_a?(DateTime) ? value : (DateTime.parse(value) rescue nil))
@@ -50,8 +50,9 @@ class Post < ActiveRecord::Base
 	private
 	
     def create_path
+  		#downcase.gsub(/\s/, '-').gsub(/[^a-z0-9\-\_]/, '').gsub(/[\-]+/, '-')
   		count = 2
-  		new_path = title.to_s.downcase.gsub(/\s/, '_').gsub(/[^a-z0-9\_]/, '').gsub(/[\_]+/, '_')
+  		new_path = title.to_s.parameterize
   		exists = path_exists?(new_path)
   		while exists do
   			dupe_path = "#{new_path}_#{count}"

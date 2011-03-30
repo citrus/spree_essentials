@@ -20,9 +20,6 @@ class PostsController < Spree::BaseController
     end
     
     
-    puts date.inspect
-    
-    
     scope = scope.where("posted_at > ? AND posted_at <= ?", date, Time.now.at_beginning_of_day)
     
     #scope = scope.where("day(posted_at) = ?",   params[:day]) if params[:day].present?

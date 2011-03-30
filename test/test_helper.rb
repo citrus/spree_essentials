@@ -34,11 +34,6 @@ if 40 <= Spree.version.split(".")[1].to_i
 end
 
 
-
-#puts Faker::Lorem.inspect
-#(rand(10))
-#.join("\n\n")
-
 FactoryGirl.define do
 
   factory :post do
