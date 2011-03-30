@@ -16,7 +16,7 @@ class Upload < Asset
      
   def attachment_sizes
     if image_content?
-      { :mini => '48x48>', :medium => '420x300>', :large => '800x500>' }
+      { :mini => '48x48>', :small => '150x150>', :medium => '420x300>', :large => '800x500>' }
     else
       {}
     end
