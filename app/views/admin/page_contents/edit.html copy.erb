@@ -6,7 +6,7 @@
 
 <h1>Edit Content</h1>
 
-<%= form_for([:admin, @content]) do |f| %>
+<%= form_for([:admin, @page, @content]) do |f| %>
   <%= render "form", :form => f %>
   <p class="form-buttons">
     <%= button t("update") %> <%= t('or') %> <%= link_to t('cancel'), collection_url %>

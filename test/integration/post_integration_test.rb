@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PostTest < ActiveSupport::IntegrationCase
+class PostIntegrationTest < ActiveSupport::IntegrationCase
   
   def setup
     # nada!

@@ -1,0 +1,7 @@
+<% if @pages %>
+  <ul class="page-navigation">
+    <% @pages.each do |page| %>
+      <li><%= link_to page.title, page.path %></li>
+    <% end %>
+  </ul>
+<% end %>

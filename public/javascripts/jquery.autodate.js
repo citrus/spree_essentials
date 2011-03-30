@@ -43,6 +43,8 @@
   		}
   		function parseDate() {
   		  var val = (input.val() || "").replace(/the|of|in|on/gi, '')
+  		  console.log(val);
+  		  console.log(Date.parse(val))
         return date = Date.parse(val);
   		}
   		function updateDisplay() {
@@ -100,8 +102,8 @@
   });
   
   $.fn.autodate.defaults = {
-    // date_format: "dddd, MMMM d, yyyy h:mm:ss tt",
-    date_format: "MMMM d, yyyy",
+    date_format: "dddd, MMMM d, yyyy h:mm:ss tt",
+    //date_format: "MMMM d, yyyy",
     empty_string: "Type a date above",
     input_empty: "Enter any date here..",
     input_invalid: "Please enter a valid date."

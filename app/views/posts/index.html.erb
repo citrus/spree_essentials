@@ -5,10 +5,10 @@
 
 <% content_for :sidebar do %>
   <div class="blog-nav">
-    <h3><%= t('.latest_posts') %></h3>
+    <h3><%= t('.recent_posts') %></h3>
     <ul>
       <% @posts.each do |post| %>
-        <li><%= link_to h(post.title), post_path(post) %></li>
+        <li><%= link_to h(post.title), post_seo_path(post) %></li>
       <% end %>
     </ul>
   
@@ -17,7 +17,7 @@
     <h4 class="month"><%= month_name %></h4>
       <ul>
       <% posts.each do |post| %>
-        <li><%= link_to h(post.title), post_path(post) %></li>
+        <li><%= link_to h(post.title), post_seo_path(post) %></li>
       <% end %>
       </ul>
     <% end %>

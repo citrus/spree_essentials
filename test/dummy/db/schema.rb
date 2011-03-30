@@ -240,11 +240,14 @@ ActiveRecord::Schema.define(:version => 20110317074600) do
 
   create_table "pages", :force => true do |t|
     t.string   "title"
+    t.string   "nav_title"
     t.string   "path"
     t.string   "meta_title"
     t.string   "meta_description"
     t.string   "meta_keywords"
     t.integer  "position",         :default => 999
+    t.boolean  "accessible",       :default => true
+    t.boolean  "visible",          :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -272,6 +275,12 @@ ActiveRecord::Schema.define(:version => 20110317074600) do
     t.string   "state"
     t.string   "response_code"
     t.string   "avs_response"
+  end
+
+  create_table "post_products", :force => true do |t|
+    t.integer "post_id"
+    t.integer "product_id"
+    t.integer "position"
   end
 
   create_table "posts", :force => true do |t|

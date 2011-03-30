@@ -1,8 +1,10 @@
 <% content_for :sub_menu do %>
   <ul id="sub_nav">
     <%= hook :admin_contents_sub_tabs do %>
-      <%= tab :pages, :label => 'admin.subnav.pages' %>
-      <%= tab :posts, :label => 'admin.subnav.posts', :match_path => '/posts' %>
+      <%= tab :pages,   :label => 'admin.subnav.pages',  :match_path => '/pages' %>
+      <%= tab :posts,   :label => 'admin.subnav.posts',  :match_path => '/posts' %>
+      <%= tab :uploads, :label => 'admin.subnav.uploads' %>
+      
       <%#= tab :slides %>
       <%#= tab :lookbooks, :match_path => '/lookbooks' %>
       <%#= tab :ads %>

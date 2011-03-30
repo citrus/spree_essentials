@@ -1,0 +1,18 @@
+<%= render :partial => 'admin/shared/contents_sub_menu' %>
+
+<% if @upload.try(:errors).present? %>
+  <%= render 'shared/error_messages', :target => @upload %>
+<% end %>
+
+<% form_for([:admin, @upload], :url => admin_upload_url(@upload), :html => { :multipart => true }) do |f| %>
+    <p>
+      <%= label_tag ("thumbnail") %>:<br/>
+      <%= link_to(image_tag(@upload.attachment.url(:mini)), @upload.attachment.url(:product)) %>
+    </p>
+    <%= render "form", :form => f %>
+  </table>
+  <p class="form-buttons">
+    <%= button t("update") %>
+    or <%= link_to t("cancel"), admin_uploads_url, :id => "cancel_link" %>
+  </p>
+<% end %>

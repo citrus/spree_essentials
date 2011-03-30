@@ -1,0 +1,14 @@
+<%= render :partial => 'admin/shared/contents_sub_menu' %>
+
+<% if @content.try(:errors).present? %>
+  <%= render 'shared/error_messages', :target => @content %>
+<% end %>
+
+<h1>Edit Content</h1>
+
+<%= form_for([:admin, @page, @content]) do |f| %>
+  <%= render "form", :form => f %>
+  <p class="form-buttons">
+    <%= button t("update") %> <%= t('or') %> <%= link_to t('cancel'), collection_url %>
+  </p>
+<% end %>

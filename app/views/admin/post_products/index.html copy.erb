@@ -1,0 +1,40 @@
+<%= render :partial => 'admin/shared/post_tabs', :locals => {:current => "Related Products"} %>
+
+<table class="index">
+	<tr>
+	  <th><%= t("thumbnail") %></th>
+	  <th><%= t("action") %></th>
+	</tr>
+ 
+  <% @post.products.each do |product| %>
+    <tr id="<%= dom_id(product) %>">
+      <td><%#= link_to(product_tag(product.attachment.url(:mini)), product.attachment.url(:large)) %></td>
+      <td class="actions">
+        <%= link_to_with_icon('edit', t("edit"), edit_admin_post_product_url(@post, product)) %>
+        &nbsp;
+        <%= link_to_delete product, {:url => admin_post_product_url(@post, product) }%>
+      </td>
+    </tr>
+  <% end %>
+ 
+</table>
+
+<div id="products"></div>
+<br/>
+<p>
+    <%= link_to icon('add') + ' ' + t("new_product"), new_admin_post_product_url(@post), :id => "new_product_link" %>
+</p>
+
+<% content_for :head do %>
+  <script type="text/javascript">
+    jQuery(document).ready(function(){  
+      
+      jQuery('#new_product_link').click(function (event) { 
+        event.preventDefault();
+        jQuery(this).hide();
+        jQuery.ajax({type: 'GET', url: this.href, data: ({authenticity_token: AUTH_TOKEN}), success: function(r){ jQuery('#products').html(r);} });
+      });
+      
+    });
+  </script>
+<% end %>

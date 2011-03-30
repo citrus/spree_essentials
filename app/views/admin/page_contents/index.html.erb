@@ -1,5 +1,3 @@
-<%= render :partial => 'admin/shared/contents_sub_menu' %>
-
 <div class='toolbar'>
   <ul class='actions'>
     <li>
@@ -9,23 +7,21 @@
   <br class='clear' />
 </div>
 
-
-<h1>Listing Contents</h1>
-
+<%= render :partial => 'admin/shared/page_tabs', :locals => {:current => 'Contents'} %>
 
 <table class="index">
   <thead>
 	<tr>
-    	<th><%= sort_link @search, :page, t("page") %></th>
-    	<th><%= sort_link @search, :title, t("title") %></th>
+    	<th><%= sort_link @search, :page, t("content.page_title") %></th>
+    	<th><%= sort_link @search, :title, t("content.title") %></th>
     	<th><%= t("action") %></th>
 	</tr>
   </thead>
   <tbody>
     <%- @collection.each do |content|%>
     <tr id="<%= dom_id content %>">
-      <td width="200px"><%= link_to content.page, object_url(content) %></td>
-      <td><%=link_to content.title, object_url(content) %></td>
+      <td width="200"><%= link_to content.page.title, object_url(content) %></td>
+      <td><%= link_to content.title, object_url(content) %></td>
       <td>
       	<%= link_to_edit content %> &nbsp;
       </td>
@@ -34,7 +30,7 @@
   </tbody>
 </table>
 
-<%= will_paginate(:prev => "&#171; #{t('previous')}", :next => "#{t('next')} &#187;") %>
+<%= will_paginate(@contents, :prev => "&#171; #{t('previous')}", :next => "#{t('next')} &#187;") %>
 
 <% content_for :sidebar do %>
 <div class="box">

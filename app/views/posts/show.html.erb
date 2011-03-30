@@ -2,6 +2,12 @@
 
 <hr/>
 
+
+<%= render 'shared/products', :products => @post.products %>
+
+
+
+
 <% if Rails.env == 'production' %>
   <div id="disqus_thread"></div>
   <script type="text/javascript">

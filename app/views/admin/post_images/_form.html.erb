@@ -1,8 +1,8 @@
 <p>
   <%= form.label :attachment %>:<br/>
-  <%= form.file_field :attachment %>
+  <%= form.file_field :attachment, :multiple => true %>
 </p>
 <p>
   <%= form.label :alt %>:<br/>
-  <%= form.text_area :alt, :class => 'short' %>
+  <%= form.text_area :alt, :rows => 4, :class => 'short' %>
 </p>

@@ -1,6 +1,5 @@
 <%= render :partial => 'admin/shared/post_tabs', :locals => {:current => "Post Details"} %>
 
-<h1><%= h @post.title %></h1>
 <h5><%= h @post.posted_at.strftime('%A %B %d, %Y at %I:%M%p').gsub(/\s0/, ' ') %></h5>
 <br/>
 

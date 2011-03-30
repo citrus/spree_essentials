@@ -9,3 +9,15 @@
   <%= form.text_area :body  %>
   <%= error_message_on :content, :body %>
 <% end %>
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag "markitup.css" %>
+  <%= javascript_include_tag 'jquery.markitup.js', 'markdown.set.js' %>
+  <script type="text/javascript">
+  //<![CDATA[
+    $(document).ready(function() {
+      $('#content_body').markItUp(markdownSettings);
+    }); 
+  //]]>
+  </script>
+<% end %>

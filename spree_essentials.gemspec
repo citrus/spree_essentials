@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
   s.add_dependency('spree_auth', '>= 0.30.1')
   
   # Blog
-  s.add_dependency('meta_search',         '>= 1.0.3')
+  s.add_dependency('meta_search',         '>= 1.0.1')
   s.add_dependency('acts-as-taggable-on', '>= 2.0.6')
   
   # Contents
@@ -31,8 +31,10 @@ Gem::Specification.new do |s|
   
   # Development
 	s.add_development_dependency('shoulda', '>= 2.11.3')
+	s.add_development_dependency('factory_girl', '>= 2.0.0.beta2')
 	s.add_development_dependency('capybara', '>= 0.4.1')
 	s.add_development_dependency('selenium-webdriver', '>= 0.1.3')
   s.add_development_dependency('sqlite3')
-	
+  s.add_development_dependency('faker')
+  	
 end

@@ -14,18 +14,23 @@ module SpreeEssentials
     initializer "static assets" do |app|
       app.middleware.insert_before ::Rack::Lock, ::ActionDispatch::Static, "#{config.root}/public"
     end
+        
+    def self.activate
+    
+      Dir.glob(File.join(File.dirname(__FILE__), "../app/**/*_decorator.rb")) do |c|
+        Rails.env.production? ? require(c) : load(c)
+      end
+      
+    end
 
+    config.to_prepare &method(:activate).to_proc
+    
   end
   
   class CustomHooks < Spree::ThemeSupport::HookListener
-
-    # public    
-    #insert_after :footer_left,  'hooks/footer_left'
-    #insert_after :footer_right,  'hooks/footer_right'
-    #insert_after :signup_below_password_fields, 'hooks/signup_checkbox'
-
-    # admin
-    insert_after :admin_tabs,   'admin/shared/contents_tab'
+  
+    insert_before :sidebar,    'shared/page_nav'
+    insert_after  :admin_tabs, 'admin/shared/contents_tab'
 
   end
   

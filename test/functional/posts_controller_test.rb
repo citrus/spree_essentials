@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Blog::PostsControllerTest < ActionController::TestCase
+class PostsControllerTest < ActionController::TestCase
   
   def setup
     

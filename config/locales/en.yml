@@ -1,10 +1,37 @@
 en:
+  activerecord:
+    errors:
+      messages:
+        invalid_date_time: is an invalid date.
+  
+  post:
+    title: Title
+    posted_at: Posted At
+    body: Body
+    live: Published
+    tags: Tags
+  
+  
+  blog:
+    archive: Blog Archive
+    posts:
+      index:
+        blog: Blog
+        
+  upload:
+    file_name: File Name
+    size: Size
+
 
   page:
     title: Title
+    nav_title: Navigation Title    
+    path: Path
     meta_title: Meta Title
     meta_description: Meta Description 
     meta_keywords: Meta Keywords
+    accessible: Accessible
+    visible: Visible
   
   content:
     page_title: Page Title
@@ -15,20 +42,15 @@ en:
   pages: Pages
   posts: 
     index: 
-      latest_posts: Latest Posts
-      archives: Latest Posts
-      view_archive: View Archive
-
-  blog:
-    posts:
-      index:
-        blog: Blog
-        
+      recent_posts: Recent Posts
+      archives: Archive
+      view_archive: View Full Archive
         
   admin:
     subnav:
       pages: Pages
       posts: Blog Posts
+      uploads: Uploads
       
     shared:
       contents_tab:
@@ -37,6 +59,13 @@ en:
         editing_page: Editing Page
         page_details: Page Details
         contents: Contents
+      post_tabs:
+        editing_post: Editing Post
+        post_details: Post Details
+        related_products: Related Products
+    post_products:
+      index:
+        add_related_product: Add Related Products
     
     pages:
       index:
@@ -49,6 +78,6 @@ en:
       new: 
         new_page: New Page
         
-    contents:
+    page_contents:
       index:
         new_content: New Content

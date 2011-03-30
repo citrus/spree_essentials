@@ -1,5 +1,7 @@
 class Admin::PostImagesController < Admin::BaseController
+  
   resource_controller
+  
   before_filter :load_data
 	
 	new_action.response do |wants|
@@ -27,6 +29,7 @@ class Admin::PostImagesController < Admin::BaseController
   end
  
   private
+
 
   def load_data
 		@post = Post.find_by_path(params[:post_id])

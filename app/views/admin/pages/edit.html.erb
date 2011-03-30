@@ -1,10 +1,8 @@
-<%= render :partial => 'admin/shared/page_tabs', :locals => {:current => "Page Details"} %>
+<%= render :partial => 'admin/shared/page_tabs', :locals => {:current => 'Page Details'} %>
 
 <% if @page.try(:errors).present? %>
   <%= render 'shared/error_messages', :target => @page %>
 <% end %>
-
-<h1>Edit Content</h1>
 
 <%= form_for([:admin, @page]) do |f| %>
   <%= render "form", :form => f %>

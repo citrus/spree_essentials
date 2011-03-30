@@ -9,7 +9,7 @@
 
   <ul class="sidebar post-menu">
     <%= hook :admin_page_tabs, {:current => current} do %>
-      <li<%= ' class="active"'.html_safe if current == "Page Details" %>>
+      <li<%= ' class="active"'.html_safe if current == t('.page_details') %>>
         <%= link_to t('.page_details'), edit_admin_page_url(@page) %>
       </li>      
       <li<%= ' class="active"'.html_safe if current == "Contents" %>>

@@ -1,0 +1,50 @@
+<%= render :partial => 'admin/shared/contents_sub_menu' %>
+
+<table class="index">
+	<tr>
+	  <th><%= t("thumbnail") %></th>
+	  <th><%= sort_link @search, :attachment_file_name, t("upload.file_name") %></th>
+	  <th><%= sort_link @search, :description, t("description") %></th>
+	  <th><%= sort_link @search, :attachment_file_size, t("upload.size") %></th>
+	  <th><%= t("action") %></th>
+	</tr>
+ 
+  <% @uploads.each do |upload| %>
+    <tr id="<%= dom_id(upload) %>">
+      <td class="thumbnail">
+        <% if upload.image_content? %>
+          <%= link_to image_tag(upload.attachment.url(:mini)), upload.attachment.url(:large) %>
+        <% end %>
+      </td>
+      <td><%= link_to upload.attachment_file_name, upload.attachment.url(:original) %></td>
+      <td><%= upload.alt %></td>
+      <td><%= upload.attachment_file_size.to_i / 1024 %> kb</td>
+      <td class="actions">
+        <%= link_to_with_icon('edit', t("edit"), edit_admin_upload_url(upload)) %>
+        &nbsp;
+        <%= link_to_delete upload, {:url => admin_upload_url(upload) }%>
+      </td>
+    </tr>
+  <% end %>
+ 
+</table>
+
+<div id="images"></div>
+<br/>
+<p>
+  <%= link_to icon('add') + ' ' + t("new_image"), new_admin_upload_url, :id => "new_image_link" %>
+</p>
+
+<% content_for :head do %>
+  <script type="text/javascript">
+    jQuery(document).ready(function(){  
+      
+      jQuery('#new_image_link').click(function(event) { 
+        event.preventDefault();
+        jQuery(this).hide();
+        jQuery.ajax({type: 'GET', url: this.href, data: ({authenticity_token: AUTH_TOKEN}), success: function(r){ jQuery('#images').html(r);} });
+      });
+      
+    });
+  </script>
+<% end %>
