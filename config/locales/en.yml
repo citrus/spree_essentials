@@ -52,7 +52,8 @@ en:
       archives: Archive
       view_archive: View Full Archive
       tags: Tags
-      
+          
+  
         
   admin:
     subnav:
@@ -89,3 +90,9 @@ en:
     contents:
       index:
         new_content: New Content
+        
+    uploads:
+      new:
+        new_upload: New Upload
+      index:
+        new_upload: Upload a file

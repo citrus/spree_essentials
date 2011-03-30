@@ -10,7 +10,6 @@ To Do
 -----
 
 * Finish writing tests
-* Testing
 * Polishing
 * ... and more...
     

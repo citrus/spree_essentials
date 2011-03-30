@@ -70,7 +70,7 @@ miu = {
           size = this.innerHTML;
           value = f.val();
           start = f.get(0).selectionStart;
-          value = value.substr(0, start) + '\n![REPLACE-WITH-ALT](' + src.replace('original', size) + ' "REPLACE-WITH-TITLE")' + value.substr(start, value.length); 
+          value = value.substr(0, start) + '![REPLACE-WITH-ALT](' + src.replace('original', size) + ' "REPLACE-WITH-TITLE")' + value.substr(start, value.length);
           f.val(value);
           miu.hide_image_picker();
         });

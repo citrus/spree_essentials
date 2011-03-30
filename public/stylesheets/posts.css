@@ -35,6 +35,7 @@
 */
 
 .post-preview {
+  clear: both;
   padding-bottom: 1em;
   border-bottom: 1px solid #ccc;
 }

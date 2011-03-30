@@ -1,9 +1,0 @@
-<div class="post" id="post_<%= post.id %>">
-  <%= link_to post.title, post_seo_path(post) %>
-  <h5><%= h post.posted_at.strftime('%A %B %d, %Y at %I:%M%p').gsub(/\s0/, ' ') %></h5>
-
-  <% if post.images && !post.images.empty? %>
-    <p><%= link_to image_tag(post.images.first.attachment.url(:preview), :alt => "#{h post.title}"), post_seo_path(post) %></p>
-  <% end %>
-  
-</div>

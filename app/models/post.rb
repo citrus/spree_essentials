@@ -18,12 +18,6 @@ class Post < ActiveRecord::Base
   scope :live, where(:live => true ).order('posted_at DESC')
 
  	before_validation :create_path
-
-
-  #def posted_at=(value)
-  #	write_attribute(:posted_at, value.is_a?(DateTime) ? value : (DateTime.parse(value) rescue nil))
-  #end
-  
   
   %w(day month year).each do |method|
     define_method method do

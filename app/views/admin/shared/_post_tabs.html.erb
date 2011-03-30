@@ -4,7 +4,7 @@
 
 <% content_for :sidebar do %>
 
-  <h3 class="name"><%= @post.title %><span class='sku'><%= @post.posted_at.strftime('%x') %></span></h3>
+  <h3 class="name"><%= @post.title %><span class='sku'><%= (@post.posted_at || Time.now).strftime('%x') %></span></h3>
   <br clear="clear" />
 
   <ul class="sidebar post-menu">
