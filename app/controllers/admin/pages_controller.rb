@@ -11,6 +11,17 @@ class Admin::PagesController < Admin::BaseController
 
   destroy.success.wants.js { render_js_for_destroy }
 
+  def update_positions
+    params[:positions].each do |id, index|
+      Page.update_all(['position=?', index], ['id=?', id])
+    end
+    
+    respond_to do |format|
+      format.html { redirect_to admin_pages_url }
+      format.js  { render :text => 'Ok' }
+    end
+  end
+
   private
   
     def object
@@ -21,7 +32,7 @@ class Admin::PagesController < Admin::BaseController
       params[:search] ||= {}
       params[:search][:meta_sort] ||= "page.asc"
       @search = end_of_association_chain.metasearch(params[:search])
-      @collection = @search.paginate(:per_page => Spree::Config[:orders_per_page], :page => params[:page])
+      @collection = @search.order(:position).paginate(:per_page => Spree::Config[:orders_per_page], :page => params[:page])
     end
 
 end

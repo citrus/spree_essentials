@@ -1,0 +1,23 @@
+<%= form.field_container :title do %>
+  <%= form.label :title, t('content.title') %><br />
+  <%= form.text_field :title, :class => "title"  %>
+  <%= error_message_on :content, :title %>
+<% end %>
+
+<%= form.field_container :body do %>
+  <%= form.label :title, t('content.body') %><br />
+  <%= form.text_area :body  %>
+  <%= error_message_on :content, :body %>
+<% end %>
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag "markitup.css" %>
+  <%= javascript_include_tag 'jquery.markitup.js', 'markdown.set.js' %>
+  <script type="text/javascript">
+  //<![CDATA[
+    $(document).ready(function() {
+      $('#content_body').markItUp(markdownSettings);
+    }); 
+  //]]>
+  </script>
+<% end %>

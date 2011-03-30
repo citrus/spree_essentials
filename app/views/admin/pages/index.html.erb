@@ -9,11 +9,9 @@
   <br class='clear' />
 </div>
 
-
 <h1><%= t('.listing_pages') %></h1>
 
-
-<table class="index">
+<table class="index sortable">
   <thead>
 	<tr>
     	<th><%= sort_link @search, :title, t(".title") %></th>
@@ -23,8 +21,9 @@
   <tbody>
     <%- @collection.each do |page|%>
     <tr id="<%= dom_id page %>">
-      <td><%=link_to page.title, object_url(page) %></td>
+      <td><span class="handle">&nbsp;</span>&nbsp; <%=link_to page.title, object_url(page) %></td>
       <td>
+      	<%= link_to_with_icon :pages, t('page.contents'), admin_page_contents_path(page) %> &nbsp;
       	<%= link_to_edit page %> &nbsp;
       	<%= link_to_delete page %>
       </td>

@@ -36,7 +36,10 @@ Rails.application.routes.draw do
     post "/markdown/preview" => "markdown#preview"
   
     resources :pages do
-      resources :contents, :controller => "page_contents"
+      post :update_positions, :on => :collection
+      resources :contents do
+        post :update_positions, :on => :collection
+      end
     end
     
     resources :posts do 

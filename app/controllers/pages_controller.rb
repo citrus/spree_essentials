@@ -1,21 +1,19 @@
 class PagesController < Spree::BaseController
   
+  helper_method :object
+  
   def show
-    path = "/" + params[:path].to_s.sub(/^\/*/, '')
-    @page = Page.active.find_by_path(path)
+    @page = object
   end
   
+  private
+  
+    def object
+      @object ||= Page.active.find_by_path(params[:path])
+    end
+  
+    def accurate_title
+      @page.meta_title
+    end
+  
 end
-
-
-#class PostsController < Spree::BaseController
-#
-#  def index
-#    @posts = Post.live
-#  end
-#  
-#  def show
-#    @post = Post.find_by_path(params[:id])
-#  end
-#
-#end

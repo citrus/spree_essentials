@@ -6,7 +6,7 @@ class Page < ActiveRecord::Base
   scope :active, where(:accessible => true)
   scope :visible, active.where(:visible => true)
   
-  has_many :contents, :dependent => :destroy
+  has_many :contents, :order => :position, :dependent => :destroy
   
   before_validation :set_defaults
   
@@ -16,6 +16,11 @@ class Page < ActiveRecord::Base
   
   def to_param
     path.sub(/^\//, '')
+  end
+  
+  def meta_title
+    val = read_attribute(:meta_title)
+    val.blank? ? title : val
   end
   
   private

@@ -24,7 +24,8 @@ en:
     size: Size
 
 
-  page:
+  page: 
+    contents: Contents
     title: Title
     nav_title: Navigation Title    
     path: Path
@@ -85,6 +86,6 @@ en:
       new: 
         new_page: New Page
         
-    page_contents:
+    contents:
       index:
         new_content: New Content

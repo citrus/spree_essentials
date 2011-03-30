@@ -35,12 +35,54 @@ markdownSettings = {
 		{name:'Quotes', openWith:'> '},
 		{name:'Code Block / Code', openWith:'(!(\t|!|`)!)', closeWith:'(!(`)!)'},
 		{separator:'---------------'},
+		{name:'Image Browser', call:'miu.launch_image_picker', className:"image_picker"},
 		{name:'Preview', call:'preview', className:"preview"}
 	]
 }
 
 // mIu nameSpace to avoid conflict.
 miu = {
+
+  hide_image_picker: function() {
+    miu.image_picker.animate({
+      'height': 0
+    }, 250, function() {  
+      miu.image_picker.remove();
+      miu.image_picker = null;
+    });
+  },
+
+  launch_image_picker: function() {
+    if (miu.image_picker) {
+      miu.hide_image_picker();
+      return;
+    }
+    var f = $('.markItUpEditor');
+    var w = f.outerWidth();
+    var h = f.outerHeight();
+    miu.image_picker = $('<div class="image-picker"></div>').css('width', w).css(f.position()).load('/admin/uploads', function(res) {
+      miu.image_picker.find('li a').click(function(evt) {
+        evt.preventDefault();
+        var size, value, start, src = this.href;
+        var li = $(this).css('opacity', 0.3).parent().append('<span class="sizes"><a href="#sm">small</a><a href="#med">medium</a><a href="#lrg">large</a></span>');
+        li.find('.sizes a').click(function(evt) {
+          evt.preventDefault();
+          size = this.innerHTML;
+          value = f.val();
+          start = f.get(0).selectionStart;
+          value = value.substr(0, start) + '\n![REPLACE-WITH-ALT](' + src.replace('original', size) + ' "REPLACE-WITH-TITLE")' + value.substr(start, value.length); 
+          f.val(value);
+          miu.hide_image_picker();
+        });
+          
+      });
+      miu.image_picker.appendTo('.markItUpContainer').animate({
+        'height': h
+      }, 250);
+    });
+  },
+  
+  
 	markdownTitle: function(markItUp, char) {
 		heading = '';
 		n = $.trim(markItUp.selection||markItUp.placeHolder).length;

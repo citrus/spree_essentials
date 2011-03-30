@@ -2,6 +2,10 @@ class Admin::UploadsController < Admin::BaseController
   
   resource_controller
 
+	index.response do |wants|
+		wants.html { render :template => request.xhr? ? 'admin/uploads/picker' : 'admin/uploads/index', :layout => !request.xhr? }
+  end
+  
   new_action.response do |wants|
     wants.html { 
       render :action => :new, :layout => false

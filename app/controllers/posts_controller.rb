@@ -27,12 +27,12 @@ class PostsController < Spree::BaseController
       end    
       scope = scope.where("posted_at > ? AND posted_at <= ?", start, stop)
     end
-    @posts = scope.paginate(:page => params[:page])
+    @posts = scope.paginate(:page => params[:page], :per_page => Post.per_page)
   end
   
   def search
 		query = params[:query].gsub(/%46/, '.')	
-		@posts = Post.live.tagged_with(query).paginate(:page => params[:page])
+		@posts = Post.live.tagged_with(query).paginate(:page => params[:page], :per_page => Post.per_page)
 		get_tags		
 		render :template => 'posts/index'
 	end

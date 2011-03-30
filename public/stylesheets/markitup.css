@@ -12,6 +12,7 @@
 	text-decoration:none;
 }
 .markItUp  {
+  position: relative;
 	width: 100%;
 	min-width: 475px;
 	margin:5px 0 5px 0;
@@ -202,6 +203,74 @@
 	background-image:url(../images/markitup/code.png);
 }
 
+.markItUp .image_picker a {
+	background-image:url(../images/markitup/image-picker.png);
+}
 .markItUp .preview a {
 	background-image:url(../images/markitup/preview.png);
+}
+
+
+
+div.image-picker {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  background: #fff url(../images/markitup/bg-picker.png) repeat-x bottom left;
+  border: 1px solid #ccc;
+}
+div.image-picker ul,
+div.image-picker ul li {
+  display: block;
+  list-style: none;
+  margin: 0;
+  text-align: center;
+  border: 1px solid #fff;
+  background-color: #fff;
+}
+
+
+div.image-picker ul { 
+  padding: 10px;
+}
+div.image-picker ul li { 
+  position: relative;
+  float: left;
+}
+div.image-picker ul li:hover { 
+  border: 1px solid #ccc;
+  background-color: #eee;
+}
+div.image-picker ul li a.option {
+  display: block;
+  padding: 7px;
+  width: 48px;
+  height: 48px;
+}
+div.image-picker ul li span.sizes {
+  display: block;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+div.image-picker ul li span.sizes a {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding: 3px 0 4px 0;
+  text-align: center;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+div.image-picker ul li span.sizes a:last-child {
+  border-bottom: 0;
+} 
+#content div.image-picker span.sizes a:hover {
+  background-color: #3c7dfb;
+  color: #fff;
 }

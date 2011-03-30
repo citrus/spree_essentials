@@ -1,0 +1,11 @@
+<ul class="picker">
+<% @uploads.each do |upload| %>
+  <li>
+    <% if upload.image_content? %>
+      <%= link_to image_tag(upload.attachment.url(:mini)), upload.attachment.url(:original), :class => 'option image' %>
+    <% else %>
+      <%= link_to upload.attachment_file_name, upload.attachment.url(:original), :class => 'option file' %>
+    <% end %>
+  </li>
+<% end %>
+</ul>
