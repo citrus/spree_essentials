@@ -1,6 +1,5 @@
 class PossiblePage
   def self.matches?(request)
-    
     path = request.params[:path].to_s
     puts "checking #{path.inspect}"
     return false if path =~ /account|cart|login|products|users/
@@ -22,10 +21,12 @@ Rails.application.routes.draw do
     :month => /\d{1,2}/,
     :day   => /\d{1,2}/
   ) do 
-    get '/blog/:year(/:month)(/:day)' => 'posts#index', :as => :blog_date
+    get '/blog/:year(/:month)(/:day)' => 'posts#index', :as => :post_date
     get '/blog/:year/:month/:day/:id' => 'posts#show',  :as => :full_post
   end
   
+  get '/blog/search/:query', :to => 'posts#search', :as => :search_posts, :query => /.*/
+      
   resources :posts, :path => 'blog' do
     get :archive, :on => :collection
   end
@@ -48,7 +49,7 @@ Rails.application.routes.draw do
   end
 
   constraints(PossiblePage) do
-    get '(:path)' => 'pages#show' #, :path => /^\/[a-z0-9\-\_]*/
+    get '(:path)' => 'pages#show'
   end
   
 end

@@ -1,28 +1,9 @@
-<div class="posts">
-  <%= render :partial => 'posts/preview', :collection => @posts, :as => :post %>
-  <%= will_paginate @posts %>
-</div>
-
 <% content_for :sidebar do %>
-  <div class="blog-nav">
-    <h3><%= t('.recent_posts') %></h3>
-    <ul>
-      <% @posts.each do |post| %>
-        <li><%= link_to h(post.title), post_seo_path(post) %></li>
-      <% end %>
-    </ul>
-  
-    <h3><%= t('.archives') %></h3>
-    <% @posts_by_month.each do |month_name, posts| %>
-    <h4 class="month"><%= month_name %></h4>
-      <ul>
-      <% posts.each do |post| %>
-        <li><%= link_to h(post.title), post_seo_path(post) %></li>
-      <% end %>
-      </ul>
-    <% end %>
-    
-    <h5><%= link_to t('.view_archive'), archive_posts_path %></h5>
-    
-  </div>
+  <%= render :partial => 'sidebar' %>
 <% end %>
+
+<%= render :partial => 'preview', :collection => @posts, :as => :post %>
+
+<br class="clear"/>
+
+<%= will_paginate @posts %>

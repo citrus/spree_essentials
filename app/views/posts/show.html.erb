@@ -1,30 +1,49 @@
-<%= render 'post', :post => @post %>
-
-<hr/>
-
-
-<%= render 'shared/products', :products => @post.products %>
-
-
-
-
-<% if Rails.env == 'production' %>
-  <div id="disqus_thread"></div>
-  <script type="text/javascript">
-      var disqus_shortname = "purpletree";
-      var disqus_identifier = <%= @post.path.inspect.html_safe %>;
-      var disqus_url = <%= request.url.inspect.html_safe %>;
-      /* * * DON'T EDIT BELOW THIS LINE * * */
-      (function() {
-          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      })();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-  
-  <hr/>
+<% content_for :sidebar do %>
+  <%= render :partial => 'sidebar' %>
 <% end %>
 
-<%= link_to "&laquo; back".html_safe, posts_path %>
+<div class="post">
+  
+  <div class="post-title">
+    <h5><%= h @post.posted_at.strftime('%A %B %d, %Y').gsub(/\s0/, ' ') %></h5> 
+    <h1><%=h @post.title %></h1>
+  </div>
+  
+  <% if @post.images && !@post.images.empty? %>     
+  
+    <div id="photo">
+      <%= image_tag(@post.images.first.attachment.url(:preview), :alt => "#{@post.title}") %>
+    </div>
+    
+    <% if 1 < @post.images.length %>    
+      <div id="thumbnails">
+        <% @post.images.each_with_index do |image, index| %>
+          <div class="thumbnail">	
+         	  <%= link_to(image_tag(image.attachment.url(:small), :alt => "#{@post.title} - Photo #{index + 1}"), image.attachment.url(:full), :id => "photo_#{index}") %>
+ 	        </div>  
+ 	      <% end -%>
+        <br class="clear"/>
+      </div>  
+    <% end -%>
+             
+  <% end %>   
+  
+        
+  <br class="clear"/>
+  
+  <%= simple_format @post.body %>  
+  
+  <br class="clear"/>
+  
+  <p>
+    <b>Tagged:</b><br/>
+    <%= @post.tags.collect{|tag| link_to(tag.name, search_posts_path(tag.name)) }.join(", ").html_safe %>
+  </p>
+
+</div>
+
+<br class="clear"/>
+
+<% content_for :head do %>
+  <%= javascript_include_tag 'gallery' %>
+<% end %>

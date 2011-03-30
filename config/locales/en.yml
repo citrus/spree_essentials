@@ -18,6 +18,7 @@ en:
       index:
         blog: Blog
         
+        
   upload:
     file_name: File Name
     size: Size
@@ -40,11 +41,17 @@ en:
     
 
   pages: Pages
+  
   posts: 
-    index: 
+    preview: 
+      read_more: Read More
+      
+    sidebar: 
       recent_posts: Recent Posts
       archives: Archive
       view_archive: View Full Archive
+      tags: Tags
+      
         
   admin:
     subnav:

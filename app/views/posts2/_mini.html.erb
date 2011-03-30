@@ -1,0 +1,19 @@
+<div class="post mini clear" id="post_<%= post.id %>">
+  
+  <div class="span-2 date">
+    <h4 class="purple"><%= link_to post.posted_at.strftime('%b %d').gsub(/\s0/, ' '), post_path(post.year, post.month, post.day, post.to_param) %></h4>
+    <h4><%= link_to post.posted_at.year, post_path(post.year, post.month, post.day, post.to_param) %></h4>
+  </div>
+  
+  <div class="span-4">
+    <%= link_to image_tag(post.images.first.attachment.url(:small), :alt => h(post.title)), post_path(post.year, post.month, post.day, post.to_param) if post.has_preview? %>
+  </div>
+  
+  <div class="span-7 last">
+    <h4><%= link_to h(post.title), post_path(post.year, post.month, post.day, post.to_param) %></h4>
+    <%= simple_format h(post.teaser) %>
+  </div> 
+  
+  <div class="clear">&nbsp;</div>
+  
+</div>

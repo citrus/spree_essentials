@@ -41,10 +41,6 @@
     <%- locals = {:f => f} %>
     <%= hook :admin_contents_index_search, locals do %>
       <p>
-        <label><%= t('content.page_title') %></label><br />
-        <%= f.text_field :page_title_like, :size => 25 %>
-      </p>
-      <p>
         <label><%= t('content.title') %></label><br />
         <%= f.text_field :title_like, :size => 25 %>
       </p>      
