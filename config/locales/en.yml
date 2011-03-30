@@ -34,7 +34,9 @@ en:
     meta_keywords: Meta Keywords
     accessible: Accessible
     visible: Visible
-  
+    explain_accessible: non-accessible pages must be coded into a custom controller.
+    explain_visible: visible pages will show up in the main menu.
+    
   content:
     page_title: Page Title
     title: Title
