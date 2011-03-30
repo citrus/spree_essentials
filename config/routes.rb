@@ -1,15 +1,8 @@
 class PossiblePage
   def self.matches?(request)
-    path = request.params[:path].to_s
-    puts "checking #{path.inspect}"
+    path = request.params[:page_path].to_s
     return false if path =~ /account|cart|login|products|users/
-    
-    puts "searching"
-    #@page = Page.find_by_path(path) rescue false
-    
     count = Page.active.where(:path => "/" + path).count
-    puts "count: #{count}"
-    
     0 < count
   end
 end
@@ -52,7 +45,7 @@ Rails.application.routes.draw do
   end
 
   constraints(PossiblePage) do
-    get '(:path)' => 'pages#show'
+    get '(:page_path)' => 'pages#show', :page_path => /.*/
   end
   
 end

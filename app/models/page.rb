@@ -11,11 +11,13 @@ class Page < ActiveRecord::Base
   before_validation :set_defaults
   
   def self.find_by_path(_path)
-    super("/" + _path.sub(/^\//, ''))
+    return super("/") if _path == 'home'
+    super("/" + _path.to_s.sub(/^\//, '').gsub('--', '/'))
   end
   
   def to_param
-    path.sub(/^\//, '')
+    return 'home' if path == '/'
+    path.sub(/^\//, '').gsub('/', '--')
   end
   
   def meta_title

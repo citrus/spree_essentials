@@ -9,7 +9,7 @@ class PagesController < Spree::BaseController
   private
   
     def object
-      @object ||= Page.active.find_by_path(params[:path])
+      @object ||= Page.active.find_by_path(params[:page_path])
     end
   
     def accurate_title

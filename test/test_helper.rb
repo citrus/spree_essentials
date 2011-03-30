@@ -38,11 +38,11 @@ FactoryGirl.define do
 
   factory :page do
     title            "Just a page"
-    nav_title        "A Page"
-    path             "/just-a-page"
-    meta_title       "Just a page with a fancy title"
-    meta_description "Nothing too cool here."
-    meta_keywords    "just, something, in, a, list"
+    #nav_title        { title }
+    #path             { "/" + title.parameterize }
+    meta_title       { nav_title }
+    meta_description { "Nothing too cool here except the title: #{title}." } 
+    meta_keywords    { "just, something, in, a, list, #{title.downcase}" }
   end
 
   factory :post do

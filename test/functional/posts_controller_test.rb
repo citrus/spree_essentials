@@ -40,7 +40,44 @@ class PostsControllerTest < ActionController::TestCase
   
   end
   
-  context "some existing posts" do
+  
+  context "unpublished posts" do
+  
+    setup do
+      @tags = "totally not published"
+      @date = DateTime.parse("2011/3/20 16:00")
+      @post = Factory.create(:post, :posted_at => @date, :tag_list => @tags, :live => false)
+    end
+    
+    should "not include post in index" do
+      get :index
+      assert !assigns(:posts).include?(@post)
+    end
+    
+    should "not include post in day specific index" do
+      get :index, :year => @post.year, :month => @post.month, :day => @post.day
+      assert !assigns(:posts).include?(@post)
+    end
+    
+    should "not include post in month specific index" do
+      get :index, :year => @post.year, :month => @post.month
+      assert !assigns(:posts).include?(@post)
+    end
+    
+    should "not include post in year specific index" do
+      get :index, :year => @post.year
+      assert !assigns(:posts).include?(@post)
+    end
+    
+    should "not include post in search results" do
+      get :search, :query => @tags
+      assert !assigns(:posts).include?(@post)
+    end
+    
+  end
+  
+  
+  context "published posts" do
   
     setup do
       @date = DateTime.parse("2011/3/20 16:00")

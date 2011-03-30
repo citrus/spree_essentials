@@ -52,7 +52,7 @@ class PostsController < Spree::BaseController
   end
   
   def get_tags
-    @tags = Post.live.tag_counts.order('count DESC').limit(50)
+    @tags = Post.live.tag_counts.order('count DESC').limit(25)
   end
 
 end

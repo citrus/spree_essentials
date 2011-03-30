@@ -46,6 +46,11 @@ en:
   pages: Pages
   
   posts: 
+  
+    archive:
+      go_to_store: "Shop the Store"
+      back_to_posts: "Back to the blog"
+  
     preview: 
       read_more: Read More
       
