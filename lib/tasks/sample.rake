@@ -21,7 +21,7 @@ namespace :db do
         )
         
         rand(5).times { |i|
-          puts post.images.create(:attachment => File.read(images.sort_by{rand}.first), :alt => Faker::Lorem.sentence)
+          image = post.images.create(:attachment => File.open(images.sort_by{rand}.first), :alt => Faker::Lorem.sentence)
         }
         
         unless product_ids.empty?
