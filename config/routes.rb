@@ -44,7 +44,7 @@ Rails.application.routes.draw do
   end
 
   constraints(PossiblePage) do
-    get '(:page_path)' => 'pages#show', :page_path => /(?!(account|cart|login|products|users)).*/
+    get '(:page_path)' => 'pages#show', :page_path => /(?!(account|cart|login|products|users|t)).*/
   end
   
 end
