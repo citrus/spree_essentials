@@ -1,9 +1,16 @@
 Spree Essentials
 ================
 
-The swiss-army knife of spree extensions! Pages, Posts and Uploads have been implemented, More coming soon!
+The swiss-army knife of spree extensions!
 
 ** UNDER DEVELOPMENT BUT NEARING BETA! **
+
+
+Features
+--------
+
+Included in Spree Essentials is a full blown CMS for pages, a blog complete with archives, tags and related products, and an admin for uploading your files. Uploaded files can be easily embedded into your pages or posts by using the included image picker. Page and post content is parsed with Markdown so formatting your content is a breeze. 
+
 
 
 Installation
