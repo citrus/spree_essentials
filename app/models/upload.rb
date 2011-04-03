@@ -1,12 +1,26 @@
 class Upload < Asset
   
   validate :no_attachement_errors
-  has_attached_file :attachment,
-                    :styles => Proc.new{ |clip| clip.instance.attachment_sizes },
-                    :default_style => :medium,
-                    :url => "/assets/uploads/:id/:style/:basename.:extension",
-                    :path => ":rails_root/public/assets/uploads/:id/:style/:basename.:extension"
-                    
+  
+  
+  # Check for spree_heroku by Pavel Kotlyar (paxer)
+  #   https://github.com/paxer/spree-heroku
+  #
+  if defined?(SpreeHeroku)
+    has_attached_file :attachment,
+      :styles => Proc.new{ |clip| clip.instance.attachment_sizes },
+      :default_style => :medium,
+      :path => "assets/uploads/:id/:style/:basename.:extension",
+      :storage => "s3",
+      :s3_credentials => "#{RAILS_ROOT}/config/s3.yml"
+  else
+    has_attached_file :attachment,
+      :styles => Proc.new{ |clip| clip.instance.attachment_sizes },
+      :default_style => :medium,
+      :url => "/assets/uploads/:id/:style/:basename.:extension",
+      :path => ":rails_root/public/assets/uploads/:id/:style/:basename.:extension"
+  end
+                   
   default_scope where(:type => "Upload")
      
      

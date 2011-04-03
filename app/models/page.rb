@@ -9,6 +9,7 @@ class Page < ActiveRecord::Base
   has_many :contents, :order => :position, :dependent => :destroy
   
   before_validation :set_defaults
+  after_create :create_default_content
   
   def self.find_by_path(_path)
     return super("/") if _path == 'home'
@@ -39,6 +40,10 @@ class Page < ActiveRecord::Base
       self.nav_title = title if nav_title.blank?
       self.path = nav_title.parameterize if path.blank?
       self.path = "/" + path.sub(/^\//, '')
+    end
+    
+    def create_default_content
+      self.contents.create(:title => title)
     end
   		
 end

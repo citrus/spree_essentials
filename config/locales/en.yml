@@ -103,7 +103,12 @@ en:
     contents:
       index:
         new_content: New Content
-        
+        listing_contents: Listing Contents
+      new:
+        new_content: New Content
+      edit:
+        edit_content: Edit Content
+                
     uploads:
       new:
         new_upload: New Upload

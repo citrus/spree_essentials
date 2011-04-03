@@ -1,16 +1,9 @@
 Spree Essentials
 ================
 
-The swiss-army knife of spree extensions!
-
-** UNDER DEVELOPMENT BUT NEARING BETA! **
-
-
-Features
---------
-
 Included in Spree Essentials is a full blown CMS for pages, a blog complete with archives, tags and related products, and an admin for uploading your files. Uploaded files can be easily embedded into your pages or posts by using the included image picker. Page and post content is parsed with Markdown so formatting your content is a breeze. 
 
+** UNDER DEVELOPMENT BUT NEARING BETA! **
 
 
 Installation
@@ -73,11 +66,13 @@ To Do
 -----
 
 * allow page translations. (same contents associated to different languages)
-* add homepage admin and front-end
+* add page-parts like refinery
+* add better homepage admin and front-end
 * add widgets that you can drop into any page
 * page and menu caching/sweeping
 * more tests
 * nested set for pages?
+
 
 
 Ideas
@@ -91,6 +86,18 @@ Develop other extensions to be 'essential-aware':
 Other:
 
 * A 'create translation' button that clones the current page's contents into another language
+
+
+
+Change Log
+----------
+
+**3/4/2011**
+
+* Automatically adds [Heroku](http://heroku.com) support when you include [spree_heroku](https://github.com/paxer/spree-heroku) in your Gemfile. Check the [spree_heroku readme](https://github.com/paxer/spree-heroku#readme) for full installation instructions.
+* Creates default content when you create a new page.
+
+
 
 License
 -------

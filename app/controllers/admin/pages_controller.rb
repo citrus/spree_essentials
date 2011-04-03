@@ -2,7 +2,7 @@ class Admin::PagesController < Admin::BaseController
   resource_controller
 
   create.response do |wants|
-    wants.html { redirect_to object_url }
+    wants.html { redirect_to edit_admin_page_content_path(@page, @page.contents.first) }
   end
 
   update.response do |wants|
