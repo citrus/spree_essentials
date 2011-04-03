@@ -1,7 +1,7 @@
 class PossiblePage
   def self.matches?(request)
-    path = request.params[:page_path].to_s.sub(/^\/?/, '/')    
-    return false if path =~ /admin|account|cart|checkout|content|login|pg\/|orders|products|s\/|signup|states|t\/|tax_categories|session|shipments|user/
+    path = request.params[:page_path].to_s.sub(/^\/?/, '/')
+    return false if path =~ /(^\/(admin|account|cart|checkout|content|login|pg\/|orders|products|s\/|signup|states|t\/|tax_categories|session|shipments|user))/
     count = Page.active.where(:path => path).count
     0 < count
   end

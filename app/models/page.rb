@@ -12,7 +12,7 @@ class Page < ActiveRecord::Base
   
   def self.find_by_path(_path)
     return super("/") if _path == 'home'
-    super("/" + _path.to_s.sub(/^\//, '').gsub('--', '/'))
+    super(_path.to_s.sub(/^\/?/, '/').gsub('--', '/'))
   end
   
   def to_param

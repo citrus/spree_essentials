@@ -44,7 +44,9 @@ Now login to the admin and click on the 'Content' tab!
 Notes
 -----
 
-As I mentioned before, spree_essentials is still being developed but getting close to complete. Please let me know of any bugs you find or feature requests you'd like to see.
+As I mentioned before, spree_essentials is still being developed but getting close to complete. Development has primarily been done on OSX with Ruby 1.9.2 and Spree 0.50.0.
+
+Please let me know of any bugs you find or feature requests you'd like to see. 
 
 
 Testing
