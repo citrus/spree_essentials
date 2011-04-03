@@ -1,7 +1,7 @@
 Spree Essentials
 ================
 
-Included in Spree Essentials is a full blown CMS for pages, a blog complete with archives, tags and related products, and an admin for uploading your files. Uploaded files can be easily embedded into your pages or posts by using the included image picker. Page and post content is parsed with Markdown so formatting your content is a breeze. 
+Included in Spree Essentials is a full blown content management system for pages, a blog complete with archives, tags and related products, and an admin for uploading your files. Uploaded files can be easily embedded into your pages or posts by using the included image picker. Page and post content is parsed with [Markdown](http://daringfireball.net/projects/markdown/) so formatting your content is a breeze!
 
 ** UNDER DEVELOPMENT BUT NEARING BETA! **
 
@@ -95,7 +95,7 @@ Other:
 Change Log
 ----------
 
-**3/4/2011**
+**4/4/2011**
 
 * Automatically adds [Heroku](http://heroku.com) support when you include [spree_heroku](https://github.com/paxer/spree-heroku) in your Gemfile. Check the [spree_heroku readme](https://github.com/paxer/spree-heroku#readme) for full installation instructions.
 * Creates default content when you create a new page.
