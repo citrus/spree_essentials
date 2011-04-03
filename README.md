@@ -72,6 +72,7 @@ The test suite is a bit limited at the moment but can be run like so:
 To Do
 -----
 
+* allow page translations. (same contents associated to different languages)
 * add homepage admin and front-end
 * add widgets that you can drop into any page
 * page and menu caching/sweeping
@@ -87,7 +88,9 @@ Develop other extensions to be 'essential-aware':
 * Content related extensions (galleries/news/testimonials/etc) would reside in their own tab or under the 'Content' tab if it exists.
 * Direct integration: When composing a message with [spree_mail](https://github.com/citrus/spree_mail), you'd have the same uploads helper and a helper for recent posts. 
 
+Other:
 
+* A 'create translation' button that clones the current page's contents into another language
 
 License
 -------
