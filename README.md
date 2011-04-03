@@ -6,6 +6,7 @@ Included in Spree Essentials is a full blown CMS for pages, a blog complete with
 ** UNDER DEVELOPMENT BUT NEARING BETA! **
 
 
+
 Installation
 ------------
 
@@ -49,6 +50,7 @@ As I mentioned before, spree_essentials is still being developed but getting clo
 Please let me know of any bugs you find or feature requests you'd like to see. 
 
 
+
 Testing
 -------
 
@@ -70,8 +72,9 @@ To Do
 * add better homepage admin and front-end
 * add widgets that you can drop into any page
 * page and menu caching/sweeping
-* more tests
-* nested set for pages?
+* more tests... many many more.
+* nested set for pages
+* 0.30 and 0.40 compatibility
 
 
 
@@ -96,6 +99,15 @@ Change Log
 
 * Automatically adds [Heroku](http://heroku.com) support when you include [spree_heroku](https://github.com/paxer/spree-heroku) in your Gemfile. Check the [spree_heroku readme](https://github.com/paxer/spree-heroku#readme) for full installation instructions.
 * Creates default content when you create a new page.
+
+
+
+Contributors
+------------
+
+So far it's just me; Spencer Steffen. 
+
+If you'd like to help out feel free to fork and send me pull requests!
 
 
 
