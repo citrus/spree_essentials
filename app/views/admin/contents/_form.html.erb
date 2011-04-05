@@ -4,6 +4,12 @@
   <%= error_message_on :content, :title %>
 <% end %>
 
+<%= form.field_container :page do %>
+  <%= form.label :page_id, t('content.page') %><br />
+  <%= form.select :page_id, @pages.collect{|i| [i.title, i.id]}  %>
+  <%= error_message_on :content, :page_id %>
+<% end %>
+
 <%= form.field_container :body do %>
   <%= form.label :title, t('content.body') %><%= markdown_helper %><br />
   <%= form.text_area :body  %>

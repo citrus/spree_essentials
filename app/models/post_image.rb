@@ -1,11 +1,41 @@
 class PostImage < Image
 
-  has_attached_file :attachment, 
-                    :styles => { :mini => '48x48>', :small => '120x100>', :preview => '528x420>', :large => '800x375#' },
-                    :default_style => :preview,
-                    :url => "/assets/posts/:id/:style/:basename.:extension",
-                    :path => ":rails_root/public/assets/posts/:id/:style/:basename.:extension"
- 
-  validates_attachment_presence :attachment
+  validate :no_attachement_errors
 
+  if defined?(SpreeHeroku)
+    has_attached_file :attachment,
+      :styles => Proc.new{ |clip| clip.instance.attachment_sizes },
+      :default_style => :preview,
+      :path => "assets/posts/:id/:style/:basename.:extension",
+      :storage => "s3",
+      :s3_credentials => "#{RAILS_ROOT}/config/s3.yml"
+  else
+    has_attached_file :attachment,
+      :styles => Proc.new{ |clip| clip.instance.attachment_sizes },
+      :default_style => :preview,
+      :url => "/assets/posts/:id/:style/:basename.:extension",
+      :path => ":rails_root/public/assets/posts/:id/:style/:basename.:extension"
+  end 
+ 
+  def image_content?
+    attachment_content_type.match(/\/(jpeg|png|gif|tiff|x-photoshop)/)
+  end
+     
+  def attachment_sizes
+    if image_content?
+      { :mini => '48x48>', :small => '150x150>', :medium => '420x300>', :large => '800x500>' }
+    else
+      {}
+    end
+  end
+  
+  def no_attachement_errors
+    unless attachment.errors.empty?
+      # uncomment this to get rid of the less-than-useful interrim messages
+      errors.clear
+      errors.add :attachment, "Paperclip returned errors for file '#{attachment_file_name}' - check ImageMagick installation or image source file."
+      false
+    end
+  end
+  
 end

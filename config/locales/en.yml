@@ -1,5 +1,12 @@
 en:
 
+
+  successfully_created: Successfully created
+  successfully_updated: Successfully updated
+  successfully_destroyed: Successfully destroyed
+    
+
+
   essentials:
     parsed_with: Parsed With
     
@@ -45,6 +52,7 @@ en:
     
   content:
     page_title: Page Title
+    page: Page
     title: Title
     body: Body
     
@@ -81,6 +89,7 @@ en:
         editing_page: Editing Page
         page_details: Page Details
         contents: Contents
+        images: Images
       post_tabs:
         editing_post: Editing Post
         post_details: Post Details

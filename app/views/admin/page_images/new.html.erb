@@ -1,6 +1,8 @@
 <h3><%= t("new_image") %></h3>
 
-<%= form_for(@post_image, :url => admin_post_images_path(@post), :html => { :multipart => true }) do |form| %>
+<%= render 'shared/error_messages', :target => @page_image %>
+
+<%= form_for(@page_image, :url => admin_page_images_path(@page), :html => { :multipart => true }) do |form| %>
   <table class="basic-table">
     <%= render "form", :form => form %>
   </table>
@@ -16,6 +18,3 @@
     jQuery('#images').html('');
   }); 
 </script>
-
- 
- 

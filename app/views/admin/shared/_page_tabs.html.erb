@@ -1,5 +1,3 @@
-<%= render :partial => 'admin/shared/contents_sub_menu' %>
-
 <h1><%= (t('.editing_page') + " &ldquo;#{@page.title}&rdquo;").html_safe %></h1>
 
 <% content_for :sidebar do %>
@@ -9,11 +7,14 @@
 
   <ul class="sidebar post-menu">
     <%= hook :admin_page_tabs, {:current => current} do %>
-      <li<%= ' class="active"'.html_safe if current == t('.page_details') %>>
+      <li<%== ' class="active"' if current == t('.page_details') %>>
         <%= link_to t('.page_details'), edit_admin_page_url(@page) %>
       </li>      
-      <li<%= ' class="active"'.html_safe if current == "Contents" %>>
+      <li<%== ' class="active"' if current == "Contents" %>>
         <%= link_to t('.contents'), admin_page_contents_url(@page) %>
+      </li>    
+      <li<%== ' class="active"' if current == "Images" %>>
+        <%= link_to t('.images'), admin_page_images_url(@page) %>
       </li>    
     <% end %>
   </ul>

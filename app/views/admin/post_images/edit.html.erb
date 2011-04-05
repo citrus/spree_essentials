@@ -4,7 +4,7 @@
   <%= render 'shared/error_messages', :target => @post_image %>
 <% end %>
 
-<% form_for([:admin, @post.id, @post_image], :url => admin_post_image_url(@post, @post_image), :html => { :multipart => true }) do |f| %>
+<%= form_for([:admin, @post.id, @post_image], :url => admin_post_image_url(@post, @post_image), :html => { :multipart => true }) do |f| %>
     <p>
       <%= label_tag ("thumbnail") %>:<br/>
       <%= link_to(image_tag(@post_image.attachment.url(:mini)), @post_image.attachment.url(:product)) %>
