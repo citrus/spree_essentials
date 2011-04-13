@@ -45,9 +45,6 @@ class Content < ActiveRecord::Base
   end
  	
   def attachment_sizes
-    
-    puts "ATTACHMENT SIZES!!!!!!"
-    
     case self.context
       when 'slideshow'
         sizes = default_attachment_sizes.merge(:slide => '955x476#')

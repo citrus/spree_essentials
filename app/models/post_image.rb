@@ -18,12 +18,10 @@ class PostImage < Image
   end 
  
   def image_content?
-    puts attachment_content_type.inspect
     attachment_content_type.match(/\/(jpeg|png|gif|tiff|x-photoshop)/)
   end
      
   def attachment_sizes
-    puts "SETTING IMAGE SIZES: #{image_content?}"
     if image_content?
       { :mini => '48x48>', :small => '150x150>', :medium => '600x600>', :large => '950x700>' }
     else
