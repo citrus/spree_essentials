@@ -1,0 +1,17 @@
+<%= render :partial => 'admin/shared/post_tabs', :locals => {:current => "Images"} %>
+
+<% if @post_image.try(:errors).present? %>
+  <%= render 'shared/error_messages', :target => @post_image %>
+<% end %>
+
+<%= form_for([:admin, @post.id, @post_image], :url => admin_post_image_url(@post, @post_image), :html => { :multipart => true }) do |f| %>
+  <p>
+    <%= label_tag ("thumbnail") %>:<br/>
+    <%= link_to(image_tag(@post_image.attachment.url(:mini)), @post_image.attachment.url(:product)) %>
+  </p>
+  <%= render "form", :form => f %>
+  <p class="form-buttons">
+    <%= button t("update") %>
+    or <%= link_to t("cancel"), admin_post_images_url(@post), :id => "cancel_link" %>
+  </p>
+<% end %>

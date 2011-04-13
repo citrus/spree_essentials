@@ -1,0 +1,72 @@
+<%= render :partial => 'admin/shared/contents_sub_menu' %>
+
+<div class='toolbar'>
+  <ul class='actions'>
+    <li>
+      <p><%= button_link_to "New Post", new_object_url, :icon => 'add' %></p>
+    </li>
+  </ul>
+  <br class='clear' />
+</div>
+
+
+<h1>Listing Posts</h1>
+
+
+<table class="index">
+  <thead>
+	<tr>
+    	<th><%= sort_link @search, :title, t("post.title") %></th>
+    	<th><%= sort_link @search, :posted_at, t("post.posted_at") %></th>
+    	<th><%= sort_link @search, :live, t("post.live") %></th>
+    	<th><%= t("action") %></th>
+	</tr>
+  </thead>
+  <tbody>
+    <%- @collection.each do |post|%>
+    <tr id="<%= dom_id post %>">
+      <td><%=link_to post.title, object_url(post) %></td>
+      <td><%=link_to post.posted_at.strftime('%x %X'), object_url(post) %></td>
+      <td><%= post.live %></td>
+      <td>
+      	<%= link_to_edit post %> &nbsp;
+      	<%= link_to_delete post %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate(:prev => "&#171; #{t('previous')}", :next => "#{t('next')} &#187;") %>
+
+<% content_for :sidebar do %>
+<div class="box">
+  <h3><%= t(:search) %></h3>
+
+  <% @post = Post.metasearch %>
+  <%= form_for [:admin, @post] do |f| %>
+    <%- locals = {:f => f} %>
+    <%= hook :admin_posts_index_search, locals do %>
+      <p>
+        <label><%= t 'post.title' %></label><br />
+        <%= f.text_field :title_like, :size => 25 %>
+      </p>      
+      <label><%= t("date_range") %></label><br />
+      <div class="yui-g date-range-filter">
+        <div class="yui-u sub-field first">
+          <%= f.spree_date_picker :posted_at_greater_than %><br />
+          <label class="sub"><%= t("start") %></label>
+        </div>
+        <div class="yui-u sub-field">
+          <%= f.spree_date_picker :posted_at_less_than %><br />
+          <label><%= t("stop") %></label>
+        </div>
+        <br class="clear"/>
+      </div>
+    <% end %>
+    <%= hook :admin_posts_index_search_buttons, locals do %>
+      <p><%= button t("search") %></p>
+    <% end %>
+  <% end %>
+</div>
+<% end %>

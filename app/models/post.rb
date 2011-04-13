@@ -35,7 +35,6 @@ class Post < ActiveRecord::Base
 	def rendered_body
 	  render(:body).gsub("<!-- more -->", "")
   end
-   
 		
 	def preview_image
     images.first if has_images?	  

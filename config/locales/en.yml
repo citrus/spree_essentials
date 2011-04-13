@@ -64,6 +64,10 @@ en:
   
   blog: 
     posts:  
+    
+      index: 
+        rss: RSS
+    
       archive:
         go_to_store: "Shop the Store"
         back_to_posts: "Back to the blog"

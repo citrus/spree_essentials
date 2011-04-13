@@ -95,6 +95,14 @@ Other:
 Change Log
 ----------
 
+
+**2011/4/12**
+
+* Added content contexts admin
+* Namespaced posts into blog/posts
+* Added `<!-- more -->` tag to posts
+
+
 **2011/4/4**
 
 * Added Page Images and starting to remove resource_controller.
@@ -105,6 +113,7 @@ Change Log
 * Creates default content when you create a new page.
 
 
+more in `CHANGELOG.md`
 
 
 Contributors

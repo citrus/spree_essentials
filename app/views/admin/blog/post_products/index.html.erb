@@ -1,0 +1,50 @@
+<%= render :partial => 'admin/shared/post_tabs', :locals => {:current => "Related Products"} %>
+
+  <div id="add-line-item">
+    <fieldset>
+      <legend><%= t('.add_related_product') %></legend>
+      <div style="float:left;width:55%;margin-right:5%;">
+        <%= label_tag :add_product_name, t("name_or_sku") %>
+        <%= text_field_tag :add_product_name,  '', :class => 'fullwidth title'  %>
+        <%= hidden_field_tag :add_variant_id %>
+      </div>
+      <div style="float: left; width: 15%; padding-top: 17px;">
+        <%= link_to text_for_button_link(t("add"), :icon => 'add'),
+            admin_post_products_path(@post),
+            :id => "add_related_product", :class => 'button' %>
+      </div>
+    </fieldset>
+  </div>
+
+  <div id="products-table-wrapper">
+    <%= render :partial => "related_products_table", :locals => { :post => @post } %>
+  </div>
+
+  <% content_for :head do %>
+
+    <%= csrf_meta_tag %>
+    <%= javascript_tag "var expand_variants = false;" %>
+   
+    <script type="text/javascript">
+    
+      jQuery(document).ready(function(){
+        
+        $("#add_product_name").product_autocomplete();
+      
+        $("#add_related_product").live("click", function(){
+          if($('#add_variant_id').val() == ''){ return false; }
+          jQuery.ajax({ url: this.href, type: "POST",
+              data: { 'variant_id' : $('#add_variant_id').val() },
+              success: function(data){
+                $('#products-table-wrapper').html(data);
+                $('#add_product_name').val('');
+                $('#add_variant_id').val('');
+              }
+          });
+          return false;
+        });
+        
+      
+      });
+    </script>
+  <% end %>

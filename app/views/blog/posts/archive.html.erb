@@ -1,0 +1,14 @@
+<h1>Archive</h1>
+
+<div class="archive" style="width: auto;">
+  
+  <%= render 'archive', :posts => @posts %>
+  
+  
+  <h4>Where to next?</h4>  
+  <p class="action">
+    <%= link_to t('.go_to_store'), products_path %>
+    <%= link_to t('.back_to_posts'), posts_path %>
+  </p>
+  
+</div>
