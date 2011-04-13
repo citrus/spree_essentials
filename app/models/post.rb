@@ -19,19 +19,32 @@ class Post < ActiveRecord::Base
 
  	before_validation :create_path
   
+  
+  # Creates date-part accessor for the posted_at timestamp for grouping purposes.
   %w(day month year).each do |method|
     define_method method do
       self.posted_at.send(method)
     end
   end
+  	
+	def rendered_preview
+    preview = body.split("<!-- more -->")[0]
+    render(preview)
+  end
+	
+	def rendered_body
+	  render(:body).gsub("<!-- more -->", "")
+  end
+   
 		
 	def preview_image
-    images.first if has_preview?	  
+    images.first if has_images?	  
 	end
 
-  def has_preview?
+  def has_images?
     images && !images.empty?
   end
+  
 
   def live?
     live && live == true
@@ -41,8 +54,14 @@ class Post < ActiveRecord::Base
 		path
 	end
 	
+	
 	private
 	
+    def render(val)
+      val = val.is_a?(Symbol) ? send(val) : val
+      RDiscount.new(val).to_html.html_safe
+    end
+		
     def create_path
   		#downcase.gsub(/\s/, '-').gsub(/[^a-z0-9\-\_]/, '').gsub(/[\-]+/, '-')
   		count = 2

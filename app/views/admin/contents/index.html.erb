@@ -1,3 +1,5 @@
+<%= render :partial => 'admin/shared/contents_sub_menu' %>
+
 <div class='toolbar'>
   <ul class='actions'>
     <li>
@@ -15,6 +17,7 @@
   <thead>
 	<tr>
     	<th><%= sort_link @search, :title, t("content.title") %></th>
+    	<th><%= sort_link @search, :context, t("content.context") %></th>
     	<th><%= t("action") %></th>
 	</tr>
   </thead>
@@ -22,6 +25,7 @@
     <%- @collection.each do |content|%>
     <tr id="<%= dom_id content %>">
       <td><span class="handle">&nbsp;</span>&nbsp; <%= link_to content.title, object_url(content) %></td>
+      <td><%= content.context %>
       <td>
       	<%= link_to_edit content %> &nbsp;
       	<%= link_to_delete content %>

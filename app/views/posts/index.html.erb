@@ -1,9 +1,0 @@
-<% content_for :sidebar do %>
-  <%= render :partial => 'sidebar' %>
-<% end %>
-
-<%= render :partial => 'preview', :collection => @posts, :as => :post %>
-
-<br class="clear"/>
-
-<%= will_paginate @posts %>

@@ -35,8 +35,9 @@ markdownSettings = {
 		{name:'Quotes', openWith:'> '},
 		{name:'Code Block / Code', openWith:'(!(\t|!|`)!)', closeWith:'(!(`)!)'},
 		{separator:'---------------'},
-		{name:'Image Browser', call:'miu.launch_image_picker', className:"image_picker"},
-		{name:'Preview', call:'preview', className:"preview"}
+		{name:'More Tag', openWith:'<!-- more -->'},
+		{name:'Image Browser', call:'miu.launch_image_picker'},
+		{name:'Preview', call:'preview'}
 	]
 }
 

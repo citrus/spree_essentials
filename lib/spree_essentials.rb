@@ -28,10 +28,6 @@ module SpreeEssentials
   end
   
   class CustomHooks < Spree::ThemeSupport::HookListener
-  
-    insert_after :inside_head do
-      "<%= stylesheet_link_tag('essentials') %>"
-    end
     
     insert_after :admin_tabs,  'admin/shared/contents_tab'
 

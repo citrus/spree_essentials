@@ -202,11 +202,13 @@
 .markItUp .markItUpButton14 a	{
 	background-image:url(../images/markitup/code.png);
 }
-
-.markItUp .image_picker a {
+.markItUp .markItUpButton15 a	{
+	background-image:url(../images/markitup/more-tag.png);
+}
+.markItUp .markItUpButton16 a {
 	background-image:url(../images/markitup/image-picker.png);
 }
-.markItUp .preview a {
+.markItUp .markItUpButton17 a {
 	background-image:url(../images/markitup/preview.png);
 }
 

@@ -11,11 +11,11 @@ namespace :db do
       
       product_ids = Product.select('id').all.collect(&:id) rescue []
       
-      10.times { |i|
+      50.times { |i|
       
         post = Post.create(
           :title     => Faker::Lorem.sentence,
-          :posted_at => Time.now - i * rand(1000000),
+          :posted_at => Time.now - i * rand(10000000),
           :body      => Faker::Lorem.paragraph,
           :tag_list  => Faker::Lorem.words(rand(10)).join(", ")
         )

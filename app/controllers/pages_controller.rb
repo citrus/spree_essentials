@@ -1,6 +1,6 @@
 class PagesController < Spree::BaseController
   
-  helper :posts
+  helper 'blog/posts'
   helper_method :object
   
   def show

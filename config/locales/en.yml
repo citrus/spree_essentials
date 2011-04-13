@@ -9,8 +9,6 @@ en:
 
   essentials:
     parsed_with: Parsed With
-    
-    
 
   activerecord:
     errors:
@@ -55,28 +53,40 @@ en:
     page: Page
     title: Title
     body: Body
+    attachment: Attachment
+    link: Link URL
+    link_text: Link Text
+    context: Context
+    hide_title: Hide Title
     
 
   pages: Pages
   
-  posts: 
+  blog: 
+    posts:  
+      archive:
+        go_to_store: "Shop the Store"
+        back_to_posts: "Back to the blog"
+    
+      preview: 
+        read_more: Read More
+        
+      sidebar: 
+        recent_posts: Recent Posts
+        archives: Archive
+        view_archive: View Full Archive
+        tags: Tags
   
-    archive:
-      go_to_store: "Shop the Store"
-      back_to_posts: "Back to the blog"
-  
-    preview: 
-      read_more: Read More
-      
-    sidebar: 
-      recent_posts: Recent Posts
-      archives: Archive
-      view_archive: View Full Archive
-      tags: Tags
-          
   
         
   admin:
+  
+  
+    blog:
+      post_products:
+        index:
+          add_related_product: Add Related Products
+      
     subnav:
       pages: Pages
       posts: Blog Posts
@@ -94,9 +104,6 @@ en:
         editing_post: Editing Post
         post_details: Post Details
         related_products: Related Products
-    post_products:
-      index:
-        add_related_product: Add Related Products
     
     pages:
       index:
