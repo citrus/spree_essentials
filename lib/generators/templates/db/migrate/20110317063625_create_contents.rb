@@ -7,6 +7,7 @@ class CreateContents < ActiveRecord::Migration
       t.string     :link
       t.string     :link_text
       t.string     :context
+      t.boolean    :hide_title, :default => false
             
       t.integer    :position, :default => 999
       

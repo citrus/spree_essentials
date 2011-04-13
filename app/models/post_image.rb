@@ -8,7 +8,7 @@ class PostImage < Image
       :default_style => :medium,
       :path => "assets/posts/:id/:style/:basename.:extension",
       :storage => "s3",
-      :s3_credentials => "#{RAILS_ROOT}/config/s3.yml"
+      :s3_credentials => "#{Rails.root}/config/s3.yml"
   else
     has_attached_file :attachment,
       :styles => Proc.new{ |clip| clip.instance.attachment_sizes },

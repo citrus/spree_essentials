@@ -4,16 +4,28 @@ class Content < ActiveRecord::Base
   validates_associated :page
   validates_presence_of :title
 
-  has_attached_file :attachment, 
-                  :styles => Proc.new { |clip| clip.instance.attachment_sizes },
-                  :default_style => :product,
-                  :url => "/assets/contents/:id/:style/:basename.:extension",
-                  :path => ":rails_root/public/assets/contents/:id/:style/:basename.:extension"
+  
+  if defined?(SpreeHeroku)
+    has_attached_file :attachment,
+      :styles => Proc.new{ |clip| clip.instance.attachment_sizes },
+      :default_style => :preview,
+      :path => "assets/contents/:id/:style/:basename.:extension",
+      :storage => "s3",
+      :s3_credentials => "#{Rails.root}/config/s3.yml"
+  else
+    has_attached_file :attachment,
+      :styles => Proc.new{ |clip| clip.instance.attachment_sizes },
+      :default_style => :preview,
+      :url => "/assets/contents/:id/:style/:basename.:extension",
+      :path => ":rails_root/public/assets/contents/:id/:style/:basename.:extension"
+  end
+  
   
   cattr_reader :per_page
   @@per_page = 10
   
-  scope :for, proc{|context| where(:context => context)}
+  
+  scope :for, Proc.new{|context| where(:context => context)}
   
     
   [ :link_text, :link, :body ].each do |property|
@@ -31,7 +43,7 @@ class Content < ActiveRecord::Base
   end
   
   def hide_title?
-    hide_title == true
+    self.hide_title == true
   end
   
   
