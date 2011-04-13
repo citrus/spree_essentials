@@ -2,6 +2,24 @@
     Post Archive
 */
 
+.posts {
+  position: relative;
+}
+
+#posts-rss {
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 4px;
+  line-height: 16px;
+  text-decoration: none;
+  img {
+    display: block;
+    float: left;
+    margin-right: 5px;
+  }
+}
+
 .post-archive ul.archive {
   list-style-type: none;
   text-decoration: none;
