@@ -3,14 +3,14 @@ Spree Essentials
 
 Included in Spree Essentials is a full blown content management system for pages, a blog complete with archives, tags and related products, and an admin for uploading your files. Uploaded files can be easily embedded into your pages or posts by using the included image picker. Page and post content is parsed with [Markdown](http://daringfireball.net/projects/markdown/) so formatting your content is a breeze!
 
-** UNDER DEVELOPMENT BUT NEARING BETA! **
+**UNDER DEVELOPMENT BUT NEARING BETA!**
 
 
 
 Installation
 ------------
 
-** Assuming you already have an existing Spree site... ** ([click here](http://spreecommerce.com/documentation/getting_started.html) if you don't!)
+If you don't already have an existing Spree site, [click here](http://spreecommerce.com/documentation/getting_started.html) then come back later...
 
 Spree Essentials hasn't been released to rubygems so you'll have to install it from the source. Just add the following to your Gemfile:
 
@@ -54,7 +54,7 @@ Please let me know of any bugs you find or feature requests you'd like to see.
 Testing
 -------
 
-The test suite is a bit limited at the moment but can be run like so:
+The test suite is very limited at the moment but can be run like so:
 
     git clone git://github.com/citrus/spree_essentials.git
     cd spree_essentials
@@ -75,6 +75,7 @@ To Do
 * more tests... many many more.
 * nested set for pages
 * 0.30 and 0.40 compatibility
+* create wiki pages
 
 
 
@@ -95,10 +96,9 @@ Other:
 Change Log
 ----------
 
-
 **2011/4/12**
 
-* Added content contexts admin
+* Added content contexts for multiple contents per page
 * Namespaced posts into blog/posts
 * Added `<!-- more -->` tag to posts
 
@@ -107,11 +107,11 @@ Change Log
 
 * Added Page Images and starting to remove resource_controller.
 
+
 **2011/4/3**
 
 * Automatically adds [Heroku](http://heroku.com) support when you include [spree_heroku](https://github.com/paxer/spree-heroku) in your Gemfile. Check the [spree_heroku readme](https://github.com/paxer/spree-heroku#readme) for full installation instructions.
 * Creates default content when you create a new page.
-
 
 more in `CHANGELOG.md`
 

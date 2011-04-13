@@ -1,6 +1,6 @@
 **2011/4/12**
 
-* Added content contexts admin
+* Added content contexts for multiple contents per page
 * Namespaced posts into blog/posts
 * Added `<!-- more -->` tag to posts
 
@@ -8,6 +8,7 @@
 **2011/4/4**
 
 * Added Page Images and starting to remove resource_controller.
+
 
 **2011/4/3**
 
