@@ -14,5 +14,10 @@ Spree::BaseController.class_eval do
     page = Page.find_by_path(path)
     page ? page.contents : []
   end
+  
+  def for_context(context)
+    return [] unless @page
+    @page.contents.select{ |c| c.context == context }
+  end
 
 end
