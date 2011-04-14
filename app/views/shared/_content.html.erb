@@ -1,6 +1,7 @@
 <% content ||= @content %>
 <% html ||= false %>
 <% content_counter ||= 0 %>
+
 <% unless content.nil? %>
   
   <div class="content<%= ' alt' if content_counter % 2 == 0 %>" id="<%= dom_id(content) %>">

@@ -1,12 +1,10 @@
 class PagesController < Spree::BaseController
   
-  helper 'blog/posts'
-  helper_method :object
-  
   def show
     @page = object
     if @page.root?
-      @posts = Post.live.limit(10)
+      @posts = Post.live.limit(5) if defined?(SpreeEssentialBlog)
+      @articles = Article.live.limit(5) if defined?(SpreeEssentialNews)
       render :template => 'pages/home'
     end
   end

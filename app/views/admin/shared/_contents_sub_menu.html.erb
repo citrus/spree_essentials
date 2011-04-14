@@ -2,13 +2,10 @@
   <ul id="sub_nav">
     <%= hook :admin_contents_sub_tabs do %>
       <%= tab :pages,   :label => 'admin.subnav.pages',  :match_path => '/pages' %>
-      <%= tab :posts,   :label => 'admin.subnav.posts',  :match_path => '/posts' %>
+      <% SpreeEssentials.essentials.each do |cls| %>
+        <%= tab *cls.sub_tab if defined?(cls.sub_tab) %>
+      <% end %>
       <%= tab :uploads, :label => 'admin.subnav.uploads' %>
-      
-      <%#= tab :slides %>
-      <%#= tab :lookbooks, :match_path => '/lookbooks' %>
-      <%#= tab :ads %>
-      <%#= tab :meta_tags, :label => 'seo', :css_class => 'last' %>
     <% end %>
   </ul>
 <% end %>

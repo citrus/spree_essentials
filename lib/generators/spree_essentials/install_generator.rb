@@ -1,13 +1,16 @@
+require 'generators/essentials_base'
+
 module SpreeEssentials
   module Generators
-    class InstallGenerator < Rails::Generators::Base
+    class InstallGenerator < SpreeEssentials::Generators::EssentialsBase
       
-      source_root File.expand_path("../../templates", __FILE__)
-
-      desc "Configures your Rails application for use with spree_essentials"
-
+      desc "Installs required migrations for spree_essentials"
+      source_root File.expand_path("../../templates/db/migrate", __FILE__)
+      
       def copy_migrations
-        directory "db"
+        migration_template "create_pages.rb",                       "db/migrate/create_pages.rb"
+        migration_template "create_contents.rb",                    "db/migrate/create_contents.rb"
+        migration_template "add_attachment_file_size_to_assets.rb", "db/migrate/add_attachment_file_size_to_assets.rb"
       end
 
     end

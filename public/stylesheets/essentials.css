@@ -17,3 +17,19 @@ ul#main-menu li {
 ul#main-menu li.active a {
   color: #fff;
 }
+
+
+/* ========================================== 
+    Slideshow
+*/
+
+.slideshow img {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.slideshow.slide {
+  width: 950px;
+  height: 250px;
+}

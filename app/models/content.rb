@@ -48,7 +48,7 @@ class Content < ActiveRecord::Base
   
   
   def rendered_body
-    RDiscount.new(body).to_html.html_safe
+    RDiscount.new(body.to_s).to_html.html_safe
   end
     
   

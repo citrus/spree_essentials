@@ -5,14 +5,14 @@ class PageImage < Image
   if defined?(SpreeHeroku)
     has_attached_file :attachment,
       :styles => Proc.new{ |clip| clip.instance.attachment_sizes },
-      :default_style => :preview,
+      :default_style => :medium,
       :path => "assets/posts/:id/:style/:basename.:extension",
       :storage => "s3",
-      :s3_credentials => "#{RAILS_ROOT}/config/s3.yml"
+      :s3_credentials => "#{Rails.root}/config/s3.yml"
   else
     has_attached_file :attachment,
       :styles => Proc.new{ |clip| clip.instance.attachment_sizes },
-      :default_style => :preview,
+      :default_style => :medium,
       :url => "/assets/posts/:id/:style/:basename.:extension",
       :path => ":rails_root/public/assets/posts/:id/:style/:basename.:extension"
   end 
@@ -22,11 +22,10 @@ class PageImage < Image
   end
      
   def attachment_sizes
-    if image_content?
-      { :mini => '48x48>', :small => '150x150>', :medium => '420x300>', :large => '950x300#' }
-    else
-      {}
-    end
+    sizes = {}
+    sizes.merge!(:mini => '48x48>', :small => '150x150>', :medium => '420x300>', :large => '900x650>') if image_content?
+    sizes.merge!(:slide => '950x250#') if viewable.respond_to?(:path) && viewable.path == "/"
+    sizes
   end
   
   def no_attachement_errors

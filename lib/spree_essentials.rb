@@ -7,6 +7,14 @@ require 'acts-as-taggable-on'
 
 module SpreeEssentials
   
+  def self.register(extension)
+    essentials << extension
+  end
+  
+  def self.essentials
+    @essentials ||= []
+  end
+  
   class Engine < Rails::Engine
 
     config.autoload_paths += %W(#{config.root}/lib)
@@ -29,7 +37,7 @@ module SpreeEssentials
   
   class CustomHooks < Spree::ThemeSupport::HookListener
     
-    insert_after :admin_tabs,  'admin/shared/contents_tab'
+    insert_after :admin_tabs, 'admin/shared/contents_tab'
 
   end
   

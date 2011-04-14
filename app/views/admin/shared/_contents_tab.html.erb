@@ -1,3 +1,2 @@
-<%= tab :pages, :contents, :posts, :post_images, :post_products, :uploads, :label => '.content' %>
+<%= tab :pages, :contents, *SpreeEssentials.essentials.map{|cls| cls.tab if defined?(cls.tab) }.flatten, :uploads, :label => '.content' %>
 
-<!-- slides, :lookbooks, :ads, :meta_tags,  -->

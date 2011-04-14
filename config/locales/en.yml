@@ -1,11 +1,8 @@
 en:
 
-
   successfully_created: Successfully created
   successfully_updated: Successfully updated
   successfully_destroyed: Successfully destroyed
-    
-
 
   essentials:
     parsed_with: Parsed With
@@ -14,26 +11,10 @@ en:
     errors:
       messages:
         invalid_date_time: is an invalid date.
-  
-  post:
-    title: Title
-    posted_at: Posted At
-    body: Body
-    live: Published
-    tags: Tags
-  
-  
-  blog:
-    archive: Blog Archive
-    posts:
-      index:
-        blog: Blog
-        
         
   upload:
     file_name: File Name
     size: Size
-
 
   page: 
     contents: Contents
@@ -58,44 +39,13 @@ en:
     link_text: Link Text
     context: Context
     hide_title: Hide Title
-    
-
+  
   pages: Pages
   
-  blog: 
-    posts:  
-    
-      index: 
-        rss: Subscribe via RSS
-    
-      archive:
-        go_to_store: "Shop the Store"
-        back_to_posts: "Back to the blog"
-    
-      preview: 
-        read_more: Read More
-        
-      sidebar: 
-        recent_posts: Recent Posts
-        archives: Archive
-        view_archive: View Full Archive
-        tags: Tags
-  
-  
-        
   admin:
-  
-  
-    blog:
-      post_products:
-        index:
-          add_related_product: Add Related Products
-      
     subnav:
       pages: Pages
-      posts: Blog Posts
-      uploads: Uploads
-      
+      uploads: Uploads      
     shared:
       contents_tab:
         content: Content
@@ -104,19 +54,12 @@ en:
         page_details: Page Details
         contents: Contents
         images: Images
-      post_tabs:
-        editing_post: Editing Post
-        post_details: Post Details
-        related_products: Related Products
-    
     pages:
       index:
         title: Title
         listing_pages: Listing Pages
-        new_page: New Page
-        
-        title_contains: Title
-        
+        new_page: New Page        
+        title_contains: Title        
       new: 
         new_page: New Page
         
