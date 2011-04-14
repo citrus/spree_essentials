@@ -1,7 +1,7 @@
 class Page < ActiveRecord::Base
   
-  validates_presence_of :title, :path
-  validates_uniqueness_of :path
+  validates_presence_of :title
+  validates :path, :presence => true, :uniqueness => true
   
   scope :active,  where(:accessible => true)
   scope :visible, active.where(:visible => true)

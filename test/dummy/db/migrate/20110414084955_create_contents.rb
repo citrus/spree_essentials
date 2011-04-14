@@ -6,7 +6,9 @@ class CreateContents < ActiveRecord::Migration
       t.text       :body     
       t.string     :link
       t.string     :link_text
-      
+      t.string     :context
+      t.boolean    :hide_title, :default => false
+            
       t.integer    :position, :default => 999
       
       t.string     :attachment_file_name

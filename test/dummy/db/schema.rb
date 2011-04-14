@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110317074600) do
+ActiveRecord::Schema.define(:version => 20110414084958) do
 
   create_table "addresses", :force => true do |t|
     t.string   "firstname"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20110317074600) do
     t.integer  "attachment_width"
     t.integer  "attachment_height"
     t.text     "alt"
+    t.integer  "attachment_file_size"
   end
 
   add_index "assets", ["viewable_id"], :name => "index_assets_on_viewable_id"
@@ -87,6 +88,8 @@ ActiveRecord::Schema.define(:version => 20110317074600) do
     t.text     "body"
     t.string   "link"
     t.string   "link_text"
+    t.string   "context"
+    t.boolean  "hide_title",              :default => false
     t.integer  "position",                :default => 999
     t.string   "attachment_file_name"
     t.string   "attachment_content_type"
@@ -277,24 +280,6 @@ ActiveRecord::Schema.define(:version => 20110317074600) do
     t.string   "avs_response"
   end
 
-  create_table "post_products", :force => true do |t|
-    t.integer "post_id"
-    t.integer "product_id"
-    t.integer "position"
-  end
-
-  create_table "posts", :force => true do |t|
-    t.string   "title"
-    t.string   "path"
-    t.string   "teaser"
-    t.datetime "posted_at"
-    t.text     "body"
-    t.string   "author"
-    t.boolean  "live",       :default => true
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "preferences", :force => true do |t|
     t.string   "name",       :limit => 100, :null => false
     t.integer  "owner_id",   :limit => 30,  :null => false
@@ -460,23 +445,6 @@ ActiveRecord::Schema.define(:version => 20110317074600) do
     t.string  "name"
     t.string  "abbr"
     t.integer "country_id"
-  end
-
-  create_table "taggings", :force => true do |t|
-    t.integer  "tag_id"
-    t.integer  "taggable_id"
-    t.string   "taggable_type"
-    t.integer  "tagger_id"
-    t.string   "tagger_type"
-    t.string   "context"
-    t.datetime "created_at"
-  end
-
-  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
-  add_index "taggings", ["taggable_id", "taggable_type", "context"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_context"
-
-  create_table "tags", :force => true do |t|
-    t.string "name"
   end
 
   create_table "tax_categories", :force => true do |t|

@@ -3,7 +3,6 @@ class PagesController < ApplicationController
   before_filter :get_page, :only => :show
   
   def show
-    @page = object
     if @page.root?
       @posts = Post.live.limit(5) if defined?(SpreeEssentialBlog)
       @articles = Article.live.limit(5) if defined?(SpreeEssentialNews)
