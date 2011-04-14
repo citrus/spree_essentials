@@ -1,4 +1,6 @@
-class PagesController < Spree::BaseController
+class PagesController < ApplicationController
+  
+  before_filter :get_page, :only => :show
   
   def show
     @page = object
@@ -11,8 +13,12 @@ class PagesController < Spree::BaseController
   
   private
   
-    def object
-      @object ||= Page.active.find_by_path(params[:page_path])
+    def get_page
+      @page = Page.active.find_by_path(page_path)
+    end
+      
+    def page_path
+      params[:path] || "/"
     end
   
     def accurate_title

@@ -8,7 +8,7 @@ class PageController < ApplicationController
   private
   
     def get_page
-      @page = Page.find_by_path(page_path)
+      @page = Page.active.find_by_path(page_path)
     end
       
     def page_path
