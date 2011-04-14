@@ -1,7 +1,22 @@
 Spree Essentials
 ================
 
-Included in Spree Essentials is a full blown content management system for pages, a blog complete with archives, tags and related products, and an admin for uploading your files. Uploaded files can be easily embedded into your pages or posts by using the included image picker. Page and post content is parsed with [Markdown](http://daringfireball.net/projects/markdown/) so formatting your content is a breeze!
+Spree Essentials is the base to a full blown content management system for Spree.
+
+Included in Spree Essentials is:
+
+* A CMS for managing pages, contents and uploads
+* An easy markdown editor with ajax preview
+* Image picker for embeding images into markdown editor
+* The basis for additional content-related extensions
+
+Current essential-aware extensions include:
+
+* A blog complete with archives, tags and related products
+* A news system, also complete with archives, tags and related products. (yes it's pretty much the exact same thing as the blog)
+
+ 
+
 
 **UNDER DEVELOPMENT BUT NEARING BETA!**
 

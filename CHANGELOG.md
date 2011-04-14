@@ -1,3 +1,10 @@
+**2011/4/13**
+
+* Created 'essential awareness' mechanism
+* Removed blog from essentials core ([new blog repo is here](https://github.com/citrus/spree_essential_blog))
+* Added top images to homepage 
+
+
 **2011/4/12**
 
 * Added content contexts for multiple contents per page
