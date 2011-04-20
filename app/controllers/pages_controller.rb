@@ -3,6 +3,10 @@ class PagesController < ApplicationController
   before_filter :get_page, :only => :show
   
   def show
+  
+  
+    puts @page.inspect
+  
     if @page.root?
       @posts = Post.live.limit(5) if defined?(SpreeEssentialBlog)
       @articles = Article.live.limit(5) if defined?(SpreeEssentialNews)
@@ -17,7 +21,7 @@ class PagesController < ApplicationController
     end
       
     def page_path
-      params[:path] || "/"
+      params[:page_path] || "/"
     end
   
     def accurate_title
