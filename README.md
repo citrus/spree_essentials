@@ -77,7 +77,7 @@ Setting up an essential aware extension is easy. In your `lib/[extension_name].r
       
       def self.independent?
         return true unless defined?(SpreeEssentials)
-        !SpreeEssentials.has?(:press)
+        !SpreeEssentials.respond_to(:register)
       end
     
     end
