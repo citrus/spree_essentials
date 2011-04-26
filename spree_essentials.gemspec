@@ -17,10 +17,9 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   # Spree
-  s.add_dependency('spree_core',          '>= 0.30.1')
-  s.add_dependency('spree_auth',          '>= 0.30.1')
-  s.add_dependency('rdiscount',           '>= 1.6.8')
-  s.add_dependency('acts-as-taggable-on', '>= 2.0.6')
+  s.add_dependency('spree_core', '>= 0.30.1')
+  s.add_dependency('spree_auth', '>= 0.30.1')
+  s.add_dependency('rdiscount',  '>= 1.6.8')
   
   # Development
 	s.add_development_dependency('shoulda', '>= 2.11.3')

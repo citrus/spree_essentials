@@ -8,8 +8,6 @@ module SpreeEssentials
       source_root File.expand_path("../../templates/db/migrate", __FILE__)
       
       def copy_migrations
-        migration_template "create_pages.rb",                       "db/migrate/create_pages.rb"
-        migration_template "create_contents.rb",                    "db/migrate/create_contents.rb"
         migration_template "add_attachment_file_size_to_assets.rb", "db/migrate/add_attachment_file_size_to_assets.rb"
       end
 
