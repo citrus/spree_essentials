@@ -10,4 +10,9 @@ Spree::BaseHelper.class_eval do
      end
    end
       
+  def method_missing(method, *args, &block)
+    return super unless method.to_s =~ /_path$/
+    "/" + method.to_s.sub(/_path$/, '')
+  end
+      
 end
