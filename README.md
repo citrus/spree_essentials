@@ -17,7 +17,7 @@ Current essential-aware extensions include:
 
 
 
-**UNDER DEVELOPMENT**
+**ALL OF THESE UNDER DEVELOPMENT**
 
 
 
@@ -29,23 +29,30 @@ If you don't already have an existing Spree site, [click here](http://spreecomme
 Spree Essentials hasn't been released to rubygems so you'll have to install it from the source. Just add the following to your Gemfile:
 
     gem 'spree_essentials', :git => 'git://github.com/citrus/spree_essentials.git'
+  
+    # Add any of the extensions you wish to use
+  
+    gem 'spree_essential_cms', :git => 'git://github.com/citrus/spree_essential_cms.git'
+    gem 'spree_essential_blog', :git => 'git://github.com/citrus/spree_essential_blog.git'
+    ... # others
+  
     
-    
-Now run:
+Then run:
     
     bundle install
 
 
 Once that's complete, run the migration generator and migrate your database:
 
+    # to see your available generators run
+    rails g
+        
     rails g spree_essentials:install
+    rails g spree_essentials:cms
+    rails g spree_essentials:blog
+    ... # others
     rake db:migrate
 
-
-Since Spree doesn't have any hooks in the header you'll have to manually include the main menu. Just render the partial somewhere in your layout:
-
-    <%= render 'shared/main_menu' %>
-    
 
 If that all went smoothly, you should be ready to boot the server with:
 
@@ -93,10 +100,9 @@ Setting up an essential aware extension is easy. In your `lib/[extension_name].r
 Notes
 -----
 
-As I mentioned before, spree_essentials is still being developed but getting close to complete. Development has primarily been done on OSX with Ruby 1.9.2 and Spree 0.50.0.
+As I mentioned before, spree_essentials is still being developed... Development is being done on OSX with Ruby 1.9.2 and Spree 0.50.2.
 
 Please let me know of any bugs you find or feature requests you'd like to see. 
-
 
 
 Testing
@@ -115,7 +121,6 @@ The test suite is very limited at the moment but can be run like so:
 To Do
 -----
 
-* modularize the cms into SpreeEssentialCms
 * modularize the markdown editor to allow the blog and news extension to run on their own without the CMS
 * allow page translations. (same contents associated to different languages)
 * add page-parts like refinery
@@ -145,6 +150,11 @@ Other:
 Change Log
 ----------
 
+
+**2011/4/26**
+
+* Modularized CMS
+* probably broke everything.
 
 **2011/4/12**
 
