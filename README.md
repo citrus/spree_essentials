@@ -1,23 +1,23 @@
 Spree Essentials
 ================
 
-Spree Essentials is the base for many content related extensions for Spree.
+Spree Essentials is the base for many content related extensions for Spree. It doesn't do much on it's own ;)
 
 Spree Essentials provides other extensions with:
 
 * An easy markdown editor with ajax preview
-* Image picker for embeding images into markdown editor
+* Image picker for embedding images into markdown editor
 
 Current essential-aware extensions include:
 
 * [spree_essential_cms](https://github.com/citrus/spree_essential_cms): A full featured CMS with pages, contents, images and more
-* [spree_essential_blog](https://github.com/citrus/spree_essential_blog):A blog complete with archives, tags and related products
-* [spree_essential_news](https://github.com/citrus/spree_essential_news):A news system, also complete with archives, tags and related products. (yes it's pretty much the exact same thing as the blog)
-* [spree_essential_press](https://github.com/citrus/spree_essential_press)
+* [spree_essential_blog](https://github.com/citrus/spree_essential_blog): A blog complete with archives, tags and related products
+* [spree_essential_news](https://github.com/citrus/spree_essential_news): A news system, also complete with archives, tags and related products. (yes it's pretty much the exact same thing as the blog)
+* [spree_essential_press](https://github.com/citrus/spree_essential_press): A simple press page for displaying media related content.
 
 
 
-**UNDER DEVELOPMENT BUT NEARING BETA!**
+**UNDER DEVELOPMENT**
 
 
 
