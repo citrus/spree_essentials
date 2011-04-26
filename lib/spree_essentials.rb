@@ -7,14 +7,23 @@ require 'acts-as-taggable-on'
 
 module SpreeEssentials
   
-  # Stores an essential-aware extension for use later
-  def self.register(extension)
-    essentials << extension
-  end
+  class << self
   
-  # Returns the array of essential-aware extensions
-  def self.essentials
-    @essentials ||= []
+    # Stores an essential-aware extension for use later
+    def register(key, extension)
+      essentials[:key] = extension
+    end
+        
+    # Looks up an extension name 
+    def has?(essential)
+      essentials.keys.include?(essential.to_sym)
+    end
+    
+    # Returns the array of essential-aware extensions
+    def essentials
+      @essentials ||= {}
+    end
+    
   end
   
   class Engine < Rails::Engine

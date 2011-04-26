@@ -57,6 +57,40 @@ Now login to the admin and click on the 'Content' tab!
 
 
 
+Essential Awareness
+-------------------
+
+Spree Essentials is designed to allow other extensions to reside under it's global 'Content' tab in the admin. [SpreeEssentialPress](https://github.com/citrus/spree_essential_press) is the first of many extensions that can run with or without spree_essentials installed.
+
+Setting up an essential aware extension is easy. In your `lib/[extension_name].rb` file, add something like this:
+
+
+    module SpreeEssentialPress
+      
+      def self.tab
+        [:press, { :route => :admin_press_index }]
+      end
+      
+      def self.sub_tab
+        [:press, { :route => :admin_press_index, :label => 'admin.subnav.press', :match_path => '/press' }]
+      end
+      
+      def self.independent?
+        return true unless defined?(SpreeEssentials)
+        !SpreeEssentials.has?(:press)
+      end
+    
+    end
+    
+    if SpreeEssentialPress.independent?
+      require 'spree_essential_press/custom_hooks'
+    else 
+      SpreeEssentials.register :press, SpreeEssentialPress 
+    end
+
+
+
+
 Notes
 -----
 
@@ -82,6 +116,8 @@ The test suite is very limited at the moment but can be run like so:
 To Do
 -----
 
+* modularize the cms into SpreeEssentialCms
+* modularize the markdown editor to allow the blog and news extension to run on their own without the CMS
 * allow page translations. (same contents associated to different languages)
 * add page-parts like refinery
 * add better homepage admin and front-end
@@ -99,7 +135,6 @@ Ideas
 
 Develop other extensions to be 'essential-aware':
 
-* Content related extensions (galleries/news/testimonials/etc) would reside in their own tab or under the 'Content' tab if it exists.
 * Direct integration: When composing a message with [spree_mail](https://github.com/citrus/spree_mail), you'd have the same uploads helper and a helper for recent posts. 
 
 Other:
@@ -110,6 +145,7 @@ Other:
 
 Change Log
 ----------
+
 
 **2011/4/12**
 

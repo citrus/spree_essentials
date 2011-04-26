@@ -3,13 +3,9 @@ class PagesController < ApplicationController
   before_filter :get_page, :only => :show
   
   def show
-  
-  
-    puts @page.inspect
-  
     if @page.root?
-      @posts = Post.live.limit(5) if defined?(SpreeEssentialBlog)
-      @articles = Article.live.limit(5) if defined?(SpreeEssentialNews)
+      @posts    = Post.live.limit(5) if SpreeEssentials.has?(:blog)
+      @articles = Article.live.limit(5) if SpreeEssentials.has?(:news)
       render :template => 'pages/home'
     end
   end
