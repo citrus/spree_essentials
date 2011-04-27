@@ -1,9 +1,6 @@
 require 'spree_core'
 require 'spree_auth'
-
 require 'rdiscount'
-require 'meta_search' 
-require 'acts-as-taggable-on'
 
 module SpreeEssentials
   
