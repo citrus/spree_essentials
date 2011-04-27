@@ -1,8 +1,10 @@
 class Upload < Asset
   
+  default_scope where(:type => "Upload")
+  
   validate :no_attachement_errors
   
-  # Check for spree_heroku by Pavel Kotlyar (paxer)
+  # Check for spree_heroku
   #   https://github.com/paxer/spree-heroku
   #
   if defined?(SpreeHeroku)
@@ -19,10 +21,7 @@ class Upload < Asset
       :url => "/assets/uploads/:id/:style/:basename.:extension",
       :path => ":rails_root/public/assets/uploads/:id/:style/:basename.:extension"
   end
-                   
-  default_scope where(:type => "Upload")
-     
-     
+  
   def image_content?
     attachment_content_type.match(/\/(jpeg|png|gif|tiff|x-photoshop)/)
   end
@@ -36,7 +35,7 @@ class Upload < Asset
   end
   
   def no_attachement_errors
-    unless attachment.errors.empty?
+    if attachment_file_name.blank? || !attachment.errors.empty?
       # uncomment this to get rid of the less-than-useful interrim messages
       errors.clear
       errors.add :attachment, "Paperclip returned errors for file '#{attachment_file_name}' - check ImageMagick installation or image source file."

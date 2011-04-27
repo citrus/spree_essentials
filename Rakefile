@@ -38,5 +38,3 @@ Rake::RDocTask.new(:rdoc) do |rdoc|
   rdoc.rdoc_files.include('README.rdoc')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
-
-# rake spree_core:install spree_auth:install db:migrate db:admin:create
