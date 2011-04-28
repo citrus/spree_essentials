@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Spencer Steffen"]
   s.email       = ["spencer@citrusme.com"]
   s.homepage    = "http://github.com/citrus/spree_essentials"
-  s.summary     = %q{Spree Essentials add a cms and blog to your spree site.}
-  s.description = %q{Spree Essentials .....}
+  s.summary     = %q{Spree Essentials provides a base for several other Spree Commerce extensions. See readme for details...}
+  s.description = %q{Spree Essentials provides a base for several other Spree Commerce extensions. The idea is to provide other extensions with common functionality such as an asset-upload interface, a markdown editor, and a common admin-navigation tab.}
 
   s.files        = Dir['CHANGELOG', 'README.md', 'LICENSE', 'config/**/*', 'lib/**/*', 'app/**/*', 'db/**/*', 'public/**/*', 'Rakefile']
   s.test_files   = Dir['test']
