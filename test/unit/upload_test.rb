@@ -8,8 +8,7 @@ class UploadTest < Test::Unit::TestCase
     @pngs = Dir["test/dummy/public/images/*.png"]
     @gifs = Dir["test/dummy/public/images/*.gif"]
   end
-  
-  
+    
   should "validate attachment" do
     upload = Upload.new
     assert !upload.valid?
@@ -27,7 +26,6 @@ class UploadTest < Test::Unit::TestCase
   context "with an existing upload" do 
     
     setup do
-      
       @jpg = Upload.create(:alt => "jpg", :attachment => File.open(File.expand_path(@jpgs.shuffle.first)))
       @png = Upload.create(:alt => "png", :attachment => File.open(File.expand_path(@pngs.shuffle.first)))
       @gif = Upload.create(:alt => "gif", :attachment => File.open(File.expand_path(@gifs.shuffle.first)))
@@ -49,6 +47,5 @@ class UploadTest < Test::Unit::TestCase
     end
     
   end
-  
     
 end
