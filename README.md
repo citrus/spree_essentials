@@ -34,7 +34,7 @@ Spree Essentials hasn't been released to rubygems so you'll have to install it f
   
     gem 'spree_essential_cms', :git => 'git://github.com/citrus/spree_essential_cms.git'
     gem 'spree_essential_blog', :git => 'git://github.com/citrus/spree_essential_blog.git'
-    ... # others
+    
   
     
 Then run:
@@ -44,13 +44,19 @@ Then run:
 
 Once that's complete, run the migration generator and migrate your database:
 
-    # to see your available generators run
+To see your available generators run
+ 
     rails g
-        
+ 
+    
+Now run the generators for extensions you wish to install    
+ 
     rails g spree_essentials:install
     rails g spree_essentials:cms
     rails g spree_essentials:blog
-    ... # others
+ 
+    
+Then migrate your database:
     rake db:migrate
 
 
@@ -116,34 +122,25 @@ The test suite is very limited at the moment but can be run like so:
     rake db:test_prep
     rake
     
+    
+You can also boot spork to run the tests much faster
+
+    # in one window
+    cd spree_essentials
+    spork
+    
+    # in another window
+    testdrb test/**/*_test.rb
+    
+    
 
 
 To Do
 -----
 
-* modularize the markdown editor to allow the blog and news extension to run on their own without the CMS
-* allow page translations. (same contents associated to different languages)
-* add page-parts like refinery
-* add better homepage admin and front-end
-* add widgets that you can drop into any page
-* page and menu caching/sweeping
-* more tests... many many more.
-* nested set for pages
-* 0.30 and 0.40 compatibility
-* create wiki pages
+* more tests
+* better documentation
 
-
-
-Ideas
------
-
-Develop other extensions to be 'essential-aware':
-
-* Direct integration: When composing a message with [spree_mail](https://github.com/citrus/spree_mail), you'd have the same uploads helper and a helper for recent posts. 
-
-Other:
-
-* A 'create translation' button that clones the current page's contents into another language
 
 
 
@@ -153,8 +150,7 @@ Change Log
 
 **2011/4/26**
 
-* Modularized CMS
-* probably broke everything.
+* Modularized CMS. It can now be found [here](https://github.com/citrus/spree_essential_cms)
 
 **2011/4/12**
 
