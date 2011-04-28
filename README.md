@@ -24,7 +24,7 @@ Current essential-aware extensions include:
 Installation
 ------------
 
-If you don't already have an existing Spree site, [click here](http://spreecommerce.com/documentation/getting_started.html) then come back later...
+If you don't already have an existing Spree site, [click here](https://gist.github.com/946719) then come back later... You can also read the Spree docs [here](http://spreecommerce.com/documentation/getting_started.html)...
 
 Spree Essentials hasn't been released to rubygems so you'll have to install it from the source. Just add the following to your Gemfile:
 
