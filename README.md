@@ -5,8 +5,10 @@ Spree Essentials is the base for many content related extensions for Spree. It d
 
 Spree Essentials provides other extensions with:
 
+* An asset-upload interface
 * An easy markdown editor with ajax preview
-* Image picker for embedding images into markdown editor
+* Image picker for embedding uploaded images into markdown editor
+* A common navigation tab ("Content")
 
 Current essential-aware extensions include:
 
@@ -17,7 +19,7 @@ Current essential-aware extensions include:
 
 
 
-**ALL OF THESE UNDER DEVELOPMENT**
+**UNDER DEVELOPMENT**
 
 
 

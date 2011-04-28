@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Spencer Steffen"]
   s.email       = ["spencer@citrusme.com"]
-  s.homepage    = "http://github.com/citrus/spree_essentials"
+  s.homepage    = "https://github.com/citrus/spree_essentials"
   s.summary     = %q{Spree Essentials provides a base for several other Spree Commerce extensions. See readme for details...}
   s.description = %q{Spree Essentials provides a base for several other Spree Commerce extensions. The idea is to provide other extensions with common functionality such as an asset-upload interface, a markdown editor, and a common admin-navigation tab.}
 
