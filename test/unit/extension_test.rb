@@ -30,6 +30,10 @@ class ExtensionTest < Test::Unit::TestCase
     SpreeEssentials.register :something, SpreeEssentialSomething
     assert_equal 1, SpreeEssentials.essentials.length
   end
+  
+  
+  # need to write tests that verify the tab and subnav render correctly...
+  
           
 end
 
