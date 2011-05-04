@@ -8,7 +8,7 @@ module SpreeEssentials
   
     # Stores an essential-aware extension for use later
     def register(key, extension)
-      essentials[:key] = extension
+      essentials[key] = extension
     end
         
     # Looks up an extension name 
