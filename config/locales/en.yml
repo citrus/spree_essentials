@@ -2,8 +2,7 @@ en:
 
   successfully_created: Successfully created
   successfully_updated: Successfully updated
-  successfully_destroyed: Successfully destroyed
-
+  successfully_removed: Successfully removed
   essentials:
     parsed_with: Parsed With
 
