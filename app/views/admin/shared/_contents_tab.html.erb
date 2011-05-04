@@ -1,2 +1,2 @@
-<%= tab *[:pages, :contents, SpreeEssentials.essentials.map{|cls| cls.tab if defined?(cls.tab) }, :uploads, { :label => '.content' }].flatten %>
+<%= tab *[:pages, :contents, SpreeEssentials.essentials.map{|key, cls| cls.tab if defined?(cls.tab) }, :uploads, { :label => '.content' }].flatten %>
 
