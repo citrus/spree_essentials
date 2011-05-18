@@ -5,7 +5,4 @@
 .DS_Store
 Gemfile.lock
 pkg/*
-
-test/dummy/log
-test/dummy/public/assets
-test/dummy/tmp
+test/dummy

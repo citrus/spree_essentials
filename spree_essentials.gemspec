@@ -31,5 +31,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency('faker',              '>= 0.9.5')
   s.add_development_dependency('spork',              '>= 0.9.0.rc5')
   s.add_development_dependency('spork-testunit',     '>= 0.0.5')
+	s.add_development_dependency('dummier',            '>= 0.1.0.rc1')
   
 end
