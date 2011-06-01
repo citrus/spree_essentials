@@ -18,14 +18,4 @@ Rake::TestTask.new(:test) do |t|
   t.verbose = false
 end
 
-namespace :db do
-  desc "preps the test database"
-  task :test_prep do
-    dir = File.expand_path("../test/dummy/db", __FILE__)
-    db  = File.join(dir, "test.sqlite3")
-    File.delete(db) if File.exists?(db)
-    system("cd test/dummy; rake db:migrate RAILS_ENV=test")
-  end
-end
-
 task :default => :test
