@@ -163,6 +163,11 @@ To Do
 Change Log
 ----------
 
+**2011/6/1**
+
+* added [dummier](https://github.com/citrus/dummier)
+* Removed some remaining CMS bits
+
 
 **2011/4/26**
 

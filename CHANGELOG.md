@@ -1,3 +1,9 @@
+**2011/6/1**
+
+* added [dummier](https://github.com/citrus/dummier)
+* Removed some remaining CMS bits
+
+
 **2011/4/26**
 
 * Modularized CMS. It can now be found [here](https://github.com/citrus/spree_essential_cms)
