@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.summary     = %q{Spree Essentials provides a base for several other Spree Commerce extensions. See readme for details...}
   s.description = %q{Spree Essentials provides a base for several other Spree Commerce extensions. The idea is to provide other extensions with common functionality such as an asset-upload interface, a markdown editor, and a common admin-navigation tab.}
 
-  s.files        = Dir['CHANGELOG', 'README.md', 'LICENSE', 'config/**/*', 'lib/**/*', 'app/**/*', 'db/**/*', 'public/**/*', 'Rakefile']
+  s.files        = Dir['CHANGELOG.md', 'README.md', 'LICENSE', 'config/**/*', 'lib/**/*', 'app/**/*', 'db/**/*', 'public/**/*', 'Rakefile']
   s.test_files   = Dir['test']
   
   s.require_paths = ["lib"]
@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
   
   # Development
 	s.add_development_dependency('shoulda',            '>= 2.11.3')
+	s.add_development_dependency('dummier',            '>= 0.1.1')
 	s.add_development_dependency('factory_girl',       '>= 2.0.0.beta2')
 	s.add_development_dependency('cucumber',           '>= 0.10.2')
 	s.add_development_dependency('capybara',           '>= 0.4.1')
@@ -31,6 +32,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency('faker',              '>= 0.9.5')
   s.add_development_dependency('spork',              '>= 0.9.0.rc5')
   s.add_development_dependency('spork-testunit',     '>= 0.0.5')
-	s.add_development_dependency('dummier',            '>= 0.1.0.rc1')
   
 end

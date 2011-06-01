@@ -121,7 +121,7 @@ The test suite is very limited at the moment but can be run like so:
     git clone git://github.com/citrus/spree_essentials.git
     cd spree_essentials
     bundle install
-    rake db:test_prep
+    bundle exec dummier
     rake
     
     
@@ -135,7 +135,21 @@ You can also boot spork to run the tests much faster
     testdrb test/**/*_test.rb
     
     
+Demo
+----
 
+You can easily use the test/dummy app as a demo of spree_essentials. Just `cd` to where you develop and run:
+    
+    git clone git://github.com/citrus/spree_essentials.git
+    cd spree_essentials
+    mv lib/dummy_hooks/after_migrate.rb.sample lib/dummy_hooks/after_migrate.rb
+    bundle install
+    bundle exec dummier
+    cd test/dummy
+    rails s
+    
+    
+    
 
 To Do
 -----

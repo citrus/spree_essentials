@@ -1,7 +1,6 @@
 <% content_for :sub_menu do %>
   <ul id="sub_nav">
     <%= hook :admin_contents_sub_tabs do %>
-      <%= tab :pages,   :label => 'admin.subnav.pages',  :match_path => '/pages' %>
       <% SpreeEssentials.essentials.each_pair do |name, cls| %>
         <%= tab *cls.sub_tab if defined?(cls.sub_tab) %>
       <% end %>
