@@ -1,5 +1,6 @@
 require 'spree_core'
-require 'spree_auth'
+#require 'spree_auth'
+require 'meta_search'
 require 'rdiscount'
 
 module SpreeEssentials

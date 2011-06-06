@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
 
   # Spree
   s.add_dependency('spree_core', '>= 0.30.0')
-  s.add_dependency('spree_auth', '>= 0.30.0')
+  s.add_dependency('meta_search','>= 1.0.1')
   s.add_dependency('rdiscount',  '>= 1.6.8')
   
   # Development
@@ -29,7 +29,7 @@ Gem::Specification.new do |s|
 	s.add_development_dependency('capybara',           '>= 0.4.1')
 	s.add_development_dependency('selenium-webdriver', '>= 0.1.3')
   s.add_development_dependency('sqlite3',            '>= 1.3.3')
-  s.add_development_dependency('faker',              '>= 0.9.5')
+  s.add_development_dependency('faker',              '>= 0.9.4')
   s.add_development_dependency('spork',              '>= 0.9.0.rc8')
   s.add_development_dependency('spork-testunit',     '>= 0.0.5')
   
