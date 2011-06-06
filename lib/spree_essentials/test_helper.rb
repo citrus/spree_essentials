@@ -45,4 +45,9 @@ class ActiveSupport::IntegrationCase < ActiveSupport::TestCase
     assert_seen title, :within => "head title"
   end
 
+  def assert_meta(tag, text)
+    tag = find(:xpath, "//head/meta[@name='#{tag.to_s}']")
+    assert_equal text, tag.native.attribute("content")
+  end
+    
 end
