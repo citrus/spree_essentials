@@ -1,5 +1,4 @@
 require 'spree_core'
-#require 'spree_auth'
 require 'meta_search'
 require 'rdiscount'
 

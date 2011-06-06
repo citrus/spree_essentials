@@ -14,8 +14,5 @@ Rails.backtrace_cleaner.remove_silencers!
 require "capybara/rails"
 require "selenium/webdriver"
 
-Capybara.default_driver = :selenium
-
-class ActionController::TestCase
-  include Devise::TestHelpers
-end
+Capybara.default_driver   = :selenium
+Capybara.default_selector = :css
