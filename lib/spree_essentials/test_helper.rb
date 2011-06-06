@@ -24,7 +24,7 @@ class ActiveSupport::IntegrationCase < ActiveSupport::TestCase
   include Rails.application.routes.url_helpers
   
   self.use_transactional_fixtures = false
-  
+   
   def assert_seen(text, opts={})
     if opts[:within]
       within(opts[:within]) do
@@ -39,6 +39,10 @@ class ActiveSupport::IntegrationCase < ActiveSupport::TestCase
     within(".flash.#{key}") do
       assert_seen(text)
     end
+  end
+  
+  def assert_title(title)
+    assert_seen title, :within => "head title"
   end
 
 end
