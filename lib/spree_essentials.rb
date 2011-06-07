@@ -32,21 +32,16 @@ module SpreeEssentials
     end
         
     def self.activate
-      
       Dir.glob(File.join(File.dirname(__FILE__), "../app/**/*_decorator.rb")) do |c|
         Rails.env.production? ? require(c) : load(c)
       end
-      
     end
 
-    config.to_prepare &method(:activate).to_proc
-    
+    config.to_prepare &method(:activate).to_proc    
   end
   
   class CustomHooks < Spree::ThemeSupport::HookListener
-    
     insert_after :admin_tabs, 'admin/shared/contents_tab'
-
   end
   
 end

@@ -9,6 +9,7 @@ Spree Essentials provides other extensions with:
 * An easy markdown editor with ajax preview
 * Image picker for embedding uploaded images into markdown editor
 * A common navigation tab ("Content")
+* A shared `test_helper.rb`
 
 Current essential-aware extensions include:
 
@@ -162,6 +163,13 @@ To Do
 
 Change Log
 ----------
+
+**2011/6/6**
+
+* Removed `spree_auth` requirement
+* Added a few test helpers
+* Updated readme
+
 
 **2011/6/1**
 

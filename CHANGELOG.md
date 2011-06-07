@@ -1,3 +1,10 @@
+**2011/6/6**
+
+* Removed `spree_auth` requirement
+* Added a few test helpers
+* Updated readme
+
+
 **2011/6/1**
 
 * added [dummier](https://github.com/citrus/dummier)
