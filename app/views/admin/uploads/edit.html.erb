@@ -1,16 +1,18 @@
 <%= render :partial => 'admin/shared/contents_sub_menu' %>
 
+<h1><%= t('.edit_upload') %></h1>
+
 <% if @upload.try(:errors).present? %>
   <%= render 'shared/error_messages', :target => @upload %>
 <% end %>
 
-<% form_for([:admin, @upload], :url => admin_upload_url(@upload), :html => { :multipart => true }) do |f| %>
+<%= form_for([:admin, @upload], :html => { :multipart => true }) do |f| %>
     <p>
       <% if @upload.image_content? %>
-        <%= label_tag('thumbnail') %>:<br/>
-        <%= link_to image_tag(@upload.attachment.url(:mini)), @upload.attachment.url(:product) %>
+        <b><%= t('.preview') %>:</b><br/>
+        <%= link_to image_tag(@upload.attachment.url(:small)), @upload.attachment.url(:original) %>
       <% else %>
-        <%= label_tag('link') %>:<br/>
+        <b><%= t('.link') %>:</b><br/>
         <%= link_to @upload.attachment_file_name, @upload.attachment.url %>
       <% end %>
     </p>

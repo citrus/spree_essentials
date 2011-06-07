@@ -74,5 +74,10 @@ en:
     uploads:
       new:
         new_upload: New Upload
+      edit:
+        edit_upload: Edit Upload
+        preview: Preview
+        link: Link
       index:
+        listing_uploads: Listing Uploads
         new_upload: Upload a file
