@@ -1,8 +1,9 @@
 en:
 
-  successfully_created: Successfully created
-  successfully_updated: Successfully updated
-  successfully_removed: Successfully removed
+  successfully_created: "%{resource} has been successfully created!"
+  successfully_removed: "%{resource} has been successfully removed!"
+  successfully_updated: "%{resource} has been successfully updated!"
+  
   essentials:
     parsed_with: Parsed With
 
