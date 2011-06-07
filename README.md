@@ -158,9 +158,16 @@ To Do
 
 
 
-
 Change Log
 ----------
+
+**0.1.1 - 2011/6/7**
+
+* Released 0.1.1
+* Updated resource_controller.rb to Spree 0.60.0's and added `translated_object_name` method. ([pull request #419](https://github.com/spree/spree/pull/419) on Spree)
+* Added upload integration test
+* Cleaned up en.yml
+
 
 **2011/6/6**
 
@@ -169,15 +176,16 @@ Change Log
 * Updated readme
 
 
-**2011/6/1**
+**0.1.0 2011/6/1**
 
-* added [dummier](https://github.com/citrus/dummier)
+* Added [dummier](https://github.com/citrus/dummier)
 * Removed some remaining CMS bits
 
 
 **2011/4/26**
 
 * Modularized CMS. It can now be found [here](https://github.com/citrus/spree_essential_cms)
+
 
 **2011/4/12**
 
