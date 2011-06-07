@@ -11,13 +11,17 @@ en:
     errors:
       messages:
         invalid_date_time: is an invalid date.
-        
+           
   upload:
     model_name: Upload
     file_name: File Name
     size: Size
   
   admin:
+    shared:
+      contents_tab:
+        content: Content
+      
     subnav:
       uploads: Uploads      
                 
