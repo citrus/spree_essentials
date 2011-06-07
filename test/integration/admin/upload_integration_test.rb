@@ -50,7 +50,7 @@ class AdminUploadIntegrationTest < ActiveSupport::IntegrationCase
         assert has_selector?("a[href='#']")
       end
     end
-  
+    
     should "edit the upload" do
       visit edit_admin_upload_path(@upload)
       assert_seen "Preview", :within => ".edit_upload p b"
@@ -60,6 +60,12 @@ class AdminUploadIntegrationTest < ActiveSupport::IntegrationCase
       click_button "Update"
       assert_equal admin_uploads_path, current_path
       assert_flash :notice, "Successfully updated"  
+    end
+  
+    should "destroy the upload" do
+      visit admin_uploads_path
+      find("a[href='#']").click
+      find_by_id("popup_ok").click              
     end
     
   end
