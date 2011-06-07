@@ -33,7 +33,7 @@ class AdminUploadIntegrationTest < ActiveSupport::IntegrationCase
     fill_in "Description", :with => "Just an rss image"
     click_button "Create"
     assert_equal admin_uploads_path, current_path
-    assert_flash :notice, "Successfully created"
+    assert_flash :notice, "Upload has been successfully created!"
   end
   
   context "with an existing upload" do
@@ -59,7 +59,7 @@ class AdminUploadIntegrationTest < ActiveSupport::IntegrationCase
       fill_in "Description", :with => "Just another image"
       click_button "Update"
       assert_equal admin_uploads_path, current_path
-      assert_flash :notice, "Successfully updated"  
+      assert_flash :notice, "Upload has been successfully updated!"
     end
   
     should "destroy the upload" do
