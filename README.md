@@ -14,13 +14,9 @@ Spree Essentials provides other extensions with:
 Current essential-aware extensions include:
 
 * [spree_essential_cms](https://github.com/citrus/spree_essential_cms): A full featured CMS with pages, contents, images and more
-* [spree_essential_blog](https://github.com/citrus/spree_essential_blog): A blog complete with archives, tags and related products
+* [spree_essential_blog](https://github.com/citrus/spree_essential_blog): A blog complete with archives, categories, tags and related products
 * [spree_essential_news](https://github.com/citrus/spree_essential_news): A news system, also complete with archives, tags and related products. (yes it's pretty much the exact same thing as the blog)
 * [spree_essential_press](https://github.com/citrus/spree_essential_press): A simple press page for displaying media related content.
-
-
-
-**UNDER DEVELOPMENT**
 
 
 
@@ -98,8 +94,10 @@ Setting up an essential aware extension is easy. In your `lib/[extension_name].r
     end
     
     if SpreeEssentialPress.independent?
+      # your own admin tab would be here
       require 'spree_essential_press/custom_hooks'
     else 
+      # register with Spree Essentials and reside under the "Content" tab
       SpreeEssentials.register :press, SpreeEssentialPress 
     end
 
@@ -109,9 +107,9 @@ Setting up an essential aware extension is easy. In your `lib/[extension_name].r
 Notes
 -----
 
-As I mentioned before, spree_essentials is still being developed... Development is being done on OSX with Ruby 1.9.2 and Spree 0.50.2.
+Spree Essentials is under constant development... Development is being done on OSX with Ruby 1.9.2 and usually the latest version of Spree. (currently 0.60.0)
 
-Please let me know of any bugs you find or feature requests you'd like to see. 
+Please let me know if you find any bugs or have feature requests you'd like to see. 
 
 
 Testing
@@ -125,7 +123,7 @@ The test suite is very limited at the moment but can be run like so:
     bundle exec dummier
     rake
     
-    
+
 You can also boot spork to run the tests much faster
 
     # in one window
