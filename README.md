@@ -161,6 +161,23 @@ To Do
 Change Log
 ----------
 
+**0.1.4 - 2011/6/9**
+
+* Added faker.lorem.words to en.yml to prevent NoMethodError in integration tests
+
+
+**0.1.3 - 2011/6/8**
+
+* Added test in teardown to check for missing translations
+* Removed some old bits of CMS code
+
+
+**0.1.2 - 2011/6/7**
+
+* Added missing translation
+* Cleanup
+
+
 **0.1.1 - 2011/6/7**
 
 * Released 0.1.1
