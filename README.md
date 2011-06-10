@@ -161,8 +161,10 @@ To Do
 Change Log
 ----------
 
-**0.1.4 - 2011/6/9**
+**0.1.4 - 2011/6/10**
 
+* Removed console.log from jquery.autodate.js
+* Updated resource controller with better flash message handling
 * Added faker.lorem.words to en.yml to prevent NoMethodError in integration tests
 
 
