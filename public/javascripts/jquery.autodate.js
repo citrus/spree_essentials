@@ -43,8 +43,6 @@
   		}
   		function parseDate() {
   		  var val = (input.val() || "").replace(/the|of|in|on/gi, '')
-  		  console.log(val);
-  		  console.log(Date.parse(val))
         return date = Date.parse(val);
   		}
   		function updateDisplay() {
