@@ -6,6 +6,12 @@ class Admin::ResourceController < Admin::BaseController
   respond_to :html
   respond_to :js, :except => [:show, :index]
 
+  def flash_message_for(object, event_sym)
+    resource_desc  = object.class.model_name.human
+    resource_desc += " \"#{object.name}\"" if object.respond_to?(:name)
+    I18n.t(event_sym, :resource => resource_desc)  
+  end
+  
   def new
     respond_with(@object) do |format|
       format.html { render :layout => !request.xhr? }
@@ -24,9 +30,7 @@ class Admin::ResourceController < Admin::BaseController
     invoke_callbacks(:update, :before)
     if @object.update_attributes(params[object_name])
       invoke_callbacks(:update, :after)
-      resource_desc = translated_object_name
-      resource_desc += " \"#{@object.name}\"" if @object.respond_to?(:name)
-      flash[:notice] = I18n.t(:successfully_updated, :resource => resource_desc)
+      flash[:notice] = flash_message_for(@object, :successfully_updated)
       respond_with(@object) do |format|
         format.html { redirect_to location_after_save }
         format.js   { render :layout => false }
@@ -41,9 +45,7 @@ class Admin::ResourceController < Admin::BaseController
     invoke_callbacks(:create, :before)
     if @object.save
       invoke_callbacks(:create, :after)
-      resource_desc = translated_object_name
-      resource_desc += " \"#{@object.name}\"" if @object.respond_to?(:name)
-      flash[:notice] = I18n.t(:successfully_created, :resource => resource_desc)
+      flash[:notice] = flash_message_for(@object, :successfully_created)
       respond_with(@object) do |format|
         format.html { redirect_to location_after_save }
         format.js   { render :layout => false }
@@ -58,9 +60,7 @@ class Admin::ResourceController < Admin::BaseController
     invoke_callbacks(:destroy, :before)
     if @object.destroy
       invoke_callbacks(:destroy, :after)
-      resource_desc = translated_object_name
-      resource_desc += " \"#{@object.name}\"" if @object.respond_to?(:name)
-      flash[:notice] = I18n.t(:successfully_removed, :resource => resource_desc)
+      flash[:notice] = flash_message_for(@object, :successfully_removed)
       respond_with(@object) do |format|
         format.html { redirect_to collection_url }
         format.js   { render :partial => "/admin/shared/destroy" }
@@ -104,10 +104,6 @@ class Admin::ResourceController < Admin::BaseController
 
   def model_class
     controller_name.classify.constantize
-  end
-
-  def translated_object_name
-    I18n.t(object_name)
   end
 
   def object_name
