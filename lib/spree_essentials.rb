@@ -1,5 +1,4 @@
 require 'spree_core'
-require 'meta_search'
 require 'rdiscount'
 
 module SpreeEssentials
