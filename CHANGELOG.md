@@ -1,6 +1,13 @@
 Change Log
 ----------
 
+**0.2.0 - 2011/7/14**
+
+* Depend on Spree 0.60.x and above
+* Remove spree_auth dependency
+* Removed `app/controllers/admin/resource_controller.rb` in favor of the Spree Default one
+* Updated development gems to most recent versions
+
 **0.1.4 - 2011/6/10**
 
 * Removed console.log from jquery.autodate.js

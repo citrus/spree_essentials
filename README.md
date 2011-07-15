@@ -25,15 +25,14 @@ Installation
 
 If you don't already have an existing Spree site, [click here](https://gist.github.com/946719) then come back later... You can also read the Spree docs [here](http://spreecommerce.com/documentation/getting_started.html)...
 
-Spree Essentials hasn't been released to rubygems so you'll have to install it from the source. Just add the following to your Gemfile:
+Spree Essentials can be installed by itself by adding the following to your Gemfile:
 
-    gem 'spree_essentials', :git => 'git://github.com/citrus/spree_essentials.git'
+    gem 'spree_essentials', '0.2.0'
   
-    # Add any of the extensions you wish to use
+This isn't necessary if you're using spree_essentials based extensions. If that's the case, just include the extensions normally:
   
     gem 'spree_essential_cms', :git => 'git://github.com/citrus/spree_essential_cms.git'
     gem 'spree_essential_blog', :git => 'git://github.com/citrus/spree_essential_blog.git'
-    
   
     
 Then run:
@@ -160,6 +159,14 @@ To Do
 
 Change Log
 ----------
+
+**0.2.0 - 2011/7/14**
+
+* Depend on Spree 0.60.x and above
+* Remove spree_auth dependency
+* Removed `app/controllers/admin/resource_controller.rb` in favor of the Spree Default one
+* Updated development gems to most recent versions
+
 
 **0.1.4 - 2011/6/10**
 
