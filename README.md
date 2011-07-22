@@ -27,7 +27,7 @@ If you don't already have an existing Spree site, [click here](https://gist.gith
 
 Spree Essentials can be installed by itself by adding the following to your Gemfile:
 
-    gem 'spree_essentials', '>= 0.2.1'
+    gem 'spree_essentials', '>= 0.2.2'
   
 This isn't necessary if you're using spree_essentials based extensions. If that's the case, just include the extensions normally:
   
@@ -160,9 +160,14 @@ To Do
 Change Log
 ----------
 
+**0.2.2 - 2011/7/22**
+
+* Moved pagination above new image form
+
+
 **0.2.1 - 2011/7/22**
 
-* Added pagination to admin/uploads ... oops!
+* Added pagination to admin/uploads
 
 
 **0.2.0 - 2011/7/14**

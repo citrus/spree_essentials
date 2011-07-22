@@ -1,6 +1,11 @@
 Change Log
 ----------
 
+**0.2.2 - 2011/7/22**
+
+* Moved pagination above new image form
+
+
 **0.2.1 - 2011/7/22**
 
 * Added pagination to admin/uploads ... oops!
