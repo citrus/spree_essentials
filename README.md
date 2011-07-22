@@ -160,6 +160,11 @@ To Do
 Change Log
 ----------
 
+**0.2.1 - 2011/7/22**
+
+* Added pagination to admin/uploads ... oops!
+
+
 **0.2.0 - 2011/7/14**
 
 * Depend on Spree 0.60.x and above
@@ -180,57 +185,7 @@ Change Log
 * Added test in teardown to check for missing translations
 * Removed some old bits of CMS code
 
-
-**0.1.2 - 2011/6/7**
-
-* Added missing translation
-* Cleanup
-
-
-**0.1.1 - 2011/6/7**
-
-* Released 0.1.1
-* Updated resource_controller.rb to Spree 0.60.0's and added `translated_object_name` method. ([pull request #419](https://github.com/spree/spree/pull/419) on Spree)
-* Added upload integration test
-* Cleaned up en.yml
-
-
-**2011/6/6**
-
-* Removed `spree_auth` requirement
-* Added a few test helpers
-* Updated readme
-
-
-**0.1.0 2011/6/1**
-
-* Added [dummier](https://github.com/citrus/dummier)
-* Removed some remaining CMS bits
-
-
-**2011/4/26**
-
-* Modularized CMS. It can now be found [here](https://github.com/citrus/spree_essential_cms)
-
-
-**2011/4/12**
-
-* Added content contexts for multiple contents per page
-* Namespaced posts into blog/posts
-* Added `<!-- more -->` tag to posts
-
-
-**2011/4/4**
-
-* Added Page Images and starting to remove resource_controller.
-
-
-**2011/4/3**
-
-* Automatically adds [Heroku](http://heroku.com) support when you include [spree_heroku](https://github.com/paxer/spree-heroku) in your Gemfile. Check the [spree_heroku readme](https://github.com/paxer/spree-heroku#readme) for full installation instructions.
-* Creates default content when you create a new page.
-
-more in `CHANGELOG.md`
+....more in [CHANGELOG.md](https://github.com/citrus/spree_essentials/blob/master/CHANGELOG.md)
 
 
 Contributors
