@@ -27,7 +27,7 @@ If you don't already have an existing Spree site, [click here](https://gist.gith
 
 Spree Essentials can be installed by itself by adding the following to your Gemfile:
 
-    gem 'spree_essentials', '0.2.0'
+    gem 'spree_essentials', '>= 0.2.1'
   
 This isn't necessary if you're using spree_essentials based extensions. If that's the case, just include the extensions normally:
   
