@@ -26,6 +26,21 @@ class AdminUploadIntegrationTest < ActiveSupport::IntegrationCase
     end
   end
   
+  should "paginate the uploads index" do
+    Spree::Config.set(:orders_per_page => 2)
+    img = File.open(@image)
+    3.times { |i|
+      Upload.create(:attachment => img, :alt => "sample #{i + 1}")
+    }  
+    visit admin_uploads_path
+    within ".pagination" do
+      assert has_link?("2")
+      click_link "2"
+    end
+    assert_seen "sample 3", :within => "table.index"
+    assert_match /page\=2/, current_url
+  end
+  
   should "create an upload" do
     visit admin_uploads_path
     click_link "new_image_link"
