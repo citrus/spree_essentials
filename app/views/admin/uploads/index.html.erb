@@ -31,13 +31,13 @@
  
 </table>
 
+<%= will_paginate(:prev => "&#171; #{t('previous')}", :next => "#{t('next')} &#187;") %>
+
 <div id="images"></div>
 <br/>
 <p>
   <%= link_to icon('add') + ' ' + t(".new_upload"), new_admin_upload_url, :id => "new_image_link" %>
 </p>
-
-<%= will_paginate(:prev => "&#171; #{t('previous')}", :next => "#{t('next')} &#187;") %>
 
 <% content_for :head do %>
   <script type="text/javascript">
