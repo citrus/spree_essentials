@@ -7,8 +7,8 @@ class AdminUploadIntegrationTest < ActiveSupport::IntegrationCase
   
   def setup
     Upload.destroy_all
-    @image = File.expand_path("../../../../public/images/blog/rss.png", __FILE__)
-    @image2 = File.expand_path("../../../../public/images/markitup/code.png", __FILE__)
+    @image  = File.expand_path("../../../support/images/1.png", __FILE__)
+    @image2 = File.expand_path("../../../support/images/2.png", __FILE__)
   end
   
   should "have a contents tab" do
@@ -45,7 +45,7 @@ class AdminUploadIntegrationTest < ActiveSupport::IntegrationCase
     visit admin_uploads_path
     click_link "new_image_link"
     attach_file "Attachment", @image
-    fill_in "Description", :with => "Just an rss image"
+    fill_in "Description", :with => "Just an image"
     click_button "Create"
     assert_equal admin_uploads_path, current_path
     assert_flash :notice, "Upload has been successfully created!"
@@ -58,7 +58,7 @@ class AdminUploadIntegrationTest < ActiveSupport::IntegrationCase
   
     should "display the index" do
       visit admin_uploads_path
-      assert has_link?("rss.png", :href => @upload.attachment.url(:original))
+      assert has_link?("1.png", :href => @upload.attachment.url(:original))
       assert_seen "Just an image!", :within => "tr#upload_#{@upload.id}"
       within "td.actions" do
         assert find("a.icon_link").native.attribute("href").include?(edit_admin_upload_path(@upload))

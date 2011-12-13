@@ -4,11 +4,11 @@ class UploadTest < Test::Unit::TestCase
 
   def setup
     Upload.destroy_all
-    @jpgs = Dir["test/dummy/public/images/*.jpg"]
-    @pngs = Dir["test/dummy/public/images/*.png"]
-    @gifs = Dir["test/dummy/public/images/*.gif"]
+    @jpgs = Dir["test/support/images/*.jpg"]
+    @pngs = Dir["test/support/images/*.png"]
+    @gifs = Dir["test/support/images/*.gif"]
   end
-    
+  
   should "validate attachment" do
     upload = Upload.new
     assert !upload.valid?

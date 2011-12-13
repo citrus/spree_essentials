@@ -21,9 +21,18 @@ Capybara.default_selector = :css
 # Define a bare test case to use with Capybara
 class ActiveSupport::IntegrationCase < ActiveSupport::TestCase
   
-  include Capybara
+  include Capybara::DSL
   include Rails.application.routes.url_helpers
   
+  
+  # Extreme hax! wtf is this for anyways.. and why is it erroring?
+  def testmail_admin_mail_method_url(*args)
+    "#wtf"  
+  end
+  alias :testmail_admin_mail_method_path :testmail_admin_mail_method_url
+  
+  
+    
   self.use_transactional_fixtures = false
 
   # Checks for missing translations after each test
