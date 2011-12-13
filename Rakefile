@@ -1,21 +1,17 @@
 # encoding: UTF-8
-require 'rubygems'
-begin
-  require 'bundler/setup'
-rescue LoadError
-  puts 'You must run `gem install bundler` and `bundle install` to run rake tasks'
-end
-
-require 'rake'
+require "bundler/gem_tasks"
 require 'rake/testtask'
 
-Bundler::GemHelper.install_tasks
-
-Rake::TestTask.new(:test) do |t|
-  t.libs << 'lib'
-  t.libs << 'test'
+Rake::TestTask.new do |t|
+  t.libs << 'lib' << 'test'
   t.pattern = 'test/**/*_test.rb'
-  t.verbose = false
+end
+
+desc "Sets display port and runs tests on travis-ci"
+task :travis do
+  puts "Starting to run rake test..."
+  system("export DISPLAY=:99.0 && bundle exec rake test")
+  raise "rake test failed!" unless $?.exitstatus == 0
 end
 
 task :default => :test

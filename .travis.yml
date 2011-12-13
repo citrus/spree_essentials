@@ -6,4 +6,4 @@ rvm:
   - ree
   - jruby
 
-script: "bundle exec dummier && bundle exec rake test"
+script: "bundle exec dummier && bundle exec rake travis"
