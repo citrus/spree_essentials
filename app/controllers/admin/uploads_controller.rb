@@ -14,7 +14,7 @@ class Admin::UploadsController < Admin::ResourceController
       params[:search] ||= {}
       params[:search][:meta_sort] ||= "created_at.desc"
       @search = Upload.metasearch(params[:search])
-      @collection = @search.paginate(:per_page => Spree::Config[:orders_per_page], :page => params[:page])
+      @collection = @search.page(params[:page]).per(Spree::Config[:orders_per_page])
     end
 
 end
