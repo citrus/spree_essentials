@@ -1,10 +1,8 @@
 <% content_for :sub_menu do %>
-  <ul id="sub_nav">
-    <%= hook :admin_contents_sub_tabs do %>
-      <% SpreeEssentials.essentials.each_pair do |name, cls| %>
-        <%= tab *cls.sub_tab if defined?(cls.sub_tab) %>
-      <% end %>
-      <%= tab :uploads, :label => 'admin.subnav.uploads' %>
+  <ul id="sub_nav" data-hook="essentials_sub_nav">
+    <% SpreeEssentials.essentials.each_pair do |name, cls| %>
+      <%= tab *cls.sub_tab if defined?(cls.sub_tab) %>
     <% end %>
+    <%= tab :uploads, :label => 'admin.subnav.uploads' %>
   </ul>
 <% end %>
