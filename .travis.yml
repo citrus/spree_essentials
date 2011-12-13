@@ -1,0 +1,9 @@
+rvm:
+  - 1.8.7
+  - 1.9.2
+  - 1.9.3
+  - rbx
+  - ree
+  - jruby
+
+script: "bundle exec dummier && bundle exec rake test"
