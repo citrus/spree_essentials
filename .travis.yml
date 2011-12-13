@@ -4,6 +4,5 @@ rvm:
   - 1.9.3
   - rbx
   - ree
-  - jruby
 
 script: "bundle exec dummier && bundle exec rake travis"
