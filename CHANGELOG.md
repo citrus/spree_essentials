@@ -1,6 +1,12 @@
 Change Log
 ----------
 
+**0.3.0 - 2011/12/13**
+
+* Upgrade to Spree 0.70.x
+* Remove spork dependency
+
+
 **0.2.2 - 2011/7/22**
 
 * Moved pagination above new image form

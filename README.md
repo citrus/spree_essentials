@@ -27,7 +27,7 @@ If you don't already have an existing Spree site, [click here](https://gist.gith
 
 Spree Essentials can be installed by itself by adding the following to your Gemfile:
 
-    gem 'spree_essentials', '>= 0.2.2'
+    gem 'spree_essentials', '>= 0.3.0'
   
 This isn't necessary if you're using spree_essentials based extensions. If that's the case, just include the extensions normally:
   
@@ -78,7 +78,7 @@ Setting up an essential aware extension is easy. In your `lib/[extension_name].r
     module SpreeEssentialPress
       
       def self.tab
-        [:press, { :route => :admin_press_index }]
+        { :label => "Press", :route => :admin_press_index }
       end
       
       def self.sub_tab
@@ -92,10 +92,7 @@ Setting up an essential aware extension is easy. In your `lib/[extension_name].r
     
     end
     
-    if SpreeEssentialPress.independent?
-      # your own admin tab would be here
-      require 'spree_essential_press/custom_hooks'
-    else 
+    unless SpreeEssentialPress.independent?
       # register with Spree Essentials and reside under the "Content" tab
       SpreeEssentials.register :press, SpreeEssentialPress 
     end
@@ -114,23 +111,13 @@ Please let me know if you find any bugs or have feature requests you'd like to s
 Testing
 -------
 
-The test suite is very limited at the moment but can be run like so:
+The test suite can be run like so:
 
     git clone git://github.com/citrus/spree_essentials.git
     cd spree_essentials
     bundle install
     bundle exec dummier
     rake
-    
-
-You can also boot spork to run the tests much faster
-
-    # in one window
-    cd spree_essentials
-    spork
-    
-    # in another window
-    testdrb test/**/*_test.rb
     
     
 Demo
@@ -159,6 +146,12 @@ To Do
 
 Change Log
 ----------
+
+**0.3.0 - 2011/12/13**
+
+* Upgrade to Spree 0.70.x
+* Remove spork dependency
+
 
 **0.2.2 - 2011/7/22**
 
@@ -205,4 +198,4 @@ If you'd like to help out feel free to fork and send me pull requests!
 License
 -------
 
-Copyright (c) 2011 Spencer Steffen, released under the New BSD License All rights reserved.
+Copyright (c) 2011 Spencer Steffen & Citrus, released under the New BSD License All rights reserved.
