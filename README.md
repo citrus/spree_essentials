@@ -1,5 +1,5 @@
-Spree Essentials
-================
+# Spree Essentials [![Build Status](https://secure.travis-ci.org/citrus/spree_essentials.png)](http://travis-ci.org/citrus/spree_essentials)
+
 
 Spree Essentials is the base for many content related extensions for Spree. It doesn't do much on it's own ;)
 
