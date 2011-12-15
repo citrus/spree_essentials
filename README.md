@@ -27,7 +27,7 @@ If you don't already have an existing Spree site, [click here](https://gist.gith
 
 Spree Essentials can be installed by itself by adding the following to your Gemfile:
 
-    gem 'spree_essentials', '>= 0.3.0'
+    gem 'spree_essentials', '>= 0.3.1""
   
 This isn't necessary if you're using spree_essentials based extensions. If that's the case, just include the extensions normally:
   
@@ -146,6 +146,12 @@ To Do
 
 Change Log
 ----------
+
+**0.3.1 - 2011/12/13**
+
+* Fix broken markitup editor
+* Rework 'selected' class on content tab 
+
 
 **0.3.0 - 2011/12/13**
 
