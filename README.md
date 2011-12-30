@@ -27,13 +27,13 @@ If you don't already have an existing Spree site, [click here](https://gist.gith
 
 Spree Essentials can be installed by itself by adding the following to your Gemfile:
 
-    gem 'spree_essentials', '>= 0.3.1""
+    gem 'spree_essentials', '>= 0.3.2'
   
 This isn't necessary if you're using spree_essentials based extensions. If that's the case, just include the extensions normally:
   
-    gem 'spree_essential_cms', :git => 'git://github.com/citrus/spree_essential_cms.git'
-    gem 'spree_essential_blog', :git => 'git://github.com/citrus/spree_essential_blog.git'
-  
+    gem 'spree_essential_cms'
+    gem 'spree_essential_blog'
+
     
 Then run:
     
@@ -103,7 +103,7 @@ Setting up an essential aware extension is easy. In your `lib/[extension_name].r
 Notes
 -----
 
-Spree Essentials is under constant development... Development is being done on OSX with Ruby 1.9.2 and usually the latest version of Spree. (currently 0.60.0)
+Spree Essentials is under constant development... Development is being done on OSX with Ruby 1.9.2 and usually the latest version of Spree. (currently 0.70.0)
 
 Please let me know if you find any bugs or have feature requests you'd like to see. 
 
@@ -147,6 +147,11 @@ To Do
 Change Log
 ----------
 
+**0.3.2 - 2011/12/30**
+
+* Safer decorator load path
+
+
 **0.3.1 - 2011/12/13**
 
 * Fix broken markitup editor
@@ -175,19 +180,6 @@ Change Log
 * Remove spree_auth dependency
 * Removed `app/controllers/admin/resource_controller.rb` in favor of the Spree Default one
 * Updated development gems to most recent versions
-
-
-**0.1.4 - 2011/6/10**
-
-* Removed console.log from jquery.autodate.js
-* Updated resource controller with better flash message handling
-* Added faker.lorem.words to en.yml to prevent NoMethodError in integration tests
-
-
-**0.1.3 - 2011/6/8**
-
-* Added test in teardown to check for missing translations
-* Removed some old bits of CMS code
 
 ....more in [CHANGELOG.md](https://github.com/citrus/spree_essentials/blob/master/CHANGELOG.md)
 

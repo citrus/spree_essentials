@@ -1,6 +1,17 @@
 Change Log
 ----------
 
+**0.3.2 - 2011/12/30**
+
+* Safer decorator load path
+
+
+**0.3.1 - 2011/12/13**
+
+* Fix broken markitup editor
+* Rework 'selected' class on content tab 
+
+
 **0.3.0 - 2011/12/13**
 
 * Upgrade to Spree 0.70.x
