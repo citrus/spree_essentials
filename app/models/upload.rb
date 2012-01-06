@@ -1,6 +1,6 @@
 class Upload < Asset
   
-  default_scope where(:type => "Upload") if table_exists?(:assets)
+  default_scope where(:type => "Upload")
   
   validate :no_attachement_errors
   
