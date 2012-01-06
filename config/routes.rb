@@ -1,10 +1,6 @@
-Rails.application.routes.draw do
-  
-  namespace :admin do
-  
+Spree::Core::Engine.routes.draw do
+  namespace :admin do 
     post "/markdown/preview" => "markdown#preview"
-    resources :uploads
-    
-  end
-  
+    resources :uploads        
+  end  
 end

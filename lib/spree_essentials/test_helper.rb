@@ -1,8 +1,7 @@
-require 'rails/test_help'
-require 'shoulda'
-require 'factory_girl'
-require 'sqlite3'
-require 'faker'
+require "rails/test_help"
+require "shoulda"
+require "factory_girl"
+require "sqlite3"
 
 ActionMailer::Base.delivery_method    = :test
 ActionMailer::Base.perform_deliveries = true
@@ -22,8 +21,8 @@ Capybara.default_selector = :css
 class ActiveSupport::IntegrationCase < ActiveSupport::TestCase
   
   include Capybara::DSL
-  include Rails.application.routes.url_helpers
-  
+  include Spree::Core::Engine.routes.url_helpers
+
   
   # Extreme hax! wtf is this for anyways.. and why is it erroring?
   def testmail_admin_mail_method_url(*args)
@@ -39,7 +38,7 @@ class ActiveSupport::IntegrationCase < ActiveSupport::TestCase
   teardown do
     unless source.blank?
       matches = source.match(/translation[\s-]+missing[^"]*/) || []
-      assert_equal 0, matches.length, "Translation Missing! - #{matches[0]}"
+      assert_equal 0, matches.length, "** #{matches[0]}"
     end
   end
   
