@@ -18,6 +18,11 @@ Change Log
 * Remove spork dependency
 
 
+**0.2.3 - 2012/1/6**
+
+* Removed automatic attachment config with SpreeHeroku [0.60.x]
+
+
 **0.2.2 - 2011/7/22**
 
 * Moved pagination above new image form
