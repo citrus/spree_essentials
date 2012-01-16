@@ -1,4 +1,4 @@
-module Admin::SpreeEssentialsHelper
+module Spree::Admin::SpreeEssentialsHelper
   
   def contents_tab
     routes = SpreeEssentials.essentials.map do |key, cls|
@@ -8,7 +8,7 @@ module Admin::SpreeEssentialsHelper
     routes.push admin_uploads_path
     cls = request.path.scan(Regexp.new(routes.join("|"))).empty? ? nil : 'selected'
     content_tag :li, :class => cls do
-      link_to I18n.t('admin.shared.contents_tab.content'), routes.first
+      link_to I18n.t('spree.admin.shared.contents_tab.content'), routes.first
     end
   end
   

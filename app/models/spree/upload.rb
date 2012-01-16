@@ -1,4 +1,4 @@
-class Upload < Asset
+class Spree::Upload < ::Spree::Asset
   
   default_scope where(:type => "Upload") if table_exists?
   

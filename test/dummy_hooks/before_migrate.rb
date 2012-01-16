@@ -1,5 +1,12 @@
 # install spree and migrate db
-run "bundle exec rails g spree:site"
+#run "bundle exec rails g spree:sandbox"
+
+rake "spree:install:migrations"
+
+insert_into_file File.join('config', 'routes.rb'), :after => "Application.routes.draw do\n" do
+  "  # Mount Spree's routes\n  mount Spree::Core::Engine, :at => '/'\n"
+end
+
 run "bundle exec rails g spree_essentials:install"
 
 copy_file "test.pdf", "public/test.pdf"

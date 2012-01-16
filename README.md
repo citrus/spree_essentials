@@ -127,7 +127,7 @@ You can easily use the test/dummy app as a demo of spree_essentials. Just `cd` t
     
     git clone git://github.com/citrus/spree_essentials.git
     cd spree_essentials
-    mv lib/dummy_hooks/after_migrate.rb.sample lib/dummy_hooks/after_migrate.rb
+    cp test/dummy_hooks/after_migrate.rb.sample test/dummy_hooks/after_migrate.rb
     bundle install
     bundle exec dummier
     cd test/dummy
@@ -146,6 +146,12 @@ To Do
 
 Change Log
 ----------
+
+**0.4.0.rc1 - 2012/1/16**
+
+* Add Spree 1.0.0 compatibility
+* Breaks with previous versions of Spree
+
 
 **0.3.2 - 2011/12/30**
 
@@ -201,4 +207,4 @@ If you'd like to help out feel free to fork and send me pull requests!
 License
 -------
 
-Copyright (c) 2011 Spencer Steffen & Citrus, released under the New BSD License All rights reserved.
+Copyright (c) 2011 - 2012 Spencer Steffen & Citrus, released under the New BSD License All rights reserved.

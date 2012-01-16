@@ -1,7 +1,7 @@
-class Admin::UploadsController < Admin::ResourceController
+class Spree::Admin::UploadsController < Spree::Admin::ResourceController
   
 	def index
-	  render :template => request.xhr? ? 'admin/uploads/picker' : 'admin/uploads/index', :layout => !request.xhr?
+	  render :template => "spree/admin/uploads/#{request.xhr? ? 'picker' : 'index'}", :layout => !request.xhr?
   end
   
   private
@@ -13,7 +13,7 @@ class Admin::UploadsController < Admin::ResourceController
     def collection
       params[:search] ||= {}
       params[:search][:meta_sort] ||= "created_at.desc"
-      @search = Upload.metasearch(params[:search])
+      @search = Spree::Upload.metasearch(params[:search])
       @collection = @search.page(params[:page]).per(Spree::Config[:orders_per_page])
     end
 
