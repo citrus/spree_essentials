@@ -26,8 +26,15 @@ Installation
 If you don't already have an existing Spree site, [click here](https://gist.github.com/946719) then come back later... You can also read the Spree docs [here](http://spreecommerce.com/documentation/getting_started.html)...
 
 Spree Essentials can be installed by itself by adding the following to your Gemfile:
+      
+    # Spree 1.0.x
+    gem 'spree_essentials', '~> 0.4.0.rc2'
 
-    gem 'spree_essentials', '>= 0.3.2'
+    # Spree 0.70.x
+    gem 'spree_essentials', '~> 0.3.3'
+
+    # Spree 0.60.x
+    gem 'spree_essentials', '~> 0.2.3'
   
 This isn't necessary if you're using spree_essentials based extensions. If that's the case, just include the extensions normally:
   
@@ -127,7 +134,7 @@ You can easily use the test/dummy app as a demo of spree_essentials. Just `cd` t
     
     git clone git://github.com/citrus/spree_essentials.git
     cd spree_essentials
-    cp test/dummy_hooks/after_migrate.rb.sample test/dummy_hooks/after_migrate.rb
+    mv lib/dummy_hooks/after_migrate.rb.sample lib/dummy_hooks/after_migrate.rb
     bundle install
     bundle exec dummier
     cd test/dummy
@@ -146,6 +153,11 @@ To Do
 
 Change Log
 ----------
+
+**0.40.0.rc2, 0.3.3 - 2012/1/20**
+
+* Precompile admin assets in production
+
 
 **0.4.0.rc1 - 2012/1/16**
 
