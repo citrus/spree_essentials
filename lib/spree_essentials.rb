@@ -25,7 +25,11 @@ module SpreeEssentials
   class Engine < Rails::Engine
 
     config.autoload_paths += %W(#{config.root}/lib)
-        
+    
+    initializer :assets do |config| 
+      Rails.application.config.assets.precompile += %w( markitup.css date.js jquery.autodate.js jquery.markitup.js markdown.set.js )
+    end
+    
     config.to_prepare do
       #loads application's model / class decorators
       Dir.glob File.expand_path("../../app/**/*_decorator.rb", __FILE__) do |c|
