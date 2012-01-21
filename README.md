@@ -26,8 +26,15 @@ Installation
 If you don't already have an existing Spree site, [click here](https://gist.github.com/946719) then come back later... You can also read the Spree docs [here](http://spreecommerce.com/documentation/getting_started.html)...
 
 Spree Essentials can be installed by itself by adding the following to your Gemfile:
+      
+    # Spree 1.0.x
+    gem 'spree_essentials', '~> 0.4.0.rc2'
 
-    gem 'spree_essentials', '>= 0.3.2'
+    # Spree 0.70.x
+    gem 'spree_essentials', '~> 0.3.3'
+
+    # Spree 0.60.x
+    gem 'spree_essentials', '~> 0.2.3'
   
 This isn't necessary if you're using spree_essentials based extensions. If that's the case, just include the extensions normally:
   
@@ -147,6 +154,11 @@ To Do
 Change Log
 ----------
 
+**0.3.3 - 2012/1/20**
+
+* Precompile admin assets in production
+
+
 **0.3.2 - 2011/12/30**
 
 * Safer decorator load path
@@ -201,4 +213,4 @@ If you'd like to help out feel free to fork and send me pull requests!
 License
 -------
 
-Copyright (c) 2011 Spencer Steffen & Citrus, released under the New BSD License All rights reserved.
+Copyright (c) 2011 - 2012 Spencer Steffen & Citrus, released under the New BSD License All rights reserved.
