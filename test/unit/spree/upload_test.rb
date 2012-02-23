@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Spree::UploadTest < Test::Unit::TestCase
+class Spree::UploadTest < ActiveSupport::TestCase
 
   def setup
     Spree::Upload.destroy_all
@@ -9,6 +9,8 @@ class Spree::UploadTest < Test::Unit::TestCase
     @gifs = Dir[File.expand_path("../../../support/images/*.gif", __FILE__)]
   end
   
+  should have_attached_file(:attachment)
+  
   should "validate attachment" do
     upload = Spree::Upload.new
     assert !upload.valid?
@@ -16,11 +18,11 @@ class Spree::UploadTest < Test::Unit::TestCase
   end
   
   should "create an upload" do
-    count = Spree::Upload.count
     upload = Spree::Upload.new(:attachment => File.open(File.expand_path(@jpgs.shuffle.first)))
     assert upload.valid?
-    assert upload.save
-    assert_equal count + 1, Spree::Upload.count
+    assert_difference "Spree::Upload.count", +1 do
+      assert upload.save
+    end
   end
   
   context "with an existing upload" do 

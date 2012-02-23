@@ -1,5 +1,6 @@
 require "rails/test_help"
 require "shoulda"
+require "paperclip/matchers"
 require "factory_girl"
 require "sqlite3"
 
@@ -17,8 +18,11 @@ require "spree/url_helpers"
 Capybara.default_driver   = :selenium
 Capybara.default_selector = :css
 
-# Define a bare test case to use with Capybara
-class ActiveSupport::IntegrationCase < ActiveSupport::TestCase
+class ActiveSupport::TestCase
+  extend Paperclip::Shoulda::Matchers
+end
+
+class ActiveSupport::IntegrationCase < ActionController::TestCase
   
   include Capybara::DSL
   include Spree::UrlHelpers
