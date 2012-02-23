@@ -22,7 +22,7 @@ class ActiveSupport::TestCase
   extend Paperclip::Shoulda::Matchers
 end
 
-class ActiveSupport::IntegrationCase < ActionController::TestCase
+class ActiveSupport::IntegrationCase < ActiveSupport::TestCase
   
   include Capybara::DSL
   include Spree::UrlHelpers
