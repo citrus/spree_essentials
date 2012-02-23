@@ -9,17 +9,17 @@ class Spree::Admin::UploadIntegrationTest < ActiveSupport::IntegrationCase
   end
   
   should "have a contents tab" do
-    visit admin_orders_path
+    visit spree.admin_orders_path
     within "#admin-menu" do
       assert has_link?("Content")
     end
   end
   
   should "get the uploads index" do
-    visit admin_uploads_path
+    visit spree.admin_uploads_path
     assert has_link?("new_image_link")
     within "#sub_nav" do
-      assert has_link?("Uploads", :href => admin_uploads_path)
+      assert has_link?("Uploads", :href => spree.admin_uploads_path)
     end
   end
   
@@ -29,7 +29,7 @@ class Spree::Admin::UploadIntegrationTest < ActiveSupport::IntegrationCase
     3.times { |i|
       Spree::Upload.create(:attachment => img, :alt => "sample #{i + 1}")
     }  
-    visit admin_uploads_path
+    visit spree.admin_uploads_path
     within ".pagination" do
       assert has_link?("2")
       click_link "2"
@@ -39,12 +39,12 @@ class Spree::Admin::UploadIntegrationTest < ActiveSupport::IntegrationCase
   end
   
   should "create an upload" do
-    visit admin_uploads_path
+    visit spree.admin_uploads_path
     click_link "new_image_link"
     attach_file "Attachment", @image
     fill_in "Description", :with => "Just an image"
     click_button "Create"
-    assert_equal admin_uploads_path, current_path
+    assert_equal spree.admin_uploads_path, current_path
     assert_flash :notice, "Upload has been successfully created!"
   end
   
@@ -54,28 +54,28 @@ class Spree::Admin::UploadIntegrationTest < ActiveSupport::IntegrationCase
     end
   
     should "display the index" do
-      visit admin_uploads_path
+      visit spree.admin_uploads_path
       assert has_link?("1.png", :href => @upload.attachment.url(:original))
       assert_seen "Just an image!", :within => "tr#spree_upload_#{@upload.id}"
       within "td.actions" do
-        assert find("a.icon_link").native.attribute("href").include?(edit_admin_upload_path(@upload))
+        assert find("a.icon_link").native.attribute("href").include?(spree.edit_admin_upload_path(@upload))
         assert has_selector?("a[href='#']")
       end
     end
     
     should "edit the upload" do
-      visit edit_admin_upload_path(@upload)
+      visit spree.edit_admin_upload_path(@upload)
       assert_seen "Preview", :within => ".edit_spree_upload p b"
       assert has_xpath?("//img[@src='#{@upload.attachment.url(:small)}']")
       attach_file "Attachment", @image2
       fill_in "Description", :with => "Just another image"
       click_button "Update"
-      assert_equal admin_uploads_path, current_path
+      assert_equal spree.admin_uploads_path, current_path
       assert_flash :notice, "Upload has been successfully updated!"
     end
   
     should "destroy the upload" do
-      visit admin_uploads_path
+      visit spree.admin_uploads_path
       find("a[href='#']").click
       find_by_id("popup_ok").click              
     end
