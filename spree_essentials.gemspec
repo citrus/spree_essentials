@@ -13,8 +13,8 @@ Gem::Specification.new do |s|
   s.summary     = %q{Spree Essentials provides a base for several other Spree Commerce extensions. See readme for details...}
   s.description = %q{Spree Essentials provides a base for several other Spree Commerce extensions. The idea is to provide other extensions with common functionality such as an asset-upload interface, a markdown editor, and a common admin-navigation tab.}
 
-  s.files        = Dir['CHANGELOG.md', 'README.md', 'LICENSE', 'config/**/*', 'lib/**/*', 'app/**/*', 'db/**/*', 'Rakefile', 'Versionfile']
-  s.test_files   = Dir['test']
+  s.files         = `git ls-files`.split("\n")
+  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   
   s.require_paths = ["lib"]
 
