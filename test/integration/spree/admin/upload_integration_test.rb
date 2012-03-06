@@ -4,8 +4,8 @@ class Spree::Admin::UploadIntegrationTest < ActiveSupport::IntegrationCase
   
   def setup
     Spree::Upload.destroy_all
-    @image  = File.expand_path("../../../../support/images/1.png", __FILE__)
-    @image2 = File.expand_path("../../../../support/images/2.png", __FILE__)
+    @image  = File.expand_path("../../../../support/files/1.png", __FILE__)
+    @image2 = File.expand_path("../../../../support/files/2.png", __FILE__)
   end
   
   should "have a contents tab" do
@@ -81,6 +81,5 @@ class Spree::Admin::UploadIntegrationTest < ActiveSupport::IntegrationCase
     end
     
   end
-  
   
 end

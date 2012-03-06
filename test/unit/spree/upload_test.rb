@@ -4,9 +4,9 @@ class Spree::UploadTest < ActiveSupport::TestCase
 
   def setup
     Spree::Upload.destroy_all
-    @jpgs = Dir[File.expand_path("../../../support/images/*.jpg", __FILE__)]
-    @pngs = Dir[File.expand_path("../../../support/images/*.png", __FILE__)]
-    @gifs = Dir[File.expand_path("../../../support/images/*.gif", __FILE__)]
+    @jpgs = Dir[File.expand_path("../../../support/files/*.jpg", __FILE__)]
+    @pngs = Dir[File.expand_path("../../../support/files/*.png", __FILE__)]
+    @gifs = Dir[File.expand_path("../../../support/files/*.gif", __FILE__)]
   end
   
   should have_attached_file(:attachment)
@@ -31,8 +31,8 @@ class Spree::UploadTest < ActiveSupport::TestCase
       @jpg = Spree::Upload.create(:alt => "jpg", :attachment => File.open(File.expand_path(@jpgs.shuffle.first)))
       @png = Spree::Upload.create(:alt => "png", :attachment => File.open(File.expand_path(@pngs.shuffle.first)))
       @gif = Spree::Upload.create(:alt => "gif", :attachment => File.open(File.expand_path(@gifs.shuffle.first)))
-      @pdf = Spree::Upload.create(:alt => "pdf", :attachment => File.open(File.expand_path("../../../dummy/public/test.pdf", __FILE__)))
-      @zip = Spree::Upload.create(:alt => "zip", :attachment => File.open(File.expand_path("../../../dummy/public/test.zip", __FILE__)))
+      @pdf = Spree::Upload.create(:alt => "pdf", :attachment => File.open(File.expand_path("../../../support/files/test.pdf", __FILE__)))
+      @zip = Spree::Upload.create(:alt => "zip", :attachment => File.open(File.expand_path("../../../support/files/test.zip", __FILE__)))
     end
     
     should "be image content" do

@@ -22,7 +22,6 @@ Current essential-aware extensions include:
 Installation
 ------------------------------------------------------------------------------
 
-
 If you don't already have an existing Spree site, [click here](https://gist.github.com/946719) then come back later... You can also read the Spree docs [here](http://spreecommerce.com/documentation/getting_started.html)...
 
 Spree Essentials can be installed by itself by adding the following to your Gemfile:
@@ -38,21 +37,18 @@ gem 'spree_essentials', '~> 0.3.3'
 gem 'spree_essentials', '~> 0.2.3'
 ```
 
-  
 This isn't necessary if you're using spree_essentials based extensions. If that's the case, just include the extensions normally:
 
 ```ruby  
 gem 'spree_essential_cms'
 gem 'spree_essential_blog'
 ```
-
     
 Then run:
     
 ```bash
 bundle install
 ```
-
 
 Once that's complete, run the migration generator and migrate your database:
 
@@ -76,9 +72,7 @@ Then migrate your database:
 rake db:migrate
 ```
 
-
 If that all went smoothly, you should be ready to boot the server with:
-
 
 ```bash
 rails s
@@ -108,7 +102,7 @@ module SpreeEssentialPress
   
   def self.independent?
     return true unless defined?(SpreeEssentials)
-    !SpreeEssentials.respond_to(:register)
+    !SpreeEssentials.respond_to?(:register)
   end
 
 end
@@ -142,7 +136,8 @@ bundle install
 bundle exec dummier
 rake
 ```    
-    
+
+ 
 ------------------------------------------------------------------------------
 Demo
 ------------------------------------------------------------------------------
@@ -157,8 +152,9 @@ bundle install
 bundle exec dummier
 cd test/dummy
 rails s
-```    
-    
+```
+
+ 
 ------------------------------------------------------------------------------
 To Do
 ------------------------------------------------------------------------------
