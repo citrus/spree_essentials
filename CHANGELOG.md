@@ -1,5 +1,23 @@
+------------------------------------------------------------------------------
 Change Log
-----------
+------------------------------------------------------------------------------
+
+**0.40.0 - 2012/3/5**
+
+* Update gemset to ~> 1.0.1
+* Normalize upload attachment location
+
+
+**0.40.0.rc2, 0.3.3 - 2012/1/20**
+
+* Precompile admin assets in production
+
+
+**0.4.0.rc1 - 2012/1/16**
+
+* Add Spree 1.0.0 compatibility
+* Breaks with previous versions of Spree
+
 
 **0.3.2 - 2011/12/30**
 

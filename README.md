@@ -1,6 +1,5 @@
 # Spree Essentials [![Build Status](https://secure.travis-ci.org/citrus/spree_essentials.png)](http://travis-ci.org/citrus/spree_essentials)
 
-
 Spree Essentials is the base for many content related extensions for Spree. It doesn't do much on it's own ;)
 
 Spree Essentials provides other extensions with:
@@ -19,140 +18,164 @@ Current essential-aware extensions include:
 * [spree_essential_press](https://github.com/citrus/spree_essential_press): A simple press page for displaying media related content.
 
 
-
+------------------------------------------------------------------------------
 Installation
-------------
+------------------------------------------------------------------------------
+
 
 If you don't already have an existing Spree site, [click here](https://gist.github.com/946719) then come back later... You can also read the Spree docs [here](http://spreecommerce.com/documentation/getting_started.html)...
 
 Spree Essentials can be installed by itself by adding the following to your Gemfile:
-      
-    # Spree 1.0.x
-    gem 'spree_essentials', '~> 0.4.0.rc2'
+    
+```ruby  
+# Spree 1.0.x
+gem 'spree_essentials', '~> 0.4.0'
 
-    # Spree 0.70.x
-    gem 'spree_essentials', '~> 0.3.3'
+# Spree 0.70.x
+gem 'spree_essentials', '~> 0.3.3'
 
-    # Spree 0.60.x
-    gem 'spree_essentials', '~> 0.2.3'
+# Spree 0.60.x
+gem 'spree_essentials', '~> 0.2.3'
+```
+
   
 This isn't necessary if you're using spree_essentials based extensions. If that's the case, just include the extensions normally:
-  
-    gem 'spree_essential_cms'
-    gem 'spree_essential_blog'
+
+```ruby  
+gem 'spree_essential_cms'
+gem 'spree_essential_blog'
+```
 
     
 Then run:
     
-    bundle install
+```bash
+bundle install
+```
 
 
 Once that's complete, run the migration generator and migrate your database:
 
 To see your available generators run
  
-    rails g
- 
+```bash
+rails g
+```
     
 Now run the generators for extensions you wish to install    
- 
-    rails g spree_essentials:install
-    rails g spree_essentials:cms
-    rails g spree_essentials:blog
- 
+
+```bash 
+rails g spree_essentials:install
+rails g spree_essentials:cms
+rails g spree_essentials:blog
+```
     
 Then migrate your database:
-    rake db:migrate
+
+```bash
+rake db:migrate
+```
 
 
 If that all went smoothly, you should be ready to boot the server with:
 
-    rails s
 
+```bash
+rails s
+```
 
 Now login to the admin and click on the 'Content' tab!
 
 
-
+------------------------------------------------------------------------------
 Essential Awareness
--------------------
+------------------------------------------------------------------------------
 
 Spree Essentials is designed to allow other extensions to reside under it's global 'Content' tab in the admin. [SpreeEssentialPress](https://github.com/citrus/spree_essential_press) is the first of many extensions that can run with or without spree_essentials installed.
 
 Setting up an essential aware extension is easy. In your `lib/[extension_name].rb` file, add something like this:
 
+```ruby
+module SpreeEssentialPress
+  
+  def self.tab
+    { :label => "Press", :route => :admin_press_index }
+  end
+  
+  def self.sub_tab
+    [:press, { :route => :admin_press_index, :label => 'admin.subnav.press', :match_path => '/press' }]
+  end
+  
+  def self.independent?
+    return true unless defined?(SpreeEssentials)
+    !SpreeEssentials.respond_to(:register)
+  end
 
-    module SpreeEssentialPress
-      
-      def self.tab
-        { :label => "Press", :route => :admin_press_index }
-      end
-      
-      def self.sub_tab
-        [:press, { :route => :admin_press_index, :label => 'admin.subnav.press', :match_path => '/press' }]
-      end
-      
-      def self.independent?
-        return true unless defined?(SpreeEssentials)
-        !SpreeEssentials.respond_to(:register)
-      end
-    
-    end
-    
-    unless SpreeEssentialPress.independent?
-      # register with Spree Essentials and reside under the "Content" tab
-      SpreeEssentials.register :press, SpreeEssentialPress 
-    end
+end
+
+unless SpreeEssentialPress.independent?
+  # register with Spree Essentials and reside under the "Content" tab
+  SpreeEssentials.register :press, SpreeEssentialPress 
+end
+```
 
 
-
-
+------------------------------------------------------------------------------
 Notes
------
+------------------------------------------------------------------------------
 
-Spree Essentials is under constant development... Development is being done on OSX with Ruby 1.9.2 and usually the latest version of Spree. (currently 0.70.0)
+Spree Essentials is under constant development... Development is being done on OSX with Ruby 1.9.3 and usually the latest version of Spree. (currently 1.0.1)
 
 Please let me know if you find any bugs or have feature requests you'd like to see. 
 
 
+------------------------------------------------------------------------------
 Testing
--------
+------------------------------------------------------------------------------
 
 The test suite can be run like so:
 
-    git clone git://github.com/citrus/spree_essentials.git
-    cd spree_essentials
-    bundle install
-    bundle exec dummier
-    rake
+```bash
+git clone git://github.com/citrus/spree_essentials.git
+cd spree_essentials
+bundle install
+bundle exec dummier
+rake
+```    
     
-    
+------------------------------------------------------------------------------
 Demo
-----
+------------------------------------------------------------------------------
 
 You can easily use the test/dummy app as a demo of spree_essentials. Just `cd` to where you develop and run:
+  
+```bash  
+git clone git://github.com/citrus/spree_essentials.git
+cd spree_essentials
+cp test/dummy_hooks/after_migrate.rb.sample test/dummy_hooks/after_migrate.rb
+bundle install
+bundle exec dummier
+cd test/dummy
+rails s
+```    
     
-    git clone git://github.com/citrus/spree_essentials.git
-    cd spree_essentials
-    mv lib/dummy_hooks/after_migrate.rb.sample lib/dummy_hooks/after_migrate.rb
-    bundle install
-    bundle exec dummier
-    cd test/dummy
-    rails s
-    
-    
-    
-
+------------------------------------------------------------------------------
 To Do
------
+------------------------------------------------------------------------------
 
 * more tests
 * better documentation
 
 
-
+------------------------------------------------------------------------------
 Change Log
-----------
+------------------------------------------------------------------------------
+
+**0.40.0 - 2012/3/5**
+
+* Update gemset to ~> 1.0.0
+* Normalize upload attachment location
+
 
 **0.40.0.rc2, 0.3.3 - 2012/1/20**
 
@@ -182,41 +205,20 @@ Change Log
 * Remove spork dependency
 
 
-**0.2.3 - 2012/1/6**
-
-* Removed automatic attachment config with SpreeHeroku [0.60.x]
-
-
-**0.2.2 - 2011/7/22**
-
-* Moved pagination above new image form
-
-
-**0.2.1 - 2011/7/22**
-
-* Added pagination to admin/uploads
-
-
-**0.2.0 - 2011/7/14**
-
-* Depend on Spree 0.60.x and above
-* Remove spree_auth dependency
-* Removed `app/controllers/admin/resource_controller.rb` in favor of the Spree Default one
-* Updated development gems to most recent versions
-
 ....more in [CHANGELOG.md](https://github.com/citrus/spree_essentials/blob/master/CHANGELOG.md)
 
 
+------------------------------------------------------------------------------
 Contributors
-------------
+------------------------------------------------------------------------------
 
 So far it's just me; Spencer Steffen. 
 
 If you'd like to help out feel free to fork and send me pull requests!
 
 
-
+------------------------------------------------------------------------------
 License
--------
+------------------------------------------------------------------------------
 
 Copyright (c) 2011 - 2012 Spencer Steffen & Citrus, released under the New BSD License All rights reserved.
