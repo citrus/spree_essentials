@@ -2,8 +2,8 @@ module Spree::Admin::SpreeEssentialsHelper
   
   def contents_tab
     routes = SpreeEssentials.essentials.map do |key, cls|
-      route = cls.tab[:route] || "spree.admin_#{key}"
-      send("admin.#{route}_path") rescue "##{key}"
+      route = cls.tab[:route] || "admin_#{key}"
+      send("#{route}_path") rescue "##{key}"      
     end
     routes.push spree.admin_uploads_path
     cls = request.fullpath.scan(Regexp.new(routes.join("|"))).empty? ? nil : 'selected'
