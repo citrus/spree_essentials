@@ -1,6 +1,5 @@
 require 'test_helper'
 
-
 module SpreeEssentialSomething
 
   def self.tab
@@ -12,9 +11,6 @@ module SpreeEssentialSomething
   end
 
 end
-
-
-
 
 class ExtensionTest < Test::Unit::TestCase
     
@@ -31,11 +27,6 @@ class ExtensionTest < Test::Unit::TestCase
     assert_equal 1, SpreeEssentials.essentials.length
   end
   
-  
   # need to write tests that verify the tab and subnav render correctly...
-  
           
 end
-
-
-
