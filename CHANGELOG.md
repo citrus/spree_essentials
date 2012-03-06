@@ -2,11 +2,12 @@
 Change Log
 ------------------------------------------------------------------------------
 
-**0.40.0 - 2012/3/5**
+**0.40.0.rc3 - 2012/3/5**
 
-* Update gemset to ~> 1.0.1
+* Update gemset to ~> 1.0.0
 * Normalize upload attachment location
-
+* Use new rails engine standards for installation
+* Remove shared Generator base
 
 **0.40.0.rc2, 0.3.3 - 2012/1/20**
 
