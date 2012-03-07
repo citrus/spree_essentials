@@ -32,7 +32,7 @@ class Spree::Admin::SpreeEssentialsHelperTest < ActionView::TestCase
   end
   
   should "have markdown helper link" do
-    assert_equal "<em class=\"small\">&nbsp; Parsed With <a href=\"http://daringfireball.net/projects/markdown/basics\" onclick=\"window.open(this.href); return false\">Markdown</a></em>", markdown_helper
+    assert_equal "<em class=\"small markdown-helper\">Parsed With <a href=\"http://daringfireball.net/projects/markdown/basics\" onclick=\"window.open(this.href); return false\">Markdown</a></em>", markdown_helper
   end
     
 end

@@ -13,9 +13,8 @@ module Spree::Admin::SpreeEssentialsHelper
   end
   
   def markdown_helper
-    content_tag('em', :class => 'small') do
+    content_tag('em', :class => 'small markdown-helper') do
       [ 
-       "&nbsp;",
         t('essentials.parsed_with'),
         link_to("Markdown", "http://daringfireball.net/projects/markdown/basics", :onclick => 'window.open(this.href); return false')
       ].join(" ").html_safe
