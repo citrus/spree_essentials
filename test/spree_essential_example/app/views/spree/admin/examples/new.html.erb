@@ -1,0 +1,13 @@
+<% if @example.try(:errors).present? %>
+  <%= render 'spree/shared/error_messages', :target => @example %>
+<% end %>
+
+<h1><%= t('.new_example') %></h1>
+
+<%= form_for([:admin, @example], :html => { :multipart => true }) do |f| %>
+  <%= render "form", :form => f %>
+
+  <p class="form-buttons">
+    <%= button t('create') %> <%= t('or') %> <%= link_to t('cancel'), collection_url %>
+  </p>
+<% end %>

@@ -6,10 +6,6 @@ class ExtensionTest < ActiveSupport::TestCase
     SpreeEssentials.essentials.clear
   end  
   
-  should "not be independent" do
-    assert_equal false, SpreeEssentialExample.independent?
-  end
-  
   should "have a hash as it's tab" do
     tab = { :label => "Examples", :route => "admin_examples" }
     assert_equal tab, SpreeEssentialExample.tab

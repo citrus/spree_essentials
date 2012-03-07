@@ -1,0 +1,26 @@
+<div class='toolbar'>
+  <ul class='actions'>
+    <li>
+      <p><%= button_link_to "New Example", new_object_url, :icon => 'add' %></p>
+    </li>
+  </ul>
+  <br class='clear' />
+</div>
+
+<h1>Examples</h1>
+
+<table class="index">
+  <tr>
+	  <th>Title</th>
+	  <th><%= t("action") %></th>
+	</tr>
+  <% @examples.each do |example| %>
+    <tr>
+      <td><%= link_to example.title, admin_example_url(example) %></td>
+      <td class="actions">
+        <%= link_to_with_icon('edit', t("edit"), edit_admin_example_url(example)) %>
+        <%= link_to_delete example, {:url => admin_example_url(example) }%>
+      </td>
+    </tr>
+  <% end %>
+</table>

@@ -1,3 +1,7 @@
+# Require spree_essential_example in config/application.rb
+gsub_file "config/application.rb", 'require "spree_essentials"', %(require "spree_essentials"
+require "spree_essential_example")
+
 # Install spree's migrations
 rake "spree:install:migrations"
 
@@ -18,5 +22,6 @@ end
 # Fix sass load error by using the converted css file
 template "store/screen.css", "app/assets/stylesheets/store/screen.css"
 
-# Install spree essentials
+# Install spree essentials & example extension
 run "bundle exec rails g spree_essentials:install"
+run "bundle exec rails g spree_essentials:example"

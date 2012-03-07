@@ -1,0 +1,6 @@
+<h1><%= @example.title %></h1>
+
+<%= RDiscount.new(@example.body).to_html.html_safe %>
+
+<%= link_to "Edit", edit_admin_example_path(@example) %> | 
+<%= link_to "Delete", admin_example_path(@example), :method => :delete, :confirm => "Are you sure?" %>
