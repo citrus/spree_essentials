@@ -28,7 +28,7 @@ Spree Essentials can be installed by itself by adding the following to your Gemf
     
 ```ruby  
 # Spree 1.0.x
-gem 'spree_essentials', '~> 0.4.0'
+gem 'spree_essentials', '~> 0.4.0.rc3'
 
 # Spree 0.70.x
 gem 'spree_essentials', '~> 0.3.3'
@@ -167,10 +167,12 @@ To Do
 Change Log
 ------------------------------------------------------------------------------
 
-**0.40.0 - 2012/3/5**
+**0.40.0.rc3 - 2012/3/5**
 
 * Update gemset to ~> 1.0.0
 * Normalize upload attachment location
+* Use new rails engine conventions for installation
+* Remove shared Generator base
 
 
 **0.40.0.rc2, 0.3.3 - 2012/1/20**
