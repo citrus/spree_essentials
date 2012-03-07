@@ -1,7 +1,6 @@
 # Configure Rails Envinronment
 ENV["RAILS_ENV"] = "test"
-  
-require File.expand_path("../dummy/config/environment.rb",  __FILE__)
-require "spree_essentials/test_helper"
+ENV["RAILS_ROOT"] = File.expand_path("../dummy",  __FILE__)
 
+require "spree_essentials/testing/test_helper"
 require "support/spree_essential_example"

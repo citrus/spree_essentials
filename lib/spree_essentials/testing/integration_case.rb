@@ -1,32 +1,15 @@
-require "rails/test_help"
-require "shoulda"
-require "paperclip/matchers"
-require "factory_girl"
-require "sqlite3"
-
-ActionMailer::Base.delivery_method    = :test
-ActionMailer::Base.perform_deliveries = true
-ActionMailer::Base.default_url_options[:host] = "example.com"
-
-Rails.backtrace_cleaner.remove_silencers!
-
-# Configure capybara for integration testing
 require "capybara/rails"
 require "selenium/webdriver"
 require "spree/url_helpers"
 
-Capybara.default_driver   = :selenium
-Capybara.default_selector = :css
+class SpreeEssentials::IntegrationCase < ActiveSupport::TestCase
 
-class ActiveSupport::TestCase
-  extend Paperclip::Shoulda::Matchers
-end
-
-class ActiveSupport::IntegrationCase < ActiveSupport::TestCase
-  
   include Capybara::DSL
   include Spree::UrlHelpers
     
+  Capybara.default_driver   = :selenium
+  Capybara.default_selector = :css
+
   self.use_transactional_fixtures = false
 
   # Checks for missing translations after each test
@@ -43,12 +26,13 @@ class ActiveSupport::IntegrationCase < ActiveSupport::TestCase
   #    assert_seen "Peanut Butter Jelly Time", :within => ".post-title h1"
   #      
   def assert_seen(text, opts={})
+    msg = "Should see `#{text}`"
     if opts[:within]
       within(opts[:within]) do
-        assert has_content?(text)
+        assert has_content?(text), msg + " within #{opts[:within]}"
       end
     else
-      assert has_content?(text)
+      assert has_content?(text), msg
     end
   end
   

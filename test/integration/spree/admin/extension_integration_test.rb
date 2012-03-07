@@ -1,6 +1,6 @@
-require 'test_helper'
+require "integration_test_helper"
 
-class Spree::Admin::ExtensionIntegrationTest < ActiveSupport::IntegrationCase
+class Spree::Admin::ExtensionIntegrationTest < SpreeEssentials::IntegrationCase
   
   setup do
     SpreeEssentials.essentials.clear

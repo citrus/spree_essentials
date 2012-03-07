@@ -1,6 +1,6 @@
-require 'test_helper'
+require "integration_test_helper"
 
-class Spree::Admin::UploadIntegrationTest < ActiveSupport::IntegrationCase
+class Spree::Admin::UploadIntegrationTest < SpreeEssentials::IntegrationCase
   
   def setup
     Spree::Upload.destroy_all
