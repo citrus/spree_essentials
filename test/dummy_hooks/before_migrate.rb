@@ -22,6 +22,9 @@ end
 # Fix sass load error by using the converted css file
 template "store/screen.css", "app/assets/stylesheets/store/screen.css"
 
+# Enable forgery_protection since we need AUTH_TOKEN to be defined to avoid JS errors
+gsub_file "config/environments/test.rb", "forgery_protection    = false", "forgery_protection = true"
+
 # Install spree essentials & example extension
 run "bundle exec rails g spree_essentials:install"
 run "bundle exec rails g spree_essentials:example"

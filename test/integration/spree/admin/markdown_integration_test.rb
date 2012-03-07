@@ -3,7 +3,6 @@ require "integration_test_helper"
 class Spree::Admin::MarkdownIntegrationTest < SpreeEssentials::IntegrationCase
 
   setup do
-    Rails.application.config.action_controller.allow_forgery_protection = true
     SpreeEssentials.register :example, SpreeEssentialExample
   end
   
