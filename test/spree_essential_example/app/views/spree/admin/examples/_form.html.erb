@@ -1,13 +1,13 @@
 <%= form.field_container :title do %>
-  <%= form.label :title, t('example.title') %> <span class="required">*</span><br />
+  <%= form.label :title %> <span class="required">*</span><br />
   <%= form.text_field :title, :class => "title"  %>
   <%= error_message_on :example, :title %>
 <% end %>
 
 <%= form.field_container :body do %>
-  <%= form.label :title, t('content.body') %><%= markdown_helper %><br />
+  <%= form.label :body %><%= markdown_helper %><br />
   <%= form.text_area :body  %>
-  <%= error_message_on :content, :body %>
+  <%= error_message_on :example, :body %>
 <% end %>
 
 <% content_for :head do %>

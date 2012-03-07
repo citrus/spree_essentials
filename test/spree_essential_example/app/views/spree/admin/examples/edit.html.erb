@@ -2,6 +2,8 @@
   <%= render 'spree/shared/error_messages', :target => @example %>
 <% end %>
 
+<h1>Edit Example</h1>
+
 <%= form_for([:admin, @example]) do |f| %>
   <%= render "form", :form => f %>
   <p class="form-buttons">

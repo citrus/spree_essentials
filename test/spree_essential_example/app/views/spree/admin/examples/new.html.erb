@@ -2,7 +2,7 @@
   <%= render 'spree/shared/error_messages', :target => @example %>
 <% end %>
 
-<h1><%= t('.new_example') %></h1>
+<h1>New Example</h1>
 
 <%= form_for([:admin, @example], :html => { :multipart => true }) do |f| %>
   <%= render "form", :form => f %>

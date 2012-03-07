@@ -19,4 +19,8 @@ class Spree::Admin::ExamplesController < Spree::Admin::ResourceController
     super @example
   end
   
+  def location_after_save
+    admin_example_path(@example)
+  end
+  
 end
