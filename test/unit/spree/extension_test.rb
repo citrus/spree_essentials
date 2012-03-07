@@ -29,4 +29,9 @@ class ExtensionTest < ActiveSupport::TestCase
     assert_equal 1, SpreeEssentials.essentials.length
   end
       
+  should "check if spree essentials has an extension" do
+    SpreeEssentials.register :example, SpreeEssentialExample
+    assert SpreeEssentials.has?(:example)
+  end
+  
 end
