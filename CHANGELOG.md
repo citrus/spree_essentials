@@ -2,12 +2,13 @@
 Change Log
 ------------------------------------------------------------------------------
 
-**0.40.0.rc3 - 2012/3/5**
+**0.40.0.rc3 - 2012/3/7**
 
-* Update gemset to ~> 1.0.0
 * Normalize upload attachment location
-* Use new rails engine conventions for installation
-* Remove shared Generator base
+* Use rails engine conventions for installation
+* Remove shared InstallGenerator class
+* Improved test coverage
+* Added test/spree_essential_example 
 
 
 **0.40.0.rc2, 0.3.3 - 2012/1/20**
