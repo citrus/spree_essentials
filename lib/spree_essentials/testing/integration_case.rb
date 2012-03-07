@@ -1,11 +1,9 @@
 require "capybara/rails"
 require "selenium/webdriver"
-require "spree/url_helpers"
 
 class SpreeEssentials::IntegrationCase < ActiveSupport::TestCase
 
   include Capybara::DSL
-  include Spree::UrlHelpers
     
   Capybara.default_driver   = :selenium
   Capybara.default_selector = :css
@@ -18,6 +16,12 @@ class SpreeEssentials::IntegrationCase < ActiveSupport::TestCase
       matches = source.match(/translation[\s-]+missing[^"]*/) || []
       assert_equal 0, matches.length, "** #{matches[0]}"
     end
+  end
+  
+  # By defining this we don't need to depend on spree, just spree_core since the
+  # included url helper lives in the spree root
+  def spree
+    Spree::Core::Engine.routes.url_helpers
   end
   
   # An assertion for ensuring content has made it to the page.

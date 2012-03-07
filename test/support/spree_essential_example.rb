@@ -1,7 +1,7 @@
 module SpreeEssentialExample
 
   def self.tab
-    { :label => "Examples", :route => "spree.admin_examples" }
+    { :label => "Examples", :route => "admin_examples" }
   end
   
   def self.sub_tab

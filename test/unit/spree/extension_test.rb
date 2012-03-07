@@ -11,7 +11,7 @@ class ExtensionTest < ActiveSupport::TestCase
   end
   
   should "have a hash as it's tab" do
-    tab = { :label => "Examples", :route => "spree.admin_examples" }
+    tab = { :label => "Examples", :route => "admin_examples" }
     assert_equal tab, SpreeEssentialExample.tab
   end
   

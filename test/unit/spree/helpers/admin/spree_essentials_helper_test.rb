@@ -1,13 +1,15 @@
 require 'test_helper'
 
 class Spree::Admin::SpreeEssentialsHelperTest < ActionView::TestCase
-
-  include Spree::UrlHelpers
-  
+    
   setup do
     setup_with_controller
     visit "/admin"
   end
+  
+  def spree
+    Spree::Core::Engine.routes.url_helpers
+  end  
   
   def request
     @request
