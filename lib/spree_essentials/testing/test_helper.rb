@@ -8,7 +8,7 @@ end
 if File.exists?(@env)
   require @env
 else
-  puts "#{@env} does not exist! Try running `bundle exec dummier`"
+  puts "#{@env} does not exist! Ensure that ENV[\"RAILS_ROOT\"] exists or try running `bundle exec dummier`"
   exit
 end
 
@@ -17,6 +17,7 @@ require "shoulda"
 require "paperclip/matchers"
 require "factory_girl"
 require "sqlite3"
+require "ffaker"
 
 ActionMailer::Base.delivery_method    = :test
 ActionMailer::Base.perform_deliveries = true
@@ -27,4 +28,3 @@ Rails.backtrace_cleaner.remove_silencers!
 class ActiveSupport::TestCase
   extend Paperclip::Shoulda::Matchers
 end
-
