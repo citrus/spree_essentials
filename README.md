@@ -82,39 +82,6 @@ Now login to the admin and click on the 'Content' tab!
 
 
 ------------------------------------------------------------------------------
-Essential Awareness
-------------------------------------------------------------------------------
-
-Spree Essentials is designed to allow other extensions to reside under it's global 'Content' tab in the admin. [SpreeEssentialPress](https://github.com/citrus/spree_essential_press) is the first of many extensions that can run with or without spree_essentials installed.
-
-Setting up an essential aware extension is easy. In your `lib/[extension_name].rb` file, add something like this:
-
-```ruby
-module SpreeEssentialPress
-  
-  def self.tab
-    { :label => "Press", :route => :admin_press_index }
-  end
-  
-  def self.sub_tab
-    [:press, { :route => :admin_press_index, :label => 'admin.subnav.press', :match_path => '/press' }]
-  end
-  
-  def self.independent?
-    return true unless defined?(SpreeEssentials)
-    !SpreeEssentials.respond_to?(:register)
-  end
-
-end
-
-unless SpreeEssentialPress.independent?
-  # register with Spree Essentials and reside under the "Content" tab
-  SpreeEssentials.register :press, SpreeEssentialPress 
-end
-```
-
-
-------------------------------------------------------------------------------
 Notes
 ------------------------------------------------------------------------------
 
