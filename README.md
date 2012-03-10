@@ -14,7 +14,6 @@ Current essential-aware extensions include:
 
 * [spree_essential_cms](https://github.com/citrus/spree_essential_cms): A full featured CMS with pages, contents, images and more
 * [spree_essential_blog](https://github.com/citrus/spree_essential_blog): A blog complete with archives, categories, tags and related products
-* [spree_essential_news](https://github.com/citrus/spree_essential_news): A news system, also complete with archives, tags and related products. (yes it's pretty much the exact same thing as the blog)
 * [spree_essential_press](https://github.com/citrus/spree_essential_press): A simple press page for displaying media related content.
 
 
