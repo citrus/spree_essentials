@@ -88,7 +88,16 @@ Deploying
 
 Follow these steps if you plan host your attachments with a CDN like amazon s3. This is useful when deploying to [heroku](http://heroku.com).
 
-First, create some buckets on s3. I use the [s3cmd](http://s3tools.org/s3cmd).
+First, add the [aws-sdk](http://rubygems.org/gems/aws-sdk) gem to your `Gemfile`
+
+```ruby
+gem 'aws-sdk', '~> 1.3'
+```
+
+Then run `bundle install`
+
+
+Next, create some buckets on s3. I use the [s3cmd](http://s3tools.org/s3cmd).
 
 ```bash
 s3cmd mb s3://yoursite.dev --acl-public
@@ -118,7 +127,7 @@ production:
 ```
 
 
-Next, create a [decorator](http://guides.spreecommerce.com/logic_customization.html) for the upload model in `app/models/spree/upload_decorator.rb`.
+Lastly, create a [decorator](http://guides.spreecommerce.com/logic_customization.html) for the upload model in `app/models/spree/upload_decorator.rb`.
 
 ```ruby
 # app/models/spree/upload_decorator.rb
@@ -130,9 +139,10 @@ Spree::Upload.attachment_definitions[:attachment].merge!(
 ```
 
 
-If you're using the [CMS](https://github.com/citrus/spree_essential_cms) or [blog](https://github.com/citrus/spree_essential_blog) extensions, you can set the config on each model like so:
+If you're using the [CMS](https://github.com/citrus/spree_essential_cms) or [blog](https://github.com/citrus/spree_essential_blog) extensions you can set the config on each model like so:
 
 ```ruby
+# app/models/spree/asset_decorator.rb
 [ Spree::Content, Spree::PageImage, Spree::PostImage, Spree::Upload ].each do |cls| 
   cls.attachment_definitions[:attachment].merge!(
     :storage        => 's3',
