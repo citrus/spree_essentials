@@ -80,6 +80,68 @@ rails s
 Now login to the admin and click on the 'Content' tab!
 
 
+
+
+------------------------------------------------------------------------------
+Deploying
+------------------------------------------------------------------------------
+
+Follow these steps if you plan host your attachments with a CDN. This is useful when deploying to [heroku](http://heroku.com).
+
+These examples will be for using amazon s3. 
+
+
+First, create a config file for s3:
+
+```yml
+# config/s3.yml
+defaults: &defaults
+  access_key_id: YOUR_KEY
+  secret_access_key: YOUR_SECRET
+  s3_protocol: http
+
+development:
+  <<: *defaults
+  bucket: yoursite.dev
+
+test:
+  <<: *defaults
+  bucket: yoursite.test
+
+production:
+  <<: *defaults
+  bucket: yoursite.com
+```
+
+
+Next, create a [decorator](http://guides.spreecommerce.com/logic_customization.html) for the upload model in `app/models/spree/upload_decorator.rb`.
+
+```ruby
+# app/models/spree/upload_decorator.rb
+Spree::Upload.attachment_definitions[:attachment].merge!(
+  :storage        => 's3',
+  :s3_credentials => Rails.root.join('config', 's3.yml'),
+  :path           => "/uploads/:id/:style/:basename.:extension"
+)
+```
+
+
+If you're using the CMS or blog extensions, you can set the config on each model like so:
+
+```ruby
+[ Spree::Content, Spree::PageImage, Spree::PostImage, Spree::Upload ].each do |cls| 
+  cls.attachment_definitions[:attachment].merge!(
+    :storage        => 's3',
+    :s3_credentials => Rails.root.join('config', 's3.yml'),
+    :path           => "/:class/:id/:style/:basename.:extension"
+  )
+end
+```
+
+
+That's all there is to it!
+
+
 ------------------------------------------------------------------------------
 Notes
 ------------------------------------------------------------------------------
