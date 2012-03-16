@@ -94,7 +94,11 @@ First, add the [aws-sdk](http://rubygems.org/gems/aws-sdk) gem to your `Gemfile`
 gem 'aws-sdk', '~> 1.3'
 ```
 
-Then run `bundle install`
+Then run:
+
+```bash
+bundle install
+```
 
 
 Next, create some buckets on s3. I use the [s3cmd](http://s3tools.org/s3cmd).
@@ -105,7 +109,7 @@ s3cmd mb s3://yoursite.com --acl-public
 ```
 
 
-Then create a config file for s3:
+Now create a config file for s3 in `config/s3.yml`
 
 ```yml
 # config/s3.yml
