@@ -86,27 +86,31 @@ Now login to the admin and click on the 'Content' tab!
 Deploying
 ------------------------------------------------------------------------------
 
-Follow these steps if you plan host your attachments with a CDN. This is useful when deploying to [heroku](http://heroku.com).
+Follow these steps if you plan host your attachments with a CDN like amazon s3. This is useful when deploying to [heroku](http://heroku.com).
 
-These examples will be for using amazon s3. 
+First, create some buckets on s3. I use the [s3cmd](http://s3tools.org/s3cmd).
+
+```bash
+s3cmd mb s3://yoursite.dev --acl-public
+s3cmd mb s3://yoursite.com --acl-public
+```
 
 
-First, create a config file for s3:
+Then create a config file for s3:
 
 ```yml
 # config/s3.yml
 defaults: &defaults
+  s3_protocol: http
   access_key_id: YOUR_KEY
   secret_access_key: YOUR_SECRET
-  s3_protocol: http
+  bucket: yoursite.dev
 
 development:
   <<: *defaults
-  bucket: yoursite.dev
 
 test:
   <<: *defaults
-  bucket: yoursite.test
 
 production:
   <<: *defaults
@@ -126,7 +130,7 @@ Spree::Upload.attachment_definitions[:attachment].merge!(
 ```
 
 
-If you're using the CMS or blog extensions, you can set the config on each model like so:
+If you're using the [CMS](https://github.com/citrus/spree_essential_cms) or [blog](https://github.com/citrus/spree_essential_blog) extensions, you can set the config on each model like so:
 
 ```ruby
 [ Spree::Content, Spree::PageImage, Spree::PostImage, Spree::Upload ].each do |cls| 
