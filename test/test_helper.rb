@@ -1,8 +1,6 @@
 begin
   require "simplecov"
-  SimpleCov.start do
-    add_filter "test/"
-  end
+  SimpleCov.start "rails"
 rescue LoadError => e
 end
 
