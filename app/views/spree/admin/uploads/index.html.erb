@@ -32,6 +32,21 @@
 
 <%= paginate @uploads %>
 
+
+<% content_for :sidebar do %>
+
+<div class="box">
+  <h3><%= t(:search) %></h3>
+  <%= search_form_for [ :admin, @search ] do |f| %>
+    <p>
+      <%= f.label :alt_cont, t("description") %><br />
+      <%= f.text_field :alt_cont, :size => 25 %>
+    </p>
+    <p><%= button t("search") %></p>
+  <% end %>
+</div>
+<% end %>
+
 <div id="images"></div>
 <br/>
 <p>

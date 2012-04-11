@@ -56,7 +56,7 @@ class Spree::Admin::UploadIntegrationTest < SpreeEssentials::IntegrationCase
     should "display the index" do
       visit spree.admin_uploads_path
       assert has_link?("1.png", :href => @upload.attachment.url(:original))
-      assert_seen "Just an image!", :within => "tr#spree_upload_#{@upload.id}"
+      assert_seen "Just an image!", :within => "tr#upload_#{@upload.id}"
       within "td.actions" do
         assert find("a.icon_link").native.attribute("href").include?(spree.edit_admin_upload_path(@upload))
         assert has_selector?("a[href='#']")
@@ -65,7 +65,7 @@ class Spree::Admin::UploadIntegrationTest < SpreeEssentials::IntegrationCase
     
     should "edit the upload" do
       visit spree.edit_admin_upload_path(@upload)
-      assert_seen "Preview", :within => ".edit_spree_upload p b"
+      assert_seen "Preview", :within => ".edit_upload p b"
       assert has_xpath?("//img[@src='#{@upload.attachment.url(:small)}']")
       attach_file "Attachment", @image2
       fill_in "Description", :with => "Just another image"

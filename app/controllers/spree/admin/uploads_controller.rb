@@ -7,10 +7,10 @@ class Spree::Admin::UploadsController < Spree::Admin::ResourceController
   private
   
     def collection
-      params[:search] ||= {}
-      params[:search][:meta_sort] ||= "created_at.desc"
-      @search = Spree::Upload.metasearch(params[:search])
-      @collection = @search.page(params[:page]).per(Spree::Config[:orders_per_page])
+      params[:q] ||= {}
+      params[:q][:sort] ||= "created_at.desc"
+      @search = Spree::Upload.search(params[:q])
+      @collection = @search.result.page(params[:page]).per(Spree::Config[:orders_per_page])
     end
 
 end
