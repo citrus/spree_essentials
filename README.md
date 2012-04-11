@@ -25,9 +25,12 @@ If you don't already have an existing Spree site, [click here](https://gist.gith
 
 Spree Essentials can be installed by itself by adding the following to your Gemfile:
     
-```ruby  
+```ruby
+# Spree 1.1.x
+gem 'spree_essentials', '~> 0.5.0.rc1'
+
 # Spree 1.0.x
-gem 'spree_essentials', '~> 0.4.0.rc3'
+gem 'spree_essentials', '~> 0.4.0'
 
 # Spree 0.70.x
 gem 'spree_essentials', '~> 0.3.3'
@@ -211,6 +214,18 @@ To Do
 ------------------------------------------------------------------------------
 Change Log
 ------------------------------------------------------------------------------
+
+**0.50.0.rc1 - 2012/4/11**
+
+* Spree 1.1.x compatibility
+
+
+**0.40.0 - 2012/4/11**
+
+* Add Italian translation - (@iloveitaly)
+* Add Russian translation - (@shaggyone)
+* Release v0.40.0
+
 
 **0.40.0.rc3 - 2012/3/7**
 

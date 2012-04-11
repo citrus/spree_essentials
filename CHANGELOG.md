@@ -2,6 +2,18 @@
 Change Log
 ------------------------------------------------------------------------------
 
+**0.50.0.rc1 - 2012/4/11**
+
+* Spree 1.1.x compatibility
+
+
+**0.40.0 - 2012/4/11**
+
+* Add Italian translation - (@iloveitaly)
+* Add Russian translation - (@shaggyone)
+* Release v0.40.0
+
+
 **0.40.0.rc3 - 2012/3/7**
 
 * Normalize upload attachment location
