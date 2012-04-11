@@ -167,7 +167,7 @@ That's all there is to it!
 Notes
 ------------------------------------------------------------------------------
 
-Spree Essentials is under constant development... Development is being done on OSX with Ruby 1.9.3 and usually the latest version of Spree. (currently 1.0.1)
+Spree Essentials is under constant development... Development is being done on OSX with Ruby 1.9.3 and usually the latest version of Spree. (currently 1.1.0.rc1)
 
 Please let me know if you find any bugs or have feature requests you'd like to see. 
 
@@ -271,7 +271,10 @@ Change Log
 Contributors
 ------------------------------------------------------------------------------
 
-So far it's just me; Spencer Steffen. 
+* Spencer Steffen ([@citrus](https://github.com/citrus))
+* Michael Bianco ([@iloveitaly](https://github.com/iloveitaly))
+* Victor Zagorski ([@shaggyone](https://github.com/shaggyone))
+
 
 If you'd like to help out feel free to fork and send me pull requests!
 
