@@ -5,7 +5,7 @@ ru:
   successfully_updated: "%{resource} успешно сохранён!"
 
   essentials:
-    parsed_with: Parsed With
+    parsed_with: Форматирование текста
 
   activerecord:
     attributes:
