@@ -1,0 +1,41 @@
+ru:
+
+  successfully_created: "%{resource} успешно создан!"
+  successfully_removed: "%{resource} успешно удалён!"
+  successfully_updated: "%{resource} успешно сохранён!"
+
+  essentials:
+    parsed_with: Форматирование текста
+
+  activerecord:
+    attributes:
+      order:
+        completed_at: Заказ оформлен
+    errors:
+      messages:
+        invalid_date_time: формат даты неверен.
+
+  upload:
+    model_name: Загрузить
+    file_name: Имя файла
+    size: Размер
+
+  spree:
+    admin:
+      shared:
+        contents_tab:
+          content: Содержимое
+
+      subnav:
+        uploads: Загруженные файлы
+
+      uploads:
+        new:
+          new_upload: Загрузить новый файл
+        edit:
+          edit_upload: Редактировать файл
+          preview: Предварительный просмотр
+          link: Ссылка
+        index:
+          listing_uploads: Список загруженных файлов
+          new_upload: Загрузить новый файл

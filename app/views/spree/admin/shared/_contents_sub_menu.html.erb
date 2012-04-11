@@ -4,7 +4,7 @@
       <% SpreeEssentials.essentials.each_pair do |name, cls| %>
         <%= tab *cls.sub_tab if defined?(cls.sub_tab) %>
       <% end %>
-      <%= tab :uploads, :label => 'spree.admin.subnav.uploads' %>
+      <%= tab :uploads, :label => t('spree.admin.subnav.uploads') %>
     </ul>
   <% end %>
 <% end %>
