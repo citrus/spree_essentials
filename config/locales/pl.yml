@@ -1,23 +1,23 @@
-enpl
+pl:
   successfully_created: "%{resource} został pomyślnie utworzona!"
   successfully_removed: "%{resource} został pomyślnie usunięta!"
   successfully_updated: "%{resource} został pomyślnie zaktualizowana!"
   
   essentials:
-    parsed_with: Parsowany przez
+    parsed_with: "Parsowany przez"
 
   activerecord:
     attributes:
       order:
-        completed_at: Ukończone w
+        completed_at: "Ukończone w"
     errors:
       messages:
-        invalid_date_time: jest nieprawidłową datą.
+        invalid_date_time: "jest nieprawidłową datą."
            
   upload:
-    model_name: Załączniki
-    file_name: Nazwa pliku
-    size: Rozmiar
+    model_name: "Załączniki"
+    file_name: "Nazwa pliku"
+    size: "Rozmiar"
     
   # spree hack  
   first_name_start: "Imię zaczyna się od"
@@ -27,18 +27,18 @@ enpl
     admin:
       shared:
         contents_tab:
-          content: Treść
+          content: "Treść"
         
       subnav:
-        uploads: Załączniki      
+        uploads: "Załączniki"      
                   
       uploads:
         new:
-          new_upload: Nowy załącznik
+          new_upload: "Nowy załącznik"
         edit:
-          edit_upload: Edytuj załącznik
-          preview: Podgląd
-          link: Link
+          edit_upload: "Edytuj załącznik"
+          preview: "Podgląd"
+          link: "Link"
         index:
-          listing_uploads: Lista załączników
-          new_upload: Prześlij plik
+          listing_uploads: "Lista załączników"
+          new_upload: "Prześlij plik"
