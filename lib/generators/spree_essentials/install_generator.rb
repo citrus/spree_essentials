@@ -7,10 +7,6 @@ module SpreeEssentials
       class_option :add_stylesheets, :type => :boolean, :default => true, :banner => 'Append spree_essentials to admin/all.css'
       class_option :add_javascripts, :type => :boolean, :default => true, :banner => 'Append spree_essentials to admin/all.js'
       
-      def copy_migrations
-        rake "spree_essentials:install:migrations"
-      end
-      
       def append_stylesheets
         return unless options[:add_stylesheets]
         gsub_file "app/assets/stylesheets/admin/all.css", "*/", "*= require admin/spree_essentials\n*/"  
