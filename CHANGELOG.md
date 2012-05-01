@@ -2,6 +2,12 @@
 Change Log
 ------------------------------------------------------------------------------
 
+**0.50.0 - 2012/5/1**
+
+* Depend on Spree 1.1.0 
+* Remove `add_attachment_file_size_to_assets` migration
+
+
 **0.50.0.rc1 - 2012/4/11**
 
 * Spree 1.1.x compatibility

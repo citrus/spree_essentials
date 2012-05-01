@@ -27,7 +27,7 @@ Spree Essentials can be installed by itself by adding the following to your Gemf
     
 ```ruby
 # Spree 1.1.x
-gem 'spree_essentials', '~> 0.5.0.rc1'
+gem 'spree_essentials', '~> 0.5.0'
 
 # Spree 1.0.x
 gem 'spree_essentials', '~> 0.4.0'
@@ -167,7 +167,7 @@ That's all there is to it!
 Notes
 ------------------------------------------------------------------------------
 
-Spree Essentials is under constant development... Development is being done on OSX with Ruby 1.9.3 and usually the latest version of Spree. (currently 1.1.0.rc1)
+Spree Essentials is under constant development... Development is being done on OSX with Ruby 1.9.3 and usually the latest version of Spree. (currently 1.1.0)
 
 Please let me know if you find any bugs or have feature requests you'd like to see. 
 
@@ -214,6 +214,12 @@ To Do
 ------------------------------------------------------------------------------
 Change Log
 ------------------------------------------------------------------------------
+
+**0.50.0 - 2012/5/1**
+
+* Depend on Spree 1.1.0 
+* Remove `add_attachment_file_size_to_assets` migration
+
 
 **0.50.0.rc1 - 2012/4/11**
 
