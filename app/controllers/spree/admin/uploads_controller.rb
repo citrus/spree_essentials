@@ -1,8 +1,11 @@
 class Spree::Admin::UploadsController < Spree::Admin::ResourceController
   
 	def index
+	  if request.xhr?
+	    @uploads = Spree::Upload.all
+	  end
 	  render :template => "spree/admin/uploads/#{request.xhr? ? 'picker' : 'index'}", :layout => !request.xhr?
-  end
+  	end
   
   private
   
