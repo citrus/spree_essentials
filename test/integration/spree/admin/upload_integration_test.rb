@@ -6,6 +6,7 @@ class Spree::Admin::UploadIntegrationTest < SpreeEssentials::IntegrationCase
     Spree::Upload.destroy_all
     @image  = File.expand_path("../../../../support/files/1.png", __FILE__)
     @image2 = File.expand_path("../../../../support/files/2.png", __FILE__)
+    stub_authorization!
   end
   
   should "have a contents tab" do

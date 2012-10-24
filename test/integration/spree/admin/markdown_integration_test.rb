@@ -4,6 +4,7 @@ class Spree::Admin::MarkdownIntegrationTest < SpreeEssentials::IntegrationCase
 
   setup do
     SpreeEssentials.register :example, SpreeEssentialExample
+    stub_authorization!
   end
   
   teardown do
