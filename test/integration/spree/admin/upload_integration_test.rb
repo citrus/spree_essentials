@@ -60,7 +60,7 @@ class Spree::Admin::UploadIntegrationTest < SpreeEssentials::IntegrationCase
       assert_seen "Just an image!", :within => "tr#upload_#{@upload.id}"
       within "td.actions" do
         assert find("a.icon_link").native.attribute("href").include?(spree.edit_admin_upload_path(@upload))
-        assert has_selector?("a[href='#']")
+        assert has_selector?("a.delete-resource")
       end
     end
     
@@ -77,8 +77,9 @@ class Spree::Admin::UploadIntegrationTest < SpreeEssentials::IntegrationCase
   
     should "destroy the upload" do
       visit spree.admin_uploads_path
-      find("a[href='#']").click
-      find_by_id("popup_ok").click              
+      find("a.delete-resource").click
+      page.driver.browser.switch_to.alert.accept
+      assert_seen "Upload has been successfully removed!"
     end
     
   end
