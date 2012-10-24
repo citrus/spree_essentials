@@ -1,13 +1,9 @@
 # Require spree_essential_example and spree_atuh in config/application.rb
 gsub_file "config/application.rb", 'require "spree_essentials"', %(require "spree_essentials"
-require "spree_essential_example"
-require "spree_auth_devise")
+require "spree_essential_example")
 
 # Install spree's migrations
 rake "spree:install:migrations"
-
-#Install spree auth migrations
-rake "spree_auth:install:migrations"
 
 # Mount the Spree::Core routes
 insert_into_file File.join('config', 'routes.rb'), :after => "Application.routes.draw do\n" do

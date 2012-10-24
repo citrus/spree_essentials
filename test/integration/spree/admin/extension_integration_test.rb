@@ -4,6 +4,7 @@ class Spree::Admin::ExtensionIntegrationTest < SpreeEssentials::IntegrationCase
   
   setup do
     SpreeEssentials.essentials.clear
+    stub_authorization!
   end
   
   context "When no extensions are registered" do

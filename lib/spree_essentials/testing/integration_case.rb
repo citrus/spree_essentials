@@ -23,6 +23,14 @@ class SpreeEssentials::IntegrationCase < ActiveSupport::TestCase
   def spree
     Spree::Core::Engine.routes.url_helpers
   end
+
+  # Stub authorization for all admin controllers
+  def stub_authorization!
+    subclasses = Spree::Admin::BaseController.subclasses + Spree::Admin::ResourceController.subclasses
+    subclasses.each do |klass|
+      klass.any_instance.stubs(:authorize!).returns(true)
+    end
+  end
   
   # An assertion for ensuring content has made it to the page.
   #    
