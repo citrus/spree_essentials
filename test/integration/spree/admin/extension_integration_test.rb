@@ -33,7 +33,6 @@ class Spree::Admin::ExtensionIntegrationTest < SpreeEssentials::IntegrationCase
     end
     
     should "have a contents tab with examples and uploads in the sub nav" do
-      #Spree::Admin::BaseController.any_instance.stub(:authorize_admin).and_return(false)
       visit spree.admin_orders_path
       within "#admin-menu" do
         assert has_link?("Content")
