@@ -8,7 +8,7 @@ class Spree::Admin::UploadsController < Spree::Admin::ResourceController
 
     def collection
       params[:q] ||= {}
-      params[:q][:sort] ||= "created_at.desc"
+      params[:q][:sorts] ||= "attachment_updated_at desc"
       @search = Spree::Upload.search(params[:q])
       if request.xhr?
         @collection = @search.result

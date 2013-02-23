@@ -1,8 +1,15 @@
-<p>
-  <%= form.label :attachment %>:<br/>
-  <%= form.file_field :attachment %>
-</p>
-<p>
-  <%= form.label :alt, t('description') %>:<br/>
-  <%= form.text_field :alt, :class => 'text' %>
-</p>
+<fieldset data-hook="new_upload">
+
+  <legend align="center"><%= t(:new_upload) %></legend>
+
+  <%= form.field_container :attachment do %>
+    <%= form.label :attachment %> <span class="required">*</span><br />
+    <%= form.file_field :attachment %>
+  <% end %>
+
+  <%= form.field_container :alt do %>
+    <%= form.label :alt, t('description') %>
+    <%= form.text_field :alt, :class => 'text' %>
+  <% end %>
+
+</fieldset>
