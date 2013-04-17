@@ -1,57 +1,90 @@
+<% content_for :page_title do %>
+  <%= t(:listing_uploads) %>
+<% end %>
 
-<h1><%= t('.listing_uploads') %></h1>
+<% content_for :page_actions do %>
+  <div class="toolbar" data-hook="toolbar">
+    <ul class="actions header-action-links inline-menu">
+      <li id="new_product_link">
+        <%= button_link_to t(".new_upload"), new_object_url, { :icon => 'icon-plus', :id => 'new_image_link' } %>
+      </li>
+    </ul>
+  </div>
+<% end %>
 
-<table class="index">
-	<tr>
-	  <th><%= t("thumbnail") %></th>
-	  <th><%= sort_link @search, :attachment_file_name, t("upload.file_name") %></th>
-	  <th><%= sort_link @search, :description, t("description") %></th>
-	  <th><%= sort_link @search, :attachment_file_size, t("upload.size") %></th>
-	  <th><%= t("action") %></th>
-	</tr>
- 
-  <% @uploads.each do |upload| %>
-    <tr id="<%= dom_id(upload) %>">
-      <td class="thumbnail">
-        <% if upload.image_content? %>
-          <%= link_to image_tag(upload.attachment.url(:mini)), upload.attachment.url(:large) %>
-        <% end %>
-      </td>
-      <td><%= link_to upload.attachment_file_name, upload.attachment.url(:original) %></td>
-      <td><%= upload.alt %></td>
-      <td><%= upload.attachment_file_size.to_i / 1024 %> kb</td>
-      <td class="actions">
-        <%= link_to_with_icon('edit', t("edit"), edit_admin_upload_url(upload)) %>
-        &nbsp;
-        <%= link_to_delete upload, {:url => admin_upload_url(upload) }%>
-      </td>
-    </tr>
-  <% end %>
- 
-</table>
+<% content_for :table_filter_title do %>
+  <%= t(:search) %>
+<% end %>
 
-<%= paginate @uploads %>
+<% content_for :table_filter do %>
+  <div data-hook="admin_uploads_filter_fields">
+    <%= search_form_for [ :admin, @search ] do |f| %>
+      <div class="alpha">
+        <div class="field">
+          <%= f.label :alt_cont, t("description") %><br />
+          <%= f.text_field :alt_cont, :size => 25 %>
+        </div>
+      </div>
+
+      <div class="clear"></div>
+
+      <div class="form-buttons actions filter-actions" data-hook="admin_products_index_search_buttons">
+        <%= button t(:search), 'icon-search' %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @uploads.any? %>
+  <table class="index" id="listing_uploads">
+    <colgroup>
+      <col style="width: 15%;">
+      <col style="width: 10%;">
+      <col style="width: 48%;">
+      <col style="width: 10%;">
+      <col style="width: 17%;">
+    </colgroup>
+    <thead>
+      <tr>
+        <th><%= t("thumbnail") %></th>
+        <th><%= sort_link @search, :attachment_file_name, t("upload.file_name") %></th>
+        <th><%= sort_link @search, :description, t("description") %></th>
+        <th><%= sort_link @search, :attachment_file_size, t("upload.size") %></th>
+      </tr>
+    </thead>
+
+    <% @uploads.each do |upload| %>
+      <tr id="<%= dom_id(upload) %>">
+        <td class="thumbnail">
+          <% if upload.image_content? %>
+            <%= link_to image_tag(upload.attachment.url(:mini)), upload.attachment.url(:large) %>
+          <% end %>
+        </td>
+        <td><%= link_to upload.attachment_file_name, upload.attachment.url(:original) %></td>
+        <td><%= upload.alt %></td>
+        <td><%= upload.attachment_file_size.to_i / 1024 %> kb</td>
+        <td class="actions">
+          <%= link_to_edit upload, :no_text => true, :class => 'edit' %>
+          &nbsp;
+          <%= link_to_delete upload, :no_text => true %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+  <%= paginate @uploads %>
+<% else %>
+  <div class="no-objects-found">
+    <%= t(:no_results) %>
+  </div>
+<% end %>
 
 
 <% content_for :sidebar do %>
-
-<div class="box">
-  <h3><%= t(:search) %></h3>
-  <%= search_form_for [ :admin, @search ] do |f| %>
-    <p>
-      <%= f.label :alt_cont, t("description") %><br />
-      <%= f.text_field :alt_cont, :size => 25 %>
-    </p>
-    <p><%= button t("search") %></p>
-  <% end %>
-</div>
 <% end %>
 
 <div id="images"></div>
 <br/>
-<p>
-  <%= link_to icon('add') + ' ' + t(".new_upload"), new_admin_upload_url, :id => "new_image_link" %>
-</p>
 
 <% content_for :head do %>
   <script type="text/javascript">
