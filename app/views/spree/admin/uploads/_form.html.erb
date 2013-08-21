@@ -1,15 +1,17 @@
-<fieldset data-hook="new_upload">
+<div data-hook="admin_upload_form_fields">
+  <div class="left eight columns alpha" data-hook="admin_product_form_left">
+    <%= form.field_container :attachment do %>
+      <%= form.label :attachment %>
+      <%= form.file_field :attachment %>
+      <%= form.error_message_on :attachment %>
+    <% end %>
+  </div>
 
-  <legend align="center"><%= t(:new_upload) %></legend>
-
-  <%= form.field_container :attachment do %>
-    <%= form.label :attachment %> <span class="required">*</span><br />
-    <%= form.file_field :attachment %>
-  <% end %>
-
-  <%= form.field_container :alt do %>
-    <%= form.label :alt, t('description') %>
-    <%= form.text_field :alt, :class => 'text' %>
-  <% end %>
-
-</fieldset>
+  <div class="left eight columns alpha" data-hook="admin_product_form_left">
+    <%= form.field_container :attachment do %>
+      <%= form.label :alt, t('description') %>
+      <%= form.text_field :alt, :class => 'text' %>
+      <%= form.error_message_on :attachment %>
+    <% end %>
+  </div>
+</div>

@@ -4,10 +4,10 @@ class Spree::Admin::ExtensionIntegrationTest < SpreeEssentials::IntegrationCase
   
   setup do
     SpreeEssentials.essentials.clear
+    stub_authorization!
   end
   
   context "When no extensions are registered" do
-    
     should "have a contents tab with only uploads in the sub nav" do
       visit spree.admin_orders_path
       within "#admin-menu" do

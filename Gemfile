@@ -3,4 +3,5 @@ gemspec
 
 group :development, :test do
   gem "spree_essential_example", :path => "test/spree_essential_example"
+  gem 'coffee-rails'
 end

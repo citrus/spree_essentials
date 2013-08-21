@@ -1,4 +1,4 @@
-# Require spree_essential_example in config/application.rb
+# Require spree_essential_example and spree_atuh in config/application.rb
 gsub_file "config/application.rb", 'require "spree_essentials"', %(require "spree_essentials"
 require "spree_essential_example")
 

@@ -13,6 +13,7 @@ else
 end
 
 require "rails/test_help"
+require "mocha"
 require "shoulda"
 require "paperclip/matchers"
 require "factory_girl"
