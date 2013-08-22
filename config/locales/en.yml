@@ -1,38 +1,37 @@
 en:
-
-  successfully_created: "%{resource} has been successfully created!"
-  successfully_removed: "%{resource} has been successfully removed!"
-  successfully_updated: "%{resource} has been successfully updated!"
-  
-  essentials:
-    parsed_with: Parsed With
-
-  activerecord:
-    attributes:
-      order:
-        completed_at: Completed At
-    errors:
-      messages:
-        invalid_date_time: is an invalid date.
-           
-  upload:
-    model_name: Upload
-    file_name: File Name
-    size: Size
-    
-  # spree hack  
-  first_name_start: "First Name starts with"
-  last_name_start: "Last Name starts with"
-  
   spree:
+    successfully_created: "%{resource} has been successfully created!"
+    successfully_removed: "%{resource} has been successfully removed!"
+    successfully_updated: "%{resource} has been successfully updated!"
+
+    essentials:
+      parsed_with: Parsed With
+
+    activerecord:
+      attributes:
+        order:
+          completed_at: Completed At
+      errors:
+        messages:
+          invalid_date_time: is an invalid date.
+
+    upload:
+      model_name: Upload
+      file_name: File Name
+      size: Size
+
+    # spree hack
+    first_name_start: "First Name starts with"
+    last_name_start: "Last Name starts with"
+
     admin:
       shared:
         contents_tab:
           content: Content
-        
+
       subnav:
-        uploads: Uploads      
-                  
+        uploads: Uploads
+
       uploads:
         new:
           new_upload: New Upload

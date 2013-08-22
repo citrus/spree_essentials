@@ -10,3 +10,4 @@ ENV["RAILS_ROOT"] = File.expand_path("../dummy",  __FILE__)
 
 require "spree_essentials/testing/test_helper"
 require "spree_essential_example"
+# require 'debugger'

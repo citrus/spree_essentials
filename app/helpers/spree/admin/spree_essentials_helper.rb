@@ -6,14 +6,14 @@ module Spree::Admin::SpreeEssentialsHelper
 
   def contents_tab
     content_tag :li, :class => inside_contents_tab? ? 'selected tab-with-icon' : 'tab-with-icon' do
-      link_to_with_icon 'icon-book', I18n.t('spree.admin.shared.contents_tab.content'), extension_routes.first
+      link_to_with_icon 'icon-book', Spree.t('admin.shared.contents_tab.content'), extension_routes.first
     end
   end
 
   def markdown_helper
     content_tag('em', :class => 'small markdown-helper') do
       [
-        t('essentials.parsed_with'),
+        Spree.t('essentials.parsed_with'),
         link_to("Markdown", "http://daringfireball.net/projects/markdown/basics", :onclick => 'window.open(this.href); return false')
       ].join(" ").html_safe
     end

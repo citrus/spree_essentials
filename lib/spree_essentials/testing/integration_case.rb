@@ -1,6 +1,15 @@
 require "capybara/rails"
 require "selenium/webdriver"
 
+class SuperAbility
+  include CanCan::Ability
+
+  def initialize(user)
+    # allow anyone to perform anything on anything
+    can :manage, :all
+  end
+end
+
 class SpreeEssentials::IntegrationCase < ActiveSupport::TestCase
 
   include Capybara::DSL
@@ -25,10 +34,14 @@ class SpreeEssentials::IntegrationCase < ActiveSupport::TestCase
   end
 
   # Stub authorization for all admin controllers
-  def stub_authorization!
-    subclasses = Spree::Admin::BaseController.subclasses + Spree::Admin::ResourceController.subclasses
-    subclasses.each do |klass|
-      klass.any_instance.stubs(:authorize!).returns(true)
+  def self.stub_authorization!
+    #   SpreeEssentials.essentials.clear
+    setup do
+      Spree::Ability.register_ability(SuperAbility)
+    end
+
+    teardown do
+      Spree::Ability.remove_ability(SuperAbility)
     end
   end
 

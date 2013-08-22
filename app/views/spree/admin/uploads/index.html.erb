@@ -1,19 +1,19 @@
 <% content_for :page_title do %>
-  <%= t('.listing_uploads') %>
+  <%= Spree.t(:'.listing_uploads') %>
 <% end %>
 
 <% content_for :page_actions do %>
   <div class="toolbar" data-hook="toolbar">
     <ul class="actions header-action-links inline-menu">
       <li>
-        <%= button_link_to t(".new_upload"), new_object_url, :id => "new_image_link", :icon => 'icon-plus' %>
+        <%= button_link_to Spree.t(:'.new_upload'), new_object_url, :id => "new_image_link", :icon => 'icon-plus' %>
       </li>
     </ul>
   </div>
 <% end %>
 
 <% content_for :table_filter_title do %>
-  <%= t(:search) %>
+  <%= Spree.t(:search) %>
 <% end %>
 
 <% content_for :table_filter do %>
@@ -23,7 +23,7 @@
       <div data-hook="admin_uploads_index_search">
         <div class="alpha nine columns">
           <div class="field">
-            <%= f.label :alt_cont, t("description") %>
+            <%= f.label :alt_cont, Spree.t(:description) %>
             <%= f.text_field :alt_cont, :size => 25 %>
           </div>
         </div>
@@ -32,7 +32,7 @@
       <div class="clear"></div>
 
       <div class="form-buttons actions filter-actions" data-hook="admin_uploads_index_search_buttons">
-        <%= button t(:search), 'icon-search' %>
+        <%= button Spree.t(:search), 'icon-search' %>
       </div>
     <% end %>
   </div>
@@ -50,10 +50,10 @@
       <col style="width: 17%;">
     </colgroup>
   	<tr>
-  	  <th><%= t("thumbnail") %></th>
-  	  <th><%= sort_link @search, :attachment_file_name, t("upload.file_name") %></th>
-  	  <th><%= sort_link @search, :description, t("description") %></th>
-  	  <th><%= sort_link @search, :attachment_file_size, t("upload.size") %></th>
+  	  <th><%= Spree.t(:thumbnail) %></th>
+  	  <th><%= sort_link @search, :attachment_file_name, Spree.t(:"upload.file_name") %></th>
+  	  <th><%= sort_link @search, :description, Spree.t(:description) %></th>
+  	  <th><%= sort_link @search, :attachment_file_size, Spree.t(:"upload.size") %></th>
   	  <th data-hook="admin_uploads_index_header_actions" class="actions"></th>
   	</tr>
 
@@ -79,7 +79,7 @@
   <%= paginate @uploads %>
 <% else %>
   <div class="no-objects-found">
-    <%= t(:no_results) %>
+    <%= Spree.t(:no_results) %>
   </div>
 <% end %>
 

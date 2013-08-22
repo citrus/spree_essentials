@@ -1,16 +1,16 @@
 require "integration_test_helper"
 
 class Spree::Admin::MarkdownIntegrationTest < SpreeEssentials::IntegrationCase
+  stub_authorization!
 
   setup do
     SpreeEssentials.register :example, SpreeEssentialExample
-    stub_authorization!
   end
-  
+
   teardown do
     SpreeEssentials.essentials.clear
   end
-  
+
   MARKDOWN = <<MD
 
 ### OMG
@@ -22,7 +22,7 @@ class Spree::Admin::MarkdownIntegrationTest < SpreeEssentials::IntegrationCase
 [just a link](http://example.com)
 
 MD
-  
+
   def assert_markdown_renders
     assert_seen "OMG",    :within => "h3"
     assert_seen "item 1", :within => "ul li"
@@ -30,14 +30,14 @@ MD
     assert_seen "italic", :within => "em"
     assert has_link?("just a link", :href => "http://example.com")
   end
-   
+
   should "render have markdown editor and render it's result" do
     visit spree.new_admin_example_path
     fill_in "Title", :with => "Just an example"
     fill_in "Body",  :with => MARKDOWN
     within ".markItUpHeader" do
       click_link "Preview"
-    end    
+    end
     within_frame "markItUpPreviewFrame" do
       assert_markdown_renders
     end
@@ -47,5 +47,5 @@ MD
       assert_markdown_renders
     end
   end
-  
+
 end
