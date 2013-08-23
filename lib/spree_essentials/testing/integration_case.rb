@@ -10,6 +10,20 @@ class SuperAbility
   end
 end
 
+# In your test_helper.rb
+class ActiveRecord::Base
+  mattr_accessor :shared_connection
+  @@shared_connection = nil
+
+  def self.connection
+    @@shared_connection || retrieve_connection
+  end
+end
+
+# Forces all threads to share the same connection. This works on
+# Capybara because it starts the web server in a thread.
+ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
+
 class SpreeEssentials::IntegrationCase < ActiveSupport::TestCase
 
   include Capybara::DSL
@@ -17,7 +31,7 @@ class SpreeEssentials::IntegrationCase < ActiveSupport::TestCase
   Capybara.default_driver   = :selenium
   Capybara.default_selector = :css
 
-  self.use_transactional_fixtures = false
+  self.use_transactional_fixtures = true
 
   # Checks for missing translations after each test
   teardown do
