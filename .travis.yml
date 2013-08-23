@@ -1,6 +1,5 @@
 rvm:
   - 1.9.3
-  - ree
 
 before_script:
   - "sh -e /etc/init.d/xvfb start"
