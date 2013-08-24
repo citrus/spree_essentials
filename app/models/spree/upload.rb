@@ -2,8 +2,6 @@ class Spree::Upload < ::Spree::Asset
   
   attr_accessible :attachment, :alt
   
-  default_scope where(:type => "Upload") if table_exists?
-  
   validate :no_attachement_errors
   
   has_attached_file :attachment,
