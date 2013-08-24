@@ -12,10 +12,7 @@ Spree Essentials provides other extensions with:
 
 Current essential-aware extensions include:
 
-Maintained by me :
-* [spree_essential_cms](https://github.com/sbounmy/spree_essential_cms): A full featured CMS with pages, contents, images and more
-
-
+* [spree_essential_cms](https://github.com/sbounmy/spree_essential_cms): A full featured CMS with pages, contents, images and more (Maintained by me)
 * [spree_essential_blog](https://github.com/citrus/spree_essential_blog): A blog complete with archives, categories, tags and related products
 * [spree_essential_press](https://github.com/citrus/spree_essential_press): A simple press page for displaying media related content.
 
