@@ -1,4 +1,4 @@
-# Spree Essentials [![Build Status](https://secure.travis-ci.org/citrus/spree_essentials.png)](http://travis-ci.org/citrus/spree_essentials)
+# Spree Essentials [![Build Status](https://secure.travis-ci.org/sbounmy/spree_essentials.png)](http://travis-ci.org/sbounmy/spree_essentials)
 
 Spree Essentials is the base for many content related extensions for Spree. It doesn't do much on it's own ;)
 
@@ -12,9 +12,13 @@ Spree Essentials provides other extensions with:
 
 Current essential-aware extensions include:
 
-* [spree_essential_cms](https://github.com/citrus/spree_essential_cms): A full featured CMS with pages, contents, images and more
+Maintained by me :
+* [spree_essential_cms](https://github.com/sbounmy/spree_essential_cms): A full featured CMS with pages, contents, images and more
+
+
 * [spree_essential_blog](https://github.com/citrus/spree_essential_blog): A blog complete with archives, categories, tags and related products
 * [spree_essential_press](https://github.com/citrus/spree_essential_press): A simple press page for displaying media related content.
+
 
 
 ------------------------------------------------------------------------------
@@ -24,30 +28,17 @@ Installation
 If you don't already have an existing Spree site, [click here](https://gist.github.com/946719) then come back later... You can also read the Spree docs [here](http://spreecommerce.com/documentation/getting_started.html)...
 
 Spree Essentials can be installed by itself by adding the following to your Gemfile:
-    
+
 ```ruby
-# Spree 1.1.x
-gem 'spree_essentials', '~> 0.5.0'
+# Spree 2.0.x
+gem 'spree_essentials', :git => "git://github.com/sbounmy/spree_essentials.git", :branch => 'master'
 
-# Spree 1.0.x
-gem 'spree_essentials', '~> 0.4.0'
-
-# Spree 0.70.x
-gem 'spree_essentials', '~> 0.3.3'
-
-# Spree 0.60.x
-gem 'spree_essentials', '~> 0.2.3'
+# Spree 1.3.x
+gem 'spree_essentials', :git => "git://github.com/sbounmy/spree_essentials.git", :branch => '1-3-stable'
 ```
 
-This isn't necessary if you're using spree_essentials based extensions. If that's the case, just include the extensions normally:
-
-```ruby  
-gem 'spree_essential_cms'
-gem 'spree_essential_blog'
-```
-    
 Then run:
-    
+
 ```bash
 bundle install
 ```
@@ -55,19 +46,19 @@ bundle install
 Once that's complete, run the migration generator and migrate your database:
 
 To see your available generators run
- 
+
 ```bash
 rails g
 ```
-    
-Now run the generators for extensions you wish to install    
 
-```bash 
+Now run the generators for extensions you wish to install
+
+```bash
 rails g spree_essentials:install
 rails g spree_essentials:cms
 rails g spree_essentials:blog
 ```
-    
+
 Then migrate your database:
 
 ```bash
@@ -150,7 +141,7 @@ If you're using the [CMS](https://github.com/citrus/spree_essential_cms) or [blo
 
 ```ruby
 # app/models/spree/asset_decorator.rb
-[ Spree::Content, Spree::PageImage, Spree::PostImage, Spree::Upload ].each do |cls| 
+[ Spree::Content, Spree::PageImage, Spree::PostImage, Spree::Upload ].each do |cls|
   cls.attachment_definitions[:attachment].merge!(
     :storage        => 's3',
     :s3_credentials => Rails.root.join('config', 's3.yml'),
@@ -169,7 +160,7 @@ Notes
 
 Spree Essentials is under constant development... Development is being done on OSX with Ruby 1.9.3 and usually the latest version of Spree. (currently 1.1.0)
 
-Please let me know if you find any bugs or have feature requests you'd like to see. 
+Please let me know if you find any bugs or have feature requests you'd like to see.
 
 
 ------------------------------------------------------------------------------
@@ -179,22 +170,22 @@ Testing
 The test suite can be run like so:
 
 ```bash
-git clone git://github.com/citrus/spree_essentials.git
+git clone git://github.com/sbounmy/spree_essentials.git
 cd spree_essentials
 bundle install
 bundle exec dummier
-rake
-```    
+rake test
+```
 
- 
+
 ------------------------------------------------------------------------------
 Demo
 ------------------------------------------------------------------------------
 
 You can easily use the test/dummy app as a demo of spree_essentials. Just `cd` to where you develop and run:
-  
-```bash  
-git clone git://github.com/citrus/spree_essentials.git
+
+```bash
+git clone git://github.com/sbounmy/spree_essentials.git
 cd spree_essentials
 cp test/dummy_hooks/after_migrate.rb.sample test/dummy_hooks/after_migrate.rb
 bundle install
@@ -203,7 +194,7 @@ cd test/dummy
 rails s
 ```
 
- 
+
 ------------------------------------------------------------------------------
 To Do
 ------------------------------------------------------------------------------
@@ -217,7 +208,7 @@ Change Log
 
 **0.50.0 - 2012/5/1**
 
-* Depend on Spree 1.1.0 
+* Depend on Spree 1.1.0
 * Remove `add_attachment_file_size_to_assets` migration
 
 
@@ -239,7 +230,7 @@ Change Log
 * Use rails engine conventions for installation
 * Remove shared InstallGenerator class
 * Improved test coverage
-* Added test/spree_essential_example 
+* Added test/spree_essential_example
 
 
 **0.40.0.rc2, 0.3.3 - 2012/1/20**
@@ -261,7 +252,7 @@ Change Log
 **0.3.1 - 2011/12/13**
 
 * Fix broken markitup editor
-* Rework 'selected' class on content tab 
+* Rework 'selected' class on content tab
 
 
 **0.3.0 - 2011/12/13**
