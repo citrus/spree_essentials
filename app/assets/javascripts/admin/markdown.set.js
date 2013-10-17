@@ -10,8 +10,16 @@
 // -------------------------------------------------------------------
 // Feel free to add more tags
 // -------------------------------------------------------------------
+var qualifySpreePath = function(target_path) {
+  var r = window.location.href.match(/(http:s?\/\/[^\/]+.*\/admin)/);
+  if (r)
+    return r[1]+target_path;
+  else
+    return "/admin"+target_path;
+};
+
 markdownSettings = {
-	previewParserPath:	'/admin/markdown/preview',
+	previewParserPath:	qualifySpreePath('/markdown/preview?authenticity_token='+encodeURIComponent($('meta[name="csrf-token"]').attr("content"))),
 	onShiftEnter:		{keepDefault:false, openWith:'\n\n'},
 	markupSet: [
 		{name:'First Level Heading', key:'1', placeHolder:'Your title here...', closeWith:function(markItUp) { return miu.markdownTitle(markItUp, '=') } },
@@ -61,7 +69,7 @@ miu = {
     var f = $('.markItUpEditor');
     var w = f.outerWidth();
     var h = f.outerHeight();
-    miu.image_picker = $('<div class="image-picker"></div>').css('width', w).css(f.position()).load('/admin/uploads', function(res) {
+    miu.image_picker = $('<div class="image-picker"></div>').css('width', w).css(f.position()).load(qualifySpreePath('/uploads'), function(res) {
       miu.image_picker.find('li a').click(function(evt) {
         evt.preventDefault();
         var size, value, start, src = this.href;
