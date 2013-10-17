@@ -11,7 +11,7 @@
 // Feel free to add more tags
 // -------------------------------------------------------------------
 var qualifySpreePath = function(target_path) {
-  var r = window.location.href.match(/(http:s?\/\/[^\/]+.*\/admin)/);
+  var r = window.location.href.match(/(https?:\/\/[^\/]+.*\/admin)/);
   if (r)
     return r[1]+target_path;
   else
